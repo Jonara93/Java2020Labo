@@ -1,7 +1,6 @@
 package be.technifutur.java2020.gestionstage.commun;
 
 import java.util.Collection;
-import java.util.Map;
 
 public class ParticipantCtrlDisplay {
     /*

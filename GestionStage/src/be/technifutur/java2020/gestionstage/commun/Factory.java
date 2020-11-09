@@ -56,6 +56,7 @@ public class Factory {
             menuGestionStage.setUser(getUser());
             menuGestionStage.setUtility(getUtility());
             menuGestionStage.setParticipantCtrlGestion(getParticipantCtrlGestion());
+            menuGestionStage.setStageList(getStageList());
         }
         return menuGestionStage;
     }
@@ -125,7 +126,7 @@ public class Factory {
             activityCtrlCreateActivity.setUtility(getUtility());
             activityCtrlCreateActivity.setVue(getVue());
             activityCtrlCreateActivity.setUser(getUser());
-            activityCtrlCreateActivity.setStageList(getStageList());
+           // activityCtrlCreateActivity.setStageList(getStageList());
         }
         return activityCtrlCreateActivity;
     }
@@ -133,7 +134,7 @@ public class Factory {
     public DisplayHoraireCtrl getDisplayHoraireCtrl() {
         if (this.displayHoraireCtrl == null) {
             this.displayHoraireCtrl = new DisplayHoraireCtrl();
-            displayHoraireCtrl.setStageList(getStageList());
+          //  displayHoraireCtrl.setStageList(getStageList());
             displayHoraireCtrl.setUser(getUser());
             displayHoraireCtrl.setUtility(getUtility());
             displayHoraireCtrl.setVue(getVue());

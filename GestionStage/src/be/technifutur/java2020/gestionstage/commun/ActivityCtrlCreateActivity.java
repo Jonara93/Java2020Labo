@@ -11,78 +11,51 @@ public class ActivityCtrlCreateActivity {
     private Utility utility;
     private Vue vue;
     private User user;
-    private StageList stageList;
 
-    public void createActivity() {
-        String nameActivity = null, nameStage;
+    public void createActivity(Stage stage) {
+        String nameActivity = null;
         int duration = 0;
         LocalDateTime dateDebut = null;
-        boolean createStage = true;
+        boolean addActivityToStage = true;
 
-        nameStage = utility.saisirName("Veuillez choisir un nom de stage ou insérer \"q\" pour quitter");
-        if (nameStage.equalsIgnoreCase("q")) {
-            createStage = false;
-        } else {
-            createStage = nameStageIsValid(nameStage);
-        }
 
-        if (createStage) {
+        vue.afficheMessage("Veuillez choisir un nom d'activitée ou insérer \"q\" pour quitter");
+        nameActivity = user.getInput();
+        while (nameActivity.isEmpty()) {
             vue.afficheMessage("Veuillez choisir un nom d'activitée ou insérer \"q\" pour quitter");
             nameActivity = user.getInput();
-            while (nameActivity.isEmpty()) {
-                vue.afficheMessage("Veuillez choisir un nom d'activitée ou insérer \"q\" pour quitter");
-                nameActivity = user.getInput();
-            }
-        }
-        if (nameActivity.equalsIgnoreCase("q")) {
-            createStage = false;
         }
 
-        if (createStage) {
+        if (nameActivity.equalsIgnoreCase("q")) {
+            addActivityToStage = false;
+        }
+
+        if (addActivityToStage) {
             vue.ajoutDateDebut();
             dateDebut = utility.saisirDate();
             if (dateDebut == null) {
-                createStage = false;
+                addActivityToStage = false;
             }
         }
 
-        if (createStage) {
+        if (addActivityToStage) {
             OptionalInt inputDuration;
             vue.consigneAjoutDuree();
             inputDuration = utility.saisirDuree();
             if (inputDuration.isEmpty()) {
-                createStage = false;
+                addActivityToStage = false;
             } else {
                 duration = inputDuration.getAsInt();
             }
         }
 
-        if (createStage) {
-            Stage stage = stageList.getStage(nameStage);
+        if (addActivityToStage) {
             try {
-                stage.addActivity(dateDebut,duration,nameActivity);
+                stage.addActivity(dateDebut, duration, nameActivity);
             } catch (ExceptionGestionStage e) {
                 vue.setError(e.getMessage());
             }
         }
-    }
-
-    /*
-    verifier que le stage existe
-     */
-    public boolean nameStageIsValid(String nameStage) {
-        boolean isValid = false;
-        Collection<String> collection = stageList.getStringCollection();
-        try {
-            if (collection.contains(nameStage)) {
-                isValid = true;
-            } else {
-                throw new ExceptionGestionStageNomInvalide("Le stage entré n'existe pas");
-            }
-        } catch (ExceptionGestionStageNomInvalide e) {
-            vue.setError(e.getMessage());
-        }
-        return isValid;
     }
 
     public void setUtility(Utility utility) {
@@ -95,9 +68,5 @@ public class ActivityCtrlCreateActivity {
 
     public void setUser(User user) {
         this.user = user;
-    }
-
-    public void setStageList(StageList stageList) {
-        this.stageList = stageList;
     }
 }

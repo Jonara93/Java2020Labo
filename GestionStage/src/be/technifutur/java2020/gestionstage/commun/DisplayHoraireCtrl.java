@@ -9,26 +9,16 @@ public class DisplayHoraireCtrl {
     private Utility utility;
     private Vue vue;
     private User user;
-    private StageList stageList;
 
     /*
     METHOD
      */
 
-    public void displayHoraireStage() {
-        String nameStage;
-        boolean displayHoraire = true;
-        nameStage = utility.saisirName("Veuillez choisir un nom de stage ou insérer \"q\" pour quitter");
-        if (nameStage.equalsIgnoreCase("q")) {
-            displayHoraire = false;
-        }
-        if (displayHoraire) {
-            Stage stage = stageList.getStage(nameStage);
-            Collection<Activity> activityCollection = stage.getActivityCollection();
-            List<Activity> activityList = new ArrayList<>(activityCollection);
-            activityList.sort(new MyComparatorActivity());
-            vue.afficheHoraire(stage, activityList);
-        }
+    public void displayHoraireStage(Stage stage) {
+        Collection<Activity> activityCollection = stage.getActivityCollection();
+        List<Activity> activityList = new ArrayList<>(activityCollection);
+        activityList.sort(new MyComparatorActivity());
+        vue.afficheHoraire(stage, activityList);
     }
 
 
@@ -49,7 +39,4 @@ public class DisplayHoraireCtrl {
         this.user = user;
     }
 
-    public void setStageList(StageList stageList) {
-        this.stageList = stageList;
-    }
 }

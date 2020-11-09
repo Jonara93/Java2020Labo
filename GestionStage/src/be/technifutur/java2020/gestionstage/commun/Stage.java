@@ -1,8 +1,6 @@
 package be.technifutur.java2020.gestionstage.commun;
 
-import be.technifutur.java2020.gestionstage.exception.ExceptionGestionStage;
-import be.technifutur.java2020.gestionstage.exception.ExceptionGestionStageDate;
-import be.technifutur.java2020.gestionstage.exception.ExceptionGestionStageDoublonActivity;
+import be.technifutur.java2020.gestionstage.exception.*;
 
 import java.time.LocalDateTime;
 import java.util.Collection;
@@ -47,6 +45,22 @@ public class Stage {
             throw new ExceptionGestionStageDate("La durée de l'activité dépasse la fin du stage.");
         }
         mapActivity.put(nameActivity, new Activity(dateDebut, duration, nameActivity));
+    }
+
+    public void addParticipant(Participant participant) throws ExceptionGestionStageStageDoublonParticipant {
+        if (mapParticipant.containsKey(participant.getIDParticipant())){
+            throw new ExceptionGestionStageStageDoublonParticipant("Ce participant existe déjà dans ce stage.");
+        }else {
+          mapParticipant.put(participant.getIDParticipant(),participant);
+        }
+    }
+
+    public void removeParticipant(Participant participant) throws ExceptionGestionStageParticipantNotInStage {
+        if (!mapParticipant.containsKey(participant.getIDParticipant())){ // impossible car pas dedans
+            throw new ExceptionGestionStageParticipantNotInStage("Ce participant n'existe pas dans ce stage");
+        }else {
+            mapParticipant.remove(participant.getIDParticipant());
+        }
     }
 
 
@@ -100,6 +114,7 @@ public class Stage {
     public void setMapParticipant(Map<String, Participant> mapParticipant) {
         this.mapParticipant = mapParticipant;
     }
+
 
 
 }

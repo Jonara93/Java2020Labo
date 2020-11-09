@@ -11,6 +11,7 @@ public class MenuGestionStage {
     private DisplayHoraireCtrl displayHoraireCtrl;
     private ActivityCtrlCreateActivity activityCtrlCreateActivity;
     private ParticipantCtrlGestion participantCtrlGestion;
+    private StageList stageList;
     private User user;
     private Utility utility;
 
@@ -20,23 +21,31 @@ public class MenuGestionStage {
      */
 
     public void menu() {
-        showMenu();
-        input = user.getInput();
-        while (!(input.equalsIgnoreCase("q"))) {
-            int choice = (Integer.parseInt(input));
-            switch (choice) {
-                case 1:
-                    activityCtrlCreateActivity.createActivity();
-                    break;
-                case 2:
-                    displayHoraireCtrl.displayHoraireStage();
-                    break;
-                case 3:
-                    participantCtrlGestion.gestionParticipant();
-                    break;
-            }
+        String nomStage;
+        Stage stage;
+        do {
+            nomStage = utility.saisirName("Veuillez saisir le nom du stage à gérer. Insérer \"q\" pour quitter.");
+        }while (!stageList.containsKey(nomStage));
+        if (!nomStage.isEmpty()) {
+            stage = stageList.getStage(nomStage);
             showMenu();
             input = user.getInput();
+            while (!(input.equalsIgnoreCase("q"))) {
+                int choice = (Integer.parseInt(input));
+                switch (choice) {
+                    case 1:
+                        activityCtrlCreateActivity.createActivity(stage);
+                        break;
+                    case 2:
+                        displayHoraireCtrl.displayHoraireStage(stage);
+                        break;
+                    case 3:
+                        participantCtrlGestion.ajouterParticipant(stage);  //ajouter un participant
+                        break;
+                }
+                showMenu();
+                input = user.getInput();
+            }
         }
     }
 
@@ -45,7 +54,7 @@ public class MenuGestionStage {
                 "Veuillez choisir une option.\n" +
                 "1. Ajouter une activitée à un stage.\n" +
                 "2. Afficher les activitées d'un stage\n" +
-                "3. Gérer un participant\n"+
+                "3. Gérer un participant\n" +
                 // afficher participant
                 "q. Quitter l'application.");
     }
@@ -76,5 +85,9 @@ public class MenuGestionStage {
 
     public void setUtility(Utility utility) {
         this.utility = utility;
+    }
+
+    public void setStageList(StageList stageList) {
+        this.stageList = stageList;
     }
 }
