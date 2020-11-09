@@ -47,20 +47,14 @@ public class Stage {
         mapActivity.put(nameActivity, new Activity(dateDebut, duration, nameActivity));
     }
 
-    public void addParticipant(Participant participant) throws ExceptionGestionStageStageDoublonParticipant {
-        if (mapParticipant.containsKey(participant.getIDParticipant())){
-            throw new ExceptionGestionStageStageDoublonParticipant("Ce participant existe déjà dans ce stage.");
-        }else {
-          mapParticipant.put(participant.getIDParticipant(),participant);
-        }
+    public void addParticipant(Participant participant) {
+        String idParticipant = participant.getIDParticipant();
+        mapParticipant.put(idParticipant, participant);
     }
 
-    public void removeParticipant(Participant participant) throws ExceptionGestionStageParticipantNotInStage {
-        if (!mapParticipant.containsKey(participant.getIDParticipant())){ // impossible car pas dedans
-            throw new ExceptionGestionStageParticipantNotInStage("Ce participant n'existe pas dans ce stage");
-        }else {
-            mapParticipant.remove(participant.getIDParticipant());
-        }
+    public void removeParticipant(Participant participant) {
+        String idParticipant = participant.getIDParticipant();
+        mapParticipant.remove(idParticipant);
     }
 
 
@@ -72,9 +66,9 @@ public class Stage {
         return mapActivity.values();
     }
 
-    public Participant createParticipant(String IDParticipant,String nomParticipant, String prenomParticipant, String clubParticipant, String mailParticipant) {
+    public Participant createParticipant(String IDParticipant, String nomParticipant, String prenomParticipant, String clubParticipant, String mailParticipant) {
         Participant participant = new Participant(nomParticipant, prenomParticipant, clubParticipant, mailParticipant, this);
-        this.mapParticipant.put(IDParticipant,participant);
+        this.mapParticipant.put(IDParticipant, participant);
         return participant;
     }
 
@@ -114,7 +108,6 @@ public class Stage {
     public void setMapParticipant(Map<String, Participant> mapParticipant) {
         this.mapParticipant = mapParticipant;
     }
-
 
 
 }

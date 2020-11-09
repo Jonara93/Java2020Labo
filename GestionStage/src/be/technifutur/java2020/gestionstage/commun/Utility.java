@@ -101,6 +101,19 @@ public class Utility {
         return input;
     }
 
+    public boolean modifierInformationParticipant() {
+        boolean modif = false;
+        String input;
+        do {
+            vue.afficheMessage("\'O\' pour modifier.\'N\' pour ne pas modifier");
+            input = user.getInput();
+        }while (input.equalsIgnoreCase("O") || input.equalsIgnoreCase("N"));
+        if (input.equalsIgnoreCase("O")){
+            modif = true;
+        }
+        return modif;
+    }
+
     /*
     GET INPUT USER
      */
@@ -122,6 +135,7 @@ public class Utility {
     public void setVue(Vue vue) {
         this.vue = vue;
     }
+
 
 
 }
