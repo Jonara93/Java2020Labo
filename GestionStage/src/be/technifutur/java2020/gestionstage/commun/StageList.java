@@ -27,8 +27,8 @@ public class StageList {
 
     }
 
-    public void setMapStage(Map<String, Stage> mapStage) {
-        this.mapStage = mapStage;
+    public boolean containsKey(String key){
+        return mapStage.containsKey(key);
     }
 
     /*
@@ -45,6 +45,10 @@ public class StageList {
 
     public Collection<String> getStringCollection() {
         return Collections.unmodifiableCollection(mapStage.keySet());
+    }
+
+    public void setMapStage(Map<String, Stage> mapStage) {
+        this.mapStage = mapStage;
     }
 
 

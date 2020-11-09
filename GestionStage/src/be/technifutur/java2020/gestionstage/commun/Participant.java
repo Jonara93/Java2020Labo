@@ -15,7 +15,6 @@ public class Participant {
     private String prenomParticipant;
     private String nomClub; // nom du club du participant (non obligatoire)
     private String adresseMail; // adresse mail du participant (non obligatoire)
-    private Map<String, Stage> listStageParticipant; // nom du stage en key / 1 ou +
 
     /*
     CONSTRUCTOR
@@ -26,8 +25,6 @@ public class Participant {
         setPrenomParticipant(prenomParticipant.toUpperCase());
         setNomClub(nomClub);
         setAdresseMail(adresseMail);
-        listStageParticipant = new HashMap<>();
-        listStageParticipant.put(stage.getIntituleStage(),stage);
     }
 
     /*
@@ -72,19 +69,6 @@ public class Participant {
 
     public void setAdresseMail(String adresseMail) {
         this.adresseMail = adresseMail;
-    }
-
-    //KEY nom stage
-    public Map<String, Stage> getListStageParticipant() {
-        return listStageParticipant;
-    }
-
-    public void setListStageParticipant(Map<String, Stage> listStageParticipant) {
-        this.listStageParticipant = listStageParticipant;
-    }
-
-    public Collection<Stage> getCollectionStage (){
-        return listStageParticipant.values();
     }
 
     /*public static void main(String[] args) {

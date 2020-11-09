@@ -46,6 +46,7 @@ public class MenuGestionStage {
                 "1. Ajouter une activitée à un stage.\n" +
                 "2. Afficher les activitées d'un stage\n" +
                 "3. Gérer un participant\n"+
+                // afficher participant
                 "q. Quitter l'application.");
     }
 

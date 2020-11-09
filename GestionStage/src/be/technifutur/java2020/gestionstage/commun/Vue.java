@@ -77,7 +77,6 @@ public class Vue {
     }
 
     public void afficheParticipant(Participant participant) {
-        Collection<Stage> stageCollection = participant.getListStageParticipant().values();
         System.out.println("" +
                 "Nom du participant : " + participant.getNomParticipant() + "\n" +
                 "Prénom du participant : " + participant.getPrenomParticipant()
@@ -88,10 +87,6 @@ public class Vue {
 
         if (!participant.getAdresseMail().isEmpty()) {
             System.out.println("Adresse mail du participant : " + participant.getAdresseMail());
-        }
-        System.out.println("Liste des stages auquel le participant est inscrit : ");
-        for (Stage stage : stageCollection) {
-            System.out.println("     " + stage.getIntituleStage());
         }
     }
 

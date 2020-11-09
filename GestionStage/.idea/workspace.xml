@@ -31,14 +31,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0b53e3f0-0cc5-4e4e-80c2-ce66b9bbc6b4" name="Default Changelist" comment="Rearrangemment">
-      <change afterPath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/commun/ParticipantCtrlDisplay.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/commun/Factory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/commun/Factory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/MenuGestionStage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/MenuGestionStage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/commun/Participant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/commun/Participant.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/commun/ParticipantCtrlGestion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/commun/ParticipantCtrlGestion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/commun/ParticipantList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/commun/ParticipantList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/commun/StageList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/commun/StageList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/commun/Utility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/commun/Utility.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/commun/Vue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/commun/Vue.java" afterDir="false" />
     </list>
@@ -399,7 +398,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604924928453</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="fin creation/modif participant + affichage des Participant">
+      <created>1604929639346</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1604929639346</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -415,7 +421,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Ajout affichage de la validation de stage ajouté" />
     <MESSAGE value="changement toString + au dodo" />
     <MESSAGE value="changement de responsabilité affichage stage" />
     <MESSAGE value="affichage de l'heure dans un format compréhensible par un être humain normalement constitué" />
@@ -440,7 +445,8 @@
     <MESSAGE value="creation participant + insertion" />
     <MESSAGE value="commit avant modif qui peut tout casser" />
     <MESSAGE value="changement de logique création participant" />
-    <option name="LAST_COMMIT_MESSAGE" value="changement de logique création participant" />
+    <MESSAGE value="fin creation/modif participant + affichage des Participant" />
+    <option name="LAST_COMMIT_MESSAGE" value="fin creation/modif participant + affichage des Participant" />
   </component>
   <component name="WindowStateProjectService">
     <state x="765" y="203" key="#com.intellij.ide.util.MemberChooser" timestamp="1604928893572">
@@ -459,22 +465,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604652121537" />
-    <state width="1921" height="984" key="GridCell.Tab.0.bottom" timestamp="1604929298920">
+    <state width="1921" height="984" key="GridCell.Tab.0.bottom" timestamp="1604931866630">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1921" height="984" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604929298920" />
-    <state width="1921" height="984" key="GridCell.Tab.0.center" timestamp="1604929298920">
+    <state width="1921" height="984" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604931866630" />
+    <state width="1921" height="984" key="GridCell.Tab.0.center" timestamp="1604931866630">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1921" height="984" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604929298920" />
-    <state width="1921" height="984" key="GridCell.Tab.0.left" timestamp="1604929298919">
+    <state width="1921" height="984" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604931866630" />
+    <state width="1921" height="984" key="GridCell.Tab.0.left" timestamp="1604931866630">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1921" height="984" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604929298919" />
-    <state width="1921" height="984" key="GridCell.Tab.0.right" timestamp="1604929298920">
+    <state width="1921" height="984" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604931866630" />
+    <state width="1921" height="984" key="GridCell.Tab.0.right" timestamp="1604931866630">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1921" height="984" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604929298920" />
+    <state width="1921" height="984" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604931866630" />
     <state width="1921" height="984" key="GridCell.Tab.1.bottom" timestamp="1604928608647">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -503,10 +509,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604572682521" />
-    <state x="413" y="149" width="1184" height="535" key="Vcs.Push.Dialog.v2" timestamp="1604923995192">
+    <state x="413" y="149" width="1184" height="535" key="Vcs.Push.Dialog.v2" timestamp="1604929642911">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="413" y="149" width="1184" height="535" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604923995192" />
+    <state x="413" y="149" width="1184" height="535" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604929642911" />
     <state x="777" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604485720712">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

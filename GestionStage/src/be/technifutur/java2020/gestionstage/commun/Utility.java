@@ -71,7 +71,7 @@ public class Utility {
      * @param consigne du message à afficher
      * @return une string ou empty si on a quitter l'insertion
      */
-    public String saisirName(String consigne) {
+    public String saisirName(String consigne) { // refactor du nom de la fonciton
         String nameStage;
         vue.afficheMessage(consigne);
         nameStage = user.getInput();

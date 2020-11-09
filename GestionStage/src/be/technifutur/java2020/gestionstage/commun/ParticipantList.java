@@ -18,6 +18,8 @@ public class ParticipantList {
         mapParticipant.put(IDParticipant,participant);
     }
 
+    // tout les stages qu'un participant à participer
+
     /*
     GETTER AND SETTER
      */
