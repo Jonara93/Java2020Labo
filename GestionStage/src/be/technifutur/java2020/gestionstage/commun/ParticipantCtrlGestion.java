@@ -25,12 +25,11 @@ public class ParticipantCtrlGestion {
                 String IDParticipant = nomParticipant.concat(prenomParticipant);
                 // 2 et 3 demander si les informations sont correctes et possibilités de modifiés.
                 Participant participant = participantList.getParticipant(IDParticipant);
-                if (stageList.containsKey(IDParticipant)) { // 3 : il est déjà inscrit au stage
+                if (stage.containsKey(IDParticipant)) { // 3 : il est déjà inscrit au stage
                     modifParticipant(participant);
-                } else if (participantList.verifParticipantInList(IDParticipant)) {// 2 : il existe dans la liste mais n'est pas inscrit dans le stage.
+                } else if (participantList.verifParticipantInList(IDParticipant) && !stage.containsKey(IDParticipant)) {// 2 : il existe dans la liste mais n'est pas inscrit dans le stage.
                     modifParticipant(participant);
-
-                    if (utility.addParticipantBoolean()) {
+                    if (utility.returnBoolOuiNon("Voulez-vous ajouter le participant dans ce stage ? O/N")) {
                         stage.addParticipant(participant);
                     }
                 } else {  // 1 : le participant n'existe pas faut le créer + ajout du participant au stage
@@ -45,12 +44,11 @@ public class ParticipantCtrlGestion {
     private void modifParticipant(Participant participant) {
         vue.afficheMessage("Le participant est déjà inscrit dans ce stage.");
         vue.afficheParticipant(participant);
-        vue.afficheMessage("Voulez-vous modifier les informations ?");
-        boolean modif = utility.modifierInformationParticipant();
+        boolean modif = utility.returnBoolOuiNon("Voulez-vous modifier les informations du participants ? O/N");
         while (modif) {
             participantCtrlModif.modifParticipant(participant);
             vue.afficheMessage("Voulez-vous modifier les informations ?");
-            modif = utility.modifierInformationParticipant();
+            modif = utility.returnBoolOuiNon("Voulez-vous modifier les informations du participants ? O/N");
         }
     }
 

@@ -110,4 +110,7 @@ public class Stage {
     }
 
 
+    public boolean containsKey(String idParticipant) {
+        return mapParticipant.containsKey(idParticipant);
+    }
 }

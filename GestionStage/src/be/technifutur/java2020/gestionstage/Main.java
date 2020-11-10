@@ -73,7 +73,6 @@ public class Main {
                 "3",
                 "Jonathan",
                 "Arabia",
-                "n",
                 "N",
                 "q",
                 "q",
