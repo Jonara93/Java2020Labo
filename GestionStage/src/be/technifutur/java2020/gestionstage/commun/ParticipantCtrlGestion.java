@@ -10,42 +10,29 @@ public class ParticipantCtrlGestion {
     private Vue vue;
     private ParticipantList participantList;
     private StageList stageList;
+    private ParticipantCtrlModif participantCtrlModif;
 
 
     /*
     METHOD
      */
-
     public void ajouterParticipant(Stage stage) {
-        String nomParticipant, prenomParticipant, input;
-        boolean modifParticipant;
+        String nomParticipant, prenomParticipant;
         nomParticipant = utility.saisirName("Veuillez saisir le nom du participant. Insérer \"q\" pour quitter");
         if (!nomParticipant.isEmpty()) {
             prenomParticipant = utility.saisirName("Veuillez saisir le prénom du participant. Insérer \"q\" pour quitter");
             if (!prenomParticipant.isEmpty()) {
                 String IDParticipant = nomParticipant.concat(prenomParticipant);
                 // 2 et 3 demander si les informations sont correctes et possibilités de modifiés.
-
+                Participant participant = participantList.getParticipant(IDParticipant);
                 if (stageList.containsKey(IDParticipant)) { // 3 : il est déjà inscrit au stage
-                    vue.afficheMessage("Le participant est déjà inscrit dans ce stage.");
-                    Participant participant = participantList.getParticipant(IDParticipant);
-                    vue.afficheParticipant(participant);
-                    vue.afficheMessage("Voulez-vous modifier les informations ?");
-                    if (utility.modifierInformationParticipant()) {
-                        //TODO FAIRE LE CODE POUR LA MODIF
-                    }
-
+                    modifParticipant(participant);
                 } else if (participantList.verifParticipantInList(IDParticipant)) {// 2 : il existe dans la liste mais n'est pas inscrit dans le stage.
-                    vue.afficheMessage("Le participant est déjà inscrit dans ce stage.");
-                    Participant participant = participantList.getParticipant(IDParticipant);
-                    vue.afficheParticipant(participant);
-                    vue.afficheMessage("Voulez-vous modifier les informations ?");
-                    if (utility.modifierInformationParticipant()) {
-                        //TODO FAIRE LE CODE POUR LA MODIF
+                    modifParticipant(participant);
+
+                    if (utility.addParticipantBoolean()) {
+                        stage.addParticipant(participant);
                     }
-
-                    stage.addParticipant(participant);
-
                 } else {  // 1 : le participant n'existe pas faut le créer + ajout du participant au stage
                     vue.afficheMessage("Le participant n'existe pas dans ce stage.");
                     createParticipant(IDParticipant, nomParticipant, prenomParticipant, stage);
@@ -54,39 +41,18 @@ public class ParticipantCtrlGestion {
         }
     }
 
-   /* //Modification d'information d'un participant
-    private void modifParticipant(Participant participant, Stage stage) {
-        String inputChoice;
-        int choice;
-        vue.afficheMessage("Le participant existe déjà.");
-        do {
-            vue.afficheMessage("Données du Participant : ");
-            vue.afficheParticipant(participant);
-            inputChoice = utility.saisirName(vue.displayModifParticipant());
-            if (!inputChoice.isEmpty()) {
-                choice = Integer.parseInt(inputChoice);
-                String club;
-                String mail;
-                String nameStage;
-                switch (choice) {
-                    case 1:
-                        mail = utility.saisirMail("Veuillez saisir une adresse email ou \"q\" pour mettre à vide");
-                        participant.setAdresseMail(mail);
-                        break;
-                    case 2:
-                        club = utility.saisirName("Veuillez saisir un nom de club ou \"q\" pour mettre à vide");
-                        participant.setNomClub(club);
-                        break;
-                    case 3: // ajouter le stagiaire au stage
-                        stage.addParticipant(participant);
-                        break;
-                    case 4: // retirer le stagiaire du stage
-                        stage.removeParticipant(participant);
-                        break;
-                }
-            }
-        } while (!inputChoice.isEmpty());
-    }*/
+    //modif un participant
+    private void modifParticipant(Participant participant) {
+        vue.afficheMessage("Le participant est déjà inscrit dans ce stage.");
+        vue.afficheParticipant(participant);
+        vue.afficheMessage("Voulez-vous modifier les informations ?");
+        boolean modif = utility.modifierInformationParticipant();
+        while (modif) {
+            participantCtrlModif.modifParticipant(participant);
+            vue.afficheMessage("Voulez-vous modifier les informations ?");
+            modif = utility.modifierInformationParticipant();
+        }
+    }
 
     //Creation d'un participant
     private void createParticipant(String IDParticipant, String nomParticipant, String prenomParticipant, Stage stage) {
@@ -97,11 +63,9 @@ public class ParticipantCtrlGestion {
         participantList.addParticipant(IDParticipant, participant);
     }
 
-
     /*
     SETTER AND GETTER
      */
-
     public void setUser(User user) {
         this.user = user;
     }
@@ -120,5 +84,9 @@ public class ParticipantCtrlGestion {
 
     public void setStageList(StageList stageList) {
         this.stageList = stageList;
+    }
+
+    public void setParticipantCtrlModif(ParticipantCtrlModif participantCtrlModif) {
+        this.participantCtrlModif = participantCtrlModif;
     }
 }

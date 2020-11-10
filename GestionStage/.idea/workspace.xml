@@ -31,10 +31,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0b53e3f0-0cc5-4e4e-80c2-ce66b9bbc6b4" name="Default Changelist" comment="Rearrangemment">
+      <change afterPath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/commun/ParticipantCtrlModif.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/commun/Factory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/commun/Factory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/commun/ParticipantCtrlGestion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/commun/ParticipantCtrlGestion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/commun/Stage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/commun/Stage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/commun/Utility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/commun/Utility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/commun/Vue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/commun/Vue.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,6 +75,9 @@
     <property name="settings.editor.selected.configurable" value="preferences.editor" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="be.technifutur.java2020.gestionstage.commun" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="F:\programmation\technifutur\java\cours\java2\exo\java2020Labo1\GestionStage\src" />
     </key>
@@ -458,10 +463,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="modification et changement à faire important" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="765" y="203" key="#com.intellij.ide.util.MemberChooser" timestamp="1604934893196">
+    <state x="765" y="203" key="#com.intellij.ide.util.MemberChooser" timestamp="1604995763859">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="203" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604934893196" />
+    <state x="765" y="203" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604995763859" />
     <state x="565" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1604909352575">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -506,10 +511,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1921" height="984" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604938153785" />
-    <state x="775" y="453" key="ReplaceDuplicatesPrompt" timestamp="1604911362371">
+    <state x="775" y="453" key="ReplaceDuplicatesPrompt" timestamp="1604997257187">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="775" y="453" key="ReplaceDuplicatesPrompt/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604911362371" />
+    <state x="775" y="453" key="ReplaceDuplicatesPrompt/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604997257187" />
     <state x="440" y="94" key="SettingsEditor" timestamp="1604585452310">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -526,10 +531,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="777" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604485720712" />
-    <state x="690" y="280" key="extract.method.dialog" timestamp="1604911360300">
+    <state x="967" y="294" key="extract.method.dialog" timestamp="1604997256164">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="690" y="280" key="extract.method.dialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604911360300" />
+    <state x="967" y="294" key="extract.method.dialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604997256164" />
     <state x="597" y="140" key="new project wizard" timestamp="1604477893587">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

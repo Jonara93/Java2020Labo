@@ -32,6 +32,7 @@ public class Factory {
     private DisplayHoraireCtrl displayHoraireCtrl;
     private ParticipantCtrlGestion participantCtrlGestion;
     private ParticipantCtrlDisplay participantCtrlDisplay;
+    private ParticipantCtrlModif participantCtrlModif;
 
     /*
     METHOD
@@ -159,7 +160,17 @@ public class Factory {
             this.participantCtrlDisplay = new ParticipantCtrlDisplay();
             participantCtrlDisplay.setParticipantList(getParticipantList());
             participantCtrlDisplay.setVue(getVue());
+            participantCtrlGestion.setParticipantCtrlModif(getParticipantCtrlModif());
         }
         return participantCtrlDisplay;
+    }
+
+    public ParticipantCtrlModif getParticipantCtrlModif() {
+        if (participantCtrlModif == null){
+            this.participantCtrlModif = new ParticipantCtrlModif();
+            participantCtrlModif.setUtility(getUtility());
+            participantCtrlModif.setVue(getVue());
+        }
+        return participantCtrlModif;
     }
 }

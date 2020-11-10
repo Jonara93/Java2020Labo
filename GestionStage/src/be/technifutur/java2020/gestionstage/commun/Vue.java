@@ -96,8 +96,6 @@ public class Vue {
                 "Veuillez choisir une option : \n" +
                 "1. Modifier l'adresse mail.\n" +
                 "2. Modifier le nom du club.\n" +
-                "3. Ajouter le participant au stage.\n" +
-                "4. Retirer le participant du stage.\n" +
                 "q. Quitter la modification.";
 
     }

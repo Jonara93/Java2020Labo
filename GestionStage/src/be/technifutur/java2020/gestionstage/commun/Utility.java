@@ -105,13 +105,26 @@ public class Utility {
         boolean modif = false;
         String input;
         do {
-            vue.afficheMessage("\'O\' pour modifier.\'N\' pour ne pas modifier");
+            vue.afficheMessage("Voulez-vous modifier le participant ? O/N");
             input = user.getInput();
-        }while (input.equalsIgnoreCase("O") || input.equalsIgnoreCase("N"));
-        if (input.equalsIgnoreCase("O")){
+        }while (!input.equalsIgnoreCase("o") && !input.equalsIgnoreCase("n"));
+        if (input.equalsIgnoreCase("o")){
             modif = true;
         }
         return modif;
+    }
+
+    public boolean addParticipantBoolean() {
+        boolean boolAdd = false;
+        String input;
+        do {
+           vue.afficheMessage("Voulez-vous ajouter le participant au stage ? O/N");
+           input = user.getInput();
+        }while (!input.equalsIgnoreCase("o") && !input.equalsIgnoreCase("n"));
+        if (input.equalsIgnoreCase("o")){
+            boolAdd = true;
+        }
+        return boolAdd;
     }
 
     /*
