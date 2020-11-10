@@ -88,6 +88,7 @@ public class Vue {
         if (!participant.getAdresseMail().isEmpty()) {
             System.out.println("Adresse mail du participant : " + participant.getAdresseMail());
         }
+        System.out.println("");
     }
 
     public String displayModifParticipant() {

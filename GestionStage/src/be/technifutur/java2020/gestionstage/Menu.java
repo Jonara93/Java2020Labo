@@ -3,12 +3,20 @@ package be.technifutur.java2020.gestionstage;
 import be.technifutur.java2020.gestionstage.commun.*;
 
 public class Menu {
+    /*
+    FIELD
+     */
     private String input = null;
     private StageCtrlCreateStage stageCtrlCreateStage;
     private StageCtrlDisplayStage stageCtrlDisplayStage;
     private ParticipantCtrlDisplay participantCtrlDisplay;
     private MenuGestionStage menuGestionStage;
+    private DataBase dataBase;
     private User user;
+
+    /*
+    METHOD
+     */
 
 
     public void displayMenu() {
@@ -46,6 +54,10 @@ public class Menu {
                 "q. Quitter l'application.");
     }
 
+    /*
+    SETTER AND GETTER
+     */
+
     public void setUser(User user) {
         this.user = user;
     }
@@ -64,5 +76,9 @@ public class Menu {
 
     public void setParticipantCtrlDisplay(ParticipantCtrlDisplay participantCtrlDisplay) {
         this.participantCtrlDisplay = participantCtrlDisplay;
+    }
+
+    public void setDataBase(DataBase dataBase) {
+        this.dataBase = dataBase;
     }
 }

@@ -8,15 +8,21 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Application gestion de stage");
-        Factory factory = new Factory(getUser()); //mettre ou non le getUser si je veux automatique ou non
+        Factory factory = new Factory(/*getUser()*/); //mettre ou non le getUser si je veux automatique ou non
         Menu menu = factory.getMenu();
         factory = null;
         menu.displayMenu();
     }
 
+    //TODO EXCEPTION QUAND STAGE DEJA EXISTANT
+
     private static User getUser() {
         String[] inputTab = new String[]{
+                "2",
+                "1",
+                "Stage de Karaté -15",//stage
+                "02.12.2020.08.00",
+                "10.10.2021.16.00",
                 "1",
                 "Stage de Karaté -15",//stage
                 "02.12.2020.08.00",

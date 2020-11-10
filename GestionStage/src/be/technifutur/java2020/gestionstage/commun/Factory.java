@@ -1,7 +1,13 @@
 package be.technifutur.java2020.gestionstage.commun;
 
+import be.technifutur.java2020.gestionstage.DataBase;
 import be.technifutur.java2020.gestionstage.Menu;
 import be.technifutur.java2020.gestionstage.MenuGestionStage;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 
 public class Factory {
 
@@ -23,6 +29,7 @@ public class Factory {
     private Vue vue;
     private Utility utility;
     private User user;
+    private DataBase dataBase;
     private MenuGestionStage menuGestionStage;
     private StageList stageList;
     private ParticipantList participantList;
@@ -46,6 +53,7 @@ public class Factory {
         menu.setMenuGestionStage(getMenuGestionStage());
         menu.setUser(getUser());
         menu.setParticipantCtrlDisplay(getParticipantCtrlDisplay());
+        menu.setDataBase(getDataBase());
         return menu;
     }
 
@@ -64,15 +72,25 @@ public class Factory {
 
 
     public StageList getStageList() {
+
         if (this.stageList == null) {
-            this.stageList = new StageList();
+            if (getDataBase().getStageList() == null) {
+                this.stageList = new StageList();
+            } else {
+                this.stageList = getDataBase().getStageList();
+            }
         }
         return stageList;
     }
 
     public ParticipantList getParticipantList() {
         if (this.participantList == null) {
-            this.participantList = new ParticipantList();
+            if (getDataBase().getParticipantList() == null) {
+                this.participantList = new ParticipantList();
+            } else {
+
+                this.participantList = getDataBase().getParticipantList();
+            }
         }
         return participantList;
     }
@@ -108,6 +126,7 @@ public class Factory {
             this.stageCtrlCreateStage.setUtility(getUtility());
             this.stageCtrlCreateStage.setStageList(getStageList());
             this.stageCtrlCreateStage.setUser(getUser());
+            this.stageCtrlCreateStage.setDataBase(getDataBase());
         }
         return stageCtrlCreateStage;
     }
@@ -127,7 +146,7 @@ public class Factory {
             activityCtrlCreateActivity.setUtility(getUtility());
             activityCtrlCreateActivity.setVue(getVue());
             activityCtrlCreateActivity.setUser(getUser());
-           // activityCtrlCreateActivity.setStageList(getStageList());
+            activityCtrlCreateActivity.setDataBase(getDataBase());
         }
         return activityCtrlCreateActivity;
     }
@@ -135,7 +154,6 @@ public class Factory {
     public DisplayHoraireCtrl getDisplayHoraireCtrl() {
         if (this.displayHoraireCtrl == null) {
             this.displayHoraireCtrl = new DisplayHoraireCtrl();
-          //  displayHoraireCtrl.setStageList(getStageList());
             displayHoraireCtrl.setUser(getUser());
             displayHoraireCtrl.setUtility(getUtility());
             displayHoraireCtrl.setVue(getVue());
@@ -150,13 +168,13 @@ public class Factory {
             participantCtrlGestion.setUtility(getUtility());
             participantCtrlGestion.setVue(getVue());
             participantCtrlGestion.setParticipantList(getParticipantList());
-            participantCtrlGestion.setStageList(getStageList());
+            participantCtrlGestion.setDataBase(getDataBase());
         }
         return participantCtrlGestion;
     }
 
     public ParticipantCtrlDisplay getParticipantCtrlDisplay() {
-        if (participantCtrlDisplay==null){
+        if (participantCtrlDisplay == null) {
             this.participantCtrlDisplay = new ParticipantCtrlDisplay();
             participantCtrlDisplay.setParticipantList(getParticipantList());
             participantCtrlDisplay.setVue(getVue());
@@ -166,11 +184,34 @@ public class Factory {
     }
 
     public ParticipantCtrlModif getParticipantCtrlModif() {
-        if (participantCtrlModif == null){
+        if (participantCtrlModif == null) {
             this.participantCtrlModif = new ParticipantCtrlModif();
             participantCtrlModif.setUtility(getUtility());
             participantCtrlModif.setVue(getVue());
         }
         return participantCtrlModif;
     }
+
+    public DataBase getDataBase() {
+        if (this.dataBase == null) {
+            File file = new File("db.ser");
+            if (file.exists()) {
+                try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {
+                    // deserialisation de l'objet
+                    this.dataBase = (DataBase) ois.readObject();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
+            } else {
+                this.dataBase = new DataBase();
+                dataBase.setStageList(getStageList());
+                dataBase.setParticipantList(getParticipantList());
+            }
+        }
+        return dataBase;
+    }
+
+
 }

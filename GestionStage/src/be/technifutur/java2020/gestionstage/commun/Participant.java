@@ -1,11 +1,12 @@
 package be.technifutur.java2020.gestionstage.commun;
 
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Participant {
+public class Participant  implements Serializable {
 
     /*
     FIELD

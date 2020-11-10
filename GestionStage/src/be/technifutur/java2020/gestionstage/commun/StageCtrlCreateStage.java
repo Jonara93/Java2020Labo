@@ -1,14 +1,25 @@
 package be.technifutur.java2020.gestionstage.commun;
 
+import be.technifutur.java2020.gestionstage.DataBase;
 import be.technifutur.java2020.gestionstage.exception.ExceptionGestionStage;
 
+import java.io.IOException;
 import java.time.LocalDateTime;
 
 public class StageCtrlCreateStage {
+    /*
+    FIELD
+     */
+
     private Vue vue;
     private Utility utility;
     private StageList stageList;
     private User user;
+    private DataBase dataBase;
+
+    /*
+    METHOD
+     */
 
     public void createStage() {
         String name;
@@ -40,12 +51,17 @@ public class StageCtrlCreateStage {
                 stageList.addStage(dateDebut, dateFin, name);
                 Stage stage = stageList.getStage(name);
                 vue.afficheStage(stage);
-            } catch (ExceptionGestionStage e) {
+                dataBase.saveData();
+            } catch (ExceptionGestionStage | IOException e) {
                 vue.setError(e.getMessage());
             }
         }
 
     }
+
+    /*
+    SETTER
+     */
 
     public void setUser(User user) {
         this.user = user;
@@ -61,5 +77,9 @@ public class StageCtrlCreateStage {
 
     public void setVue(Vue vue) {
         this.vue = vue;
+    }
+
+    public void setDataBase(DataBase dataBase) {
+        this.dataBase = dataBase;
     }
 }

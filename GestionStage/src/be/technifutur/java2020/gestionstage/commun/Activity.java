@@ -1,8 +1,9 @@
 package be.technifutur.java2020.gestionstage.commun;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class Activity {
+public class Activity  implements Serializable {
     private String nameActivity;
     private LocalDateTime dateDebut;
     private int duration;

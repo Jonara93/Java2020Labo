@@ -1,22 +1,27 @@
 package be.technifutur.java2020.gestionstage.commun;
 
+import be.technifutur.java2020.gestionstage.DataBase;
 import be.technifutur.java2020.gestionstage.exception.ExceptionGestionStageDate;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.*;
 
-public class StageList {
+public class StageList implements Serializable {
     /*
     FIELD
      */
     private Map<String, Stage> mapStage = new HashMap<>();
+    private DataBase dataBase;
 
     /*
     METHOD
      */
 
+
     public void addStage(LocalDateTime dateDebut, LocalDateTime dateFin, String intituleStage) throws ExceptionGestionStageDate {
         mapStage.put(intituleStage, new Stage(dateDebut, dateFin, intituleStage));
+
     }
 
     public void removeStage() {
@@ -27,7 +32,7 @@ public class StageList {
 
     }
 
-    public boolean containsKey(String key){
+    public boolean containsKey(String key) {
         return mapStage.containsKey(key);
     }
 
@@ -51,5 +56,7 @@ public class StageList {
         this.mapStage = mapStage;
     }
 
-
+    public void setDataBase(DataBase dataBase) {
+        this.dataBase = dataBase;
+    }
 }

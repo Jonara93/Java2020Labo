@@ -1,6 +1,11 @@
 package be.technifutur.java2020.gestionstage.commun;
 
-public class ParticipantCtrlGestion {
+import be.technifutur.java2020.gestionstage.DataBase;
+
+import java.io.IOException;
+import java.io.Serializable;
+
+public class ParticipantCtrlGestion implements Serializable {
 
     /*
     FIELD
@@ -9,8 +14,8 @@ public class ParticipantCtrlGestion {
     private Utility utility;
     private Vue vue;
     private ParticipantList participantList;
-    private StageList stageList;
     private ParticipantCtrlModif participantCtrlModif;
+    private DataBase dataBase;
 
 
     /*
@@ -37,6 +42,11 @@ public class ParticipantCtrlGestion {
                     createParticipant(IDParticipant, nomParticipant, prenomParticipant, stage);
                 }
             }
+        }
+        try {
+            dataBase.saveData();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -80,11 +90,11 @@ public class ParticipantCtrlGestion {
         this.participantList = participantList;
     }
 
-    public void setStageList(StageList stageList) {
-        this.stageList = stageList;
-    }
-
     public void setParticipantCtrlModif(ParticipantCtrlModif participantCtrlModif) {
         this.participantCtrlModif = participantCtrlModif;
+    }
+
+    public void setDataBase(DataBase dataBase) {
+        this.dataBase = dataBase;
     }
 }
