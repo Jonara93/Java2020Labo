@@ -16,7 +16,6 @@ public class StageCtrlCreateStage {
     private StageList stageList;
     private User user;
     private DataBase dataBase;
-
     /*
     METHOD
      */
@@ -56,7 +55,6 @@ public class StageCtrlCreateStage {
     /*
     SETTER
      */
-
     public void setUser(User user) {
         this.user = user;
     }

@@ -34,7 +34,7 @@ public class Factory {
     private StageCtrlDisplayStage stageCtrlDisplayStage;
     private ActivityCtrlCreateActivity activityCtrlCreateActivity;
     private DisplayHoraireCtrl displayHoraireCtrl;
-    private ParticipantCtrlGestion participantCtrlGestion;
+    private ParticipantCtrlAdd participantCtrlAdd;
     private ParticipantCtrlDisplay participantCtrlDisplay;
     private ParticipantCtrlModif participantCtrlModif;
 
@@ -63,6 +63,8 @@ public class Factory {
             menuGestionStage.setUtility(getUtility());
             menuGestionStage.setParticipantCtrlGestion(getParticipantCtrlGestion());
             menuGestionStage.setStageList(getStageList());
+            menuGestionStage.setParticipantCtrlDisplay(getParticipantCtrlDisplay());
+
         }
         return menuGestionStage;
     }
@@ -158,16 +160,16 @@ public class Factory {
         return displayHoraireCtrl;
     }
 
-    public ParticipantCtrlGestion getParticipantCtrlGestion() {
-        if (this.participantCtrlGestion == null) {
-            this.participantCtrlGestion = new ParticipantCtrlGestion();
-            participantCtrlGestion.setUser(getUser());
-            participantCtrlGestion.setUtility(getUtility());
-            participantCtrlGestion.setVue(getVue());
-            participantCtrlGestion.setParticipantList(getParticipantList());
-            participantCtrlGestion.setDataBase(getDataBase());
+    public ParticipantCtrlAdd getParticipantCtrlGestion() {
+        if (this.participantCtrlAdd == null) {
+            this.participantCtrlAdd = new ParticipantCtrlAdd();
+            participantCtrlAdd.setUser(getUser());
+            participantCtrlAdd.setUtility(getUtility());
+            participantCtrlAdd.setVue(getVue());
+            participantCtrlAdd.setParticipantList(getParticipantList());
+            participantCtrlAdd.setDataBase(getDataBase());
         }
-        return participantCtrlGestion;
+        return participantCtrlAdd;
     }
 
     public ParticipantCtrlDisplay getParticipantCtrlDisplay() {
@@ -175,7 +177,7 @@ public class Factory {
             this.participantCtrlDisplay = new ParticipantCtrlDisplay();
             participantCtrlDisplay.setParticipantList(getParticipantList());
             participantCtrlDisplay.setVue(getVue());
-            participantCtrlGestion.setParticipantCtrlModif(getParticipantCtrlModif());
+            participantCtrlAdd.setParticipantCtrlModif(getParticipantCtrlModif());
         }
         return participantCtrlDisplay;
     }

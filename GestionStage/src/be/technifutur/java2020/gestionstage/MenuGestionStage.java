@@ -10,7 +10,9 @@ public class MenuGestionStage {
     private String input = null;
     private DisplayHoraireCtrl displayHoraireCtrl;
     private ActivityCtrlCreateActivity activityCtrlCreateActivity;
-    private ParticipantCtrlGestion participantCtrlGestion;
+    private ParticipantCtrlAdd participantCtrlAdd;
+    private ParticipantCtrlDisplay participantCtrlDisplay;
+    private ParticipantCtrlRemove participantCtrlRemove;
     private StageList stageList;
     private User user;
     private Utility utility;
@@ -25,7 +27,7 @@ public class MenuGestionStage {
         String nomStage;
         Stage stage;
         nomStage = utility.saisirName("Veuillez saisir le nom du stage à gérer. Insérer \"q\" pour quitter.");
-        while (!stageList.containsKey(nomStage) && !nomStage.isEmpty()){
+        while (!stageList.containsKey(nomStage) && !nomStage.isEmpty()) {
             nomStage = utility.saisirName("Ce stage n'existe pas.\nVeuillez saisir le nom du stage à gérer. Insérer \"q\" pour quitter.");
         }
         if (!nomStage.isEmpty()) {
@@ -41,7 +43,13 @@ public class MenuGestionStage {
                         displayHoraireCtrl.displayHoraireStage(stage);
                         break;
                     case "3":
-                        participantCtrlGestion.ajouterParticipant(stage);  //ajouter un participant
+                        participantCtrlAdd.ajouterParticipant(stage);
+                        break;
+                    case "4":
+                        participantCtrlRemove.removeParticipant(stage);
+                        break;
+                    case "5":
+                        participantCtrlDisplay.displayParticipant(stage);
                         break;
 
                 }
@@ -57,6 +65,8 @@ public class MenuGestionStage {
                 "1. Ajouter une activitée à un stage.\n" +
                 "2. Afficher les activitées d'un stage\n" +
                 "3. Ajouter un participant\n" +
+                "4. Retirer un participant\n" +
+                "5. Liste des participant\n" +
                 // afficher participant
                 "q. Quitter l'application.");
     }
@@ -73,8 +83,8 @@ public class MenuGestionStage {
         this.activityCtrlCreateActivity = activityCtrlCreateActivity;
     }
 
-    public void setParticipantCtrlGestion(ParticipantCtrlGestion participantCtrlGestion) {
-        this.participantCtrlGestion = participantCtrlGestion;
+    public void setParticipantCtrlGestion(ParticipantCtrlAdd participantCtrlAdd) {
+        this.participantCtrlAdd = participantCtrlAdd;
     }
 
     public void setInput(String input) {
@@ -87,6 +97,10 @@ public class MenuGestionStage {
 
     public void setUtility(Utility utility) {
         this.utility = utility;
+    }
+
+    public void setParticipantCtrlDisplay(ParticipantCtrlDisplay participantCtrlDisplay) {
+        this.participantCtrlDisplay = participantCtrlDisplay;
     }
 
     public void setStageList(StageList stageList) {

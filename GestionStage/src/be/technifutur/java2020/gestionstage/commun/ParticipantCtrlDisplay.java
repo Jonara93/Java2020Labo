@@ -20,6 +20,12 @@ public class ParticipantCtrlDisplay {
         }
     }
 
+    public void displayParticipant(Stage stage) {
+        for (Participant participant : stage.getMapParticipant().values()) {
+            vue.afficheParticipant(participant);
+        }
+    }
+
     /*
     SETTER AND GETTER
      */

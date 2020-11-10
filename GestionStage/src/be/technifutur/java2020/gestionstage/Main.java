@@ -28,10 +28,6 @@ public class Main {
                 "02.12.2020.08.00",
                 "10.10.2021.16.00",
                 "1",
-                "Stage de Karaté -15",//stage
-                "02.12.2020.08.00",
-                "10.10.2021.16.00",
-                "1",
                 "Ctage Multisport",//stage
                 "10.10.2020.08.00",
                 "24.02.2021.16.00",
@@ -67,8 +63,8 @@ public class Main {
                 "180",
                 "2",//affiche stage
                 "3",//gerer participant
-                "Jonathan",
                 "Arabia",
+                "Jonathan",
                 "Verlaine",
                 "jojo@hotmail.be",
                 "3",
@@ -76,9 +72,6 @@ public class Main {
                 "Arcka",
                 "q",
                 "Arcka.Pierre@hotmail.be",
-                "3",
-                "Jonathan",
-                "Arabia",
                 "N",
                 "q",
                 "q",

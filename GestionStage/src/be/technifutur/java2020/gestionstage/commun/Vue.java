@@ -50,29 +50,33 @@ public class Vue {
 
     public void afficheHoraire(Stage stage, List<Activity> activityList) {
         LocalDate dateDebutStage = stage.getDateDebut().toLocalDate();
-        System.out.println("Horaire du stage : " + stage.getIntituleStage());
-        System.out.println("" +
-                dateDebutStage.getDayOfWeek().getDisplayName(TextStyle.FULL, Locale.FRANCE).toUpperCase() + " " +
-                dateDebutStage.getDayOfMonth() + " " +
-                dateDebutStage.getMonth().getDisplayName(TextStyle.FULL, Locale.FRANCE).toUpperCase() + " " +
-                dateDebutStage.getYear()
-        );
-        for (Activity activity : activityList) {
-            if (dateDebutStage.isBefore(activity.getDateDebut().toLocalDate())) {
-                dateDebutStage = activity.getDateDebut().toLocalDate();
-                System.out.println("" +
-                        dateDebutStage.getDayOfWeek().getDisplayName(TextStyle.FULL, Locale.FRANCE).toUpperCase() + " " +
-                        dateDebutStage.getDayOfMonth() + " " +
-                        dateDebutStage.getMonth().getDisplayName(TextStyle.FULL, Locale.FRANCE).toUpperCase() + " " +
-                        dateDebutStage.getYear()
+        if (!activityList.isEmpty()) {
+            System.out.println("Horaire du stage : " + stage.getIntituleStage());
+            System.out.println("" +
+                    dateDebutStage.getDayOfWeek().getDisplayName(TextStyle.FULL, Locale.FRANCE).toUpperCase() + " " +
+                    dateDebutStage.getDayOfMonth() + " " +
+                    dateDebutStage.getMonth().getDisplayName(TextStyle.FULL, Locale.FRANCE).toUpperCase() + " " +
+                    dateDebutStage.getYear()
+            );
+            for (Activity activity : activityList) {
+                if (dateDebutStage.isBefore(activity.getDateDebut().toLocalDate())) {
+                    dateDebutStage = activity.getDateDebut().toLocalDate();
+                    System.out.println("" +
+                            dateDebutStage.getDayOfWeek().getDisplayName(TextStyle.FULL, Locale.FRANCE).toUpperCase() + " " +
+                            dateDebutStage.getDayOfMonth() + " " +
+                            dateDebutStage.getMonth().getDisplayName(TextStyle.FULL, Locale.FRANCE).toUpperCase() + " " +
+                            dateDebutStage.getYear()
+                    );
+                }
+                System.out.print("      " +
+                        activity.getDateDebut().format(DateTimeFormatter.ofPattern("H'h'mm")) + " - " +
+                        activity.getDateDebut().plusMinutes(activity.getDuration()).format(DateTimeFormatter.ofPattern("H'h'mm")) + " " +
+                        activity.getNameActivity() + " " +
+                        "(" + activity.getDuration() + " minutes)" + "\n"
                 );
             }
-            System.out.print("      " +
-                    activity.getDateDebut().format(DateTimeFormatter.ofPattern("H'h'mm")) + " - " +
-                    activity.getDateDebut().plusMinutes(activity.getDuration()).format(DateTimeFormatter.ofPattern("H'h'mm")) + " " +
-                    activity.getNameActivity() + " " +
-                    "(" + activity.getDuration() + " minutes)" + "\n"
-            );
+        }else {
+            System.out.println("Il n'y a pas d'activitée prévu pour ce stage.");
         }
     }
 

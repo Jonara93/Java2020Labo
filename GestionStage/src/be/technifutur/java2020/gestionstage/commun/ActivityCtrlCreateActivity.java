@@ -23,50 +23,30 @@ public class ActivityCtrlCreateActivity {
      */
 
     public void createActivity(Stage stage) {
-        String nameActivity = null;
+        vue.afficheStage(stage);
+        String nameActivity;
         int duration = 0;
-        LocalDateTime dateDebut = null;
-        boolean addActivityToStage = true;
-
-
-        vue.afficheMessage("Veuillez choisir un nom d'activitée ou insérer \"q\" pour quitter");
-        nameActivity = user.getInput();
-        while (nameActivity.isEmpty()) {
-            vue.afficheMessage("Veuillez choisir un nom d'activitée ou insérer \"q\" pour quitter");
-            nameActivity = user.getInput();
-        }
-
-        if (nameActivity.equalsIgnoreCase("q")) {
-            addActivityToStage = false;
-        }
-
-        if (addActivityToStage) {
+        LocalDateTime dateDebut;
+        nameActivity = utility.saisirName("Veuillez choisir un nom d'activitée ou insérer \"q\" pour quitter");
+        if (!nameActivity.isEmpty()) {
             vue.ajoutDateDebut();
             dateDebut = utility.saisirDate();
-            if (dateDebut == null) {
-                addActivityToStage = false;
-            }
-        }
+            if (dateDebut != null) {
+                OptionalInt inputDuration;
+                vue.consigneAjoutDuree();
+                inputDuration = utility.saisirDuree();
+                if (!inputDuration.isEmpty()) {
+                    duration = inputDuration.getAsInt();
+                }
 
-        if (addActivityToStage) {
-            OptionalInt inputDuration;
-            vue.consigneAjoutDuree();
-            inputDuration = utility.saisirDuree();
-            if (inputDuration.isEmpty()) {
-                addActivityToStage = false;
-            } else {
-                duration = inputDuration.getAsInt();
-            }
-        }
-
-        if (addActivityToStage) {
-            try {
-                stage.addActivity(dateDebut, duration, nameActivity);
-                dataBase.saveData();
-            } catch (ExceptionGestionStage e) {
-                vue.setError(e.getMessage());
-            } catch (IOException e) {
-                e.printStackTrace();
+                if (!inputDuration.isEmpty()) {
+                    try {
+                        stage.addActivity(dateDebut, duration, nameActivity);
+                        dataBase.saveData();
+                    } catch (ExceptionGestionStage | IOException e) {
+                        vue.setError(e.getMessage());
+                    }
+                }
             }
         }
     }

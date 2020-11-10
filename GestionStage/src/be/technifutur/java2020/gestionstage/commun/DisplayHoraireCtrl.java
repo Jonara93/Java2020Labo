@@ -13,16 +13,12 @@ public class DisplayHoraireCtrl {
     /*
     METHOD
      */
-
     public void displayHoraireStage(Stage stage) {
         Collection<Activity> activityCollection = stage.getActivityCollection();
         List<Activity> activityList = new ArrayList<>(activityCollection);
         activityList.sort(new MyComparatorActivity());
         vue.afficheHoraire(stage, activityList);
     }
-
-
-
     /*
     SETTER
      */

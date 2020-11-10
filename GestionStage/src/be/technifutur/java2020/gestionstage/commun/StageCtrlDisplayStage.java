@@ -7,8 +7,15 @@ import java.util.List;
 import java.util.Map;
 
 public class StageCtrlDisplayStage {
+    /*
+    FIELD
+     */
     private Vue vue;
     private StageList stageList;
+
+    /*
+    METHOD
+     */
 
     public void displayStage() {
         Map<String, Stage> map = stageList.getMap();
@@ -24,6 +31,10 @@ public class StageCtrlDisplayStage {
             vue.afficheStage(name,dateDebut,dateFin);
         }
     }
+
+    /*
+    SETTER AND GETTER
+     */
 
     public void setStageList(StageList stageList) {
         this.stageList = stageList;
