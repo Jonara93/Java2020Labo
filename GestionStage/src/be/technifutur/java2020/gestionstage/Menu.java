@@ -23,21 +23,19 @@ public class Menu {
         showMenu();
         input = user.getInput();
         while (!(input.equalsIgnoreCase("q"))) {
-            int choice = (Integer.parseInt(input));
-            switch (choice) {
-                case 1:
+            switch (input) {
+                case "1":
                     stageCtrlCreateStage.createStage();
                     break;
-                case 2:
+                case "2":
                     stageCtrlDisplayStage.displayStage();
                     break;
-                case 3:
+                case "3":
                     menuGestionStage.menu();
                     break;
-                case 4:
+                case "4":
                     participantCtrlDisplay.displayParticipant();
                     break;
-
             }
             showMenu();
             input = user.getInput();

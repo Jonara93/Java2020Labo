@@ -1,7 +1,9 @@
 package be.technifutur.java2020.gestionstage.commun;
 
 import be.technifutur.java2020.gestionstage.DataBase;
+import be.technifutur.java2020.gestionstage.exception.ExceptionGestionStage;
 import be.technifutur.java2020.gestionstage.exception.ExceptionGestionStageDate;
+import be.technifutur.java2020.gestionstage.exception.ExceptionGestionStageNomInvalide;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -11,17 +13,20 @@ public class StageList implements Serializable {
     /*
     FIELD
      */
+
     private Map<String, Stage> mapStage = new HashMap<>();
-    private DataBase dataBase;
 
     /*
     METHOD
      */
 
 
-    public void addStage(LocalDateTime dateDebut, LocalDateTime dateFin, String intituleStage) throws ExceptionGestionStageDate {
-        mapStage.put(intituleStage, new Stage(dateDebut, dateFin, intituleStage));
-
+    public void addStage(LocalDateTime dateDebut, LocalDateTime dateFin, String intituleStage) throws ExceptionGestionStage {
+        if (mapStage.containsKey(intituleStage)) {
+            throw new ExceptionGestionStageNomInvalide("Impossible de créer ce stage.\nUn stage porte déjà ce nom.");
+        } else {
+            mapStage.put(intituleStage, new Stage(dateDebut, dateFin, intituleStage));
+        }
     }
 
     public void removeStage() {
@@ -54,9 +59,5 @@ public class StageList implements Serializable {
 
     public void setMapStage(Map<String, Stage> mapStage) {
         this.mapStage = mapStage;
-    }
-
-    public void setDataBase(DataBase dataBase) {
-        this.dataBase = dataBase;
     }
 }

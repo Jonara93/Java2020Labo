@@ -4,10 +4,7 @@ import be.technifutur.java2020.gestionstage.DataBase;
 import be.technifutur.java2020.gestionstage.Menu;
 import be.technifutur.java2020.gestionstage.MenuGestionStage;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
+import java.io.*;
 
 public class Factory {
 
@@ -199,12 +196,11 @@ public class Factory {
                 try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {
                     // deserialisation de l'objet
                     this.dataBase = (DataBase) ois.readObject();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
+                } catch (IOException | ClassNotFoundException e) {
+                    file.delete();
                 }
-            } else {
+            }
+            if (this.dataBase == null) {
                 this.dataBase = new DataBase();
                 dataBase.setStageList(getStageList());
                 dataBase.setParticipantList(getParticipantList());

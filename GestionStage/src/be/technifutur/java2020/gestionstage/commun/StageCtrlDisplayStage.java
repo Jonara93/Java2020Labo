@@ -1,7 +1,9 @@
 package be.technifutur.java2020.gestionstage.commun;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 
 public class StageCtrlDisplayStage {
@@ -13,7 +15,9 @@ public class StageCtrlDisplayStage {
         String name;
         LocalDateTime dateDebut, dateFin;
         Collection<Stage> stage = map.values();
-        for (Stage value : stage) {
+        List<Stage> stageList = new ArrayList<>(stage);
+        stageList.sort(new MyComparatorStage());
+        for (Stage value : stageList) {
             name = (value.getIntituleStage());
             dateDebut = (value.getDateDebut());
             dateFin = (value.getDateFin());

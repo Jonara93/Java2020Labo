@@ -16,6 +16,7 @@ public class MenuGestionStage {
     private Utility utility;
 
 
+
     /*
     METHOD
      */
@@ -23,25 +24,26 @@ public class MenuGestionStage {
     public void menu() {
         String nomStage;
         Stage stage;
-        do {
-            nomStage = utility.saisirName("Veuillez saisir le nom du stage à gérer. Insérer \"q\" pour quitter.");
-        }while (!stageList.containsKey(nomStage));
+        nomStage = utility.saisirName("Veuillez saisir le nom du stage à gérer. Insérer \"q\" pour quitter.");
+        while (!stageList.containsKey(nomStage) && !nomStage.isEmpty()){
+            nomStage = utility.saisirName("Ce stage n'existe pas.\nVeuillez saisir le nom du stage à gérer. Insérer \"q\" pour quitter.");
+        }
         if (!nomStage.isEmpty()) {
             stage = stageList.getStage(nomStage);
             showMenu();
             input = user.getInput();
             while (!(input.equalsIgnoreCase("q"))) {
-                int choice = (Integer.parseInt(input));
-                switch (choice) {
-                    case 1:
+                switch (input) {
+                    case "1":
                         activityCtrlCreateActivity.createActivity(stage);
                         break;
-                    case 2:
+                    case "2":
                         displayHoraireCtrl.displayHoraireStage(stage);
                         break;
-                    case 3:
+                    case "3":
                         participantCtrlGestion.ajouterParticipant(stage);  //ajouter un participant
                         break;
+
                 }
                 showMenu();
                 input = user.getInput();
@@ -54,7 +56,7 @@ public class MenuGestionStage {
                 "Veuillez choisir une option.\n" +
                 "1. Ajouter une activitée à un stage.\n" +
                 "2. Afficher les activitées d'un stage\n" +
-                "3. Gérer un participant\n" +
+                "3. Ajouter un participant\n" +
                 // afficher participant
                 "q. Quitter l'application.");
     }
@@ -90,4 +92,5 @@ public class MenuGestionStage {
     public void setStageList(StageList stageList) {
         this.stageList = stageList;
     }
+
 }

@@ -23,40 +23,34 @@ public class StageCtrlCreateStage {
 
     public void createStage() {
         String name;
-        LocalDateTime dateDebut = null, dateFin = null;
+        LocalDateTime dateDebut, dateFin = null;
         boolean insertStage = true;
 
-        vue.afficheMessage("Veuillez choisir un nom de stage ou insérer \"q\" pour quitter");
-        name = user.getInput();
-        while (name.equals("")) {
-            vue.afficheMessage("Veuillez choisir un nom de stage ou insérer \"q\" pour quitter");
-            name = user.getInput();
-        }
-        if (insertStage) {
+        name = utility.saisirName("Veuillez choisir un nom de stage ou insérer \"q\" pour quitter");
+        if (!name.isEmpty()) {
             vue.ajoutDateDebut();
             dateDebut = utility.saisirDate();
             if (dateDebut == null) {
                 insertStage = false;
             }
-        }
-        if (insertStage) {
-            vue.ajoutDateFin();
-            dateFin = utility.saisirDate();
-            if (dateFin == null) {
-                insertStage = false;
+            if (insertStage) {
+                vue.ajoutDateFin();
+                dateFin = utility.saisirDate();
+                if (dateFin == null) {
+                    insertStage = false;
+                }
+            }
+            if (insertStage) {
+                try {
+                    stageList.addStage(dateDebut, dateFin, name);
+                    Stage stage = stageList.getStage(name);
+                    vue.afficheStage(stage);
+                    dataBase.saveData();
+                } catch (ExceptionGestionStage | IOException e) {
+                    vue.setError(e.getMessage());
+                }
             }
         }
-        if (insertStage) {
-            try {
-                stageList.addStage(dateDebut, dateFin, name);
-                Stage stage = stageList.getStage(name);
-                vue.afficheStage(stage);
-                dataBase.saveData();
-            } catch (ExceptionGestionStage | IOException e) {
-                vue.setError(e.getMessage());
-            }
-        }
-
     }
 
     /*

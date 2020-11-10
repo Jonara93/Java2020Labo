@@ -20,6 +20,10 @@ public class Main {
         String[] inputTab = new String[]{
                 "2",
                 "1",
+                "Ztage",//stage
+                "10.10.2020.08.00",
+                "12.10.2020.16.00",
+                "1",
                 "Stage de Karaté -15",//stage
                 "02.12.2020.08.00",
                 "10.10.2021.16.00",
@@ -31,10 +35,6 @@ public class Main {
                 "Ctage Multisport",//stage
                 "10.10.2020.08.00",
                 "24.02.2021.16.00",
-                "1",
-                "Ztage",//stage
-                "10.10.2020.08.00",
-                "12.10.2020.16.00",
                 "2",
                 "3",
                 "Ztage",

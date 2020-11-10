@@ -33,10 +33,6 @@ public class DataBase implements Serializable {
         oos.writeObject(this);
     }
 
-    public void loadData() throws IOException, ClassNotFoundException {
-
-    }
-
     /*
     SETTER AND GETTER
      */

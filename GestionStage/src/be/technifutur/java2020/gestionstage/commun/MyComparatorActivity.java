@@ -7,15 +7,13 @@ public class MyComparatorActivity implements Comparator<Activity> {
     public int compare(Activity activity1, Activity activity2) {
         int compare;
 
-        if (activity1.getDateDebut().isBefore(activity2.getDateDebut())){
+        if (activity1.getDateDebut().isBefore(activity2.getDateDebut())) {
             compare = -1;
-        }else if(activity2.getDateDebut().isBefore(activity1.getDateDebut())){
+        } else if (activity2.getDateDebut().isBefore(activity1.getDateDebut())) {
             compare = 1;
-        }else{
+        } else {
             compare = 0;
         }
-
-
         return compare;
     }
 }
