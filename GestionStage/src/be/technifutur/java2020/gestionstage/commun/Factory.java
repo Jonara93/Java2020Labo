@@ -3,6 +3,7 @@ package be.technifutur.java2020.gestionstage.commun;
 import be.technifutur.java2020.gestionstage.DataBase;
 import be.technifutur.java2020.gestionstage.Menu;
 import be.technifutur.java2020.gestionstage.MenuGestionStage;
+import be.technifutur.java2020.gestionstage.ParticipantCtrlRemove;
 
 import java.io.*;
 
@@ -37,6 +38,8 @@ public class Factory {
     private ParticipantCtrlAdd participantCtrlAdd;
     private ParticipantCtrlDisplay participantCtrlDisplay;
     private ParticipantCtrlModif participantCtrlModif;
+    private ParticipantCtrlRemove participantCtrlRemove;
+
 
     /*
     METHOD
@@ -57,13 +60,14 @@ public class Factory {
     public MenuGestionStage getMenuGestionStage() {
         if (this.menuGestionStage == null) {
             this.menuGestionStage = new MenuGestionStage();
-            menuGestionStage.setActivityCtrlCreateActivity(getActivityCtrlCreateActivity());
-            menuGestionStage.setDisplayHoraireCtrl(getDisplayHoraireCtrl());
-            menuGestionStage.setUser(getUser());
-            menuGestionStage.setUtility(getUtility());
-            menuGestionStage.setParticipantCtrlGestion(getParticipantCtrlGestion());
-            menuGestionStage.setStageList(getStageList());
-            menuGestionStage.setParticipantCtrlDisplay(getParticipantCtrlDisplay());
+            this.menuGestionStage.setActivityCtrlCreateActivity(getActivityCtrlCreateActivity());
+            this.menuGestionStage.setDisplayHoraireCtrl(getDisplayHoraireCtrl());
+            this.menuGestionStage.setUser(getUser());
+            this.menuGestionStage.setUtility(getUtility());
+            this.menuGestionStage.setParticipantCtrlAdd(getParticipantCtrlAdd());
+            this.menuGestionStage.setStageList(getStageList());
+            this.menuGestionStage.setParticipantCtrlDisplay(getParticipantCtrlDisplay());
+            this.menuGestionStage.setParticipantCtrlRemove(getParticipantCtrlRemove());
 
         }
         return menuGestionStage;
@@ -141,11 +145,11 @@ public class Factory {
 
     public ActivityCtrlCreateActivity getActivityCtrlCreateActivity() {
         if (this.activityCtrlCreateActivity == null) {
-            activityCtrlCreateActivity = new ActivityCtrlCreateActivity();
-            activityCtrlCreateActivity.setUtility(getUtility());
-            activityCtrlCreateActivity.setVue(getVue());
-            activityCtrlCreateActivity.setUser(getUser());
-            activityCtrlCreateActivity.setDataBase(getDataBase());
+            this.activityCtrlCreateActivity = new ActivityCtrlCreateActivity();
+            this.activityCtrlCreateActivity.setUtility(getUtility());
+            this.activityCtrlCreateActivity.setVue(getVue());
+            this.activityCtrlCreateActivity.setUser(getUser());
+            this.activityCtrlCreateActivity.setDataBase(getDataBase());
         }
         return activityCtrlCreateActivity;
     }
@@ -153,21 +157,21 @@ public class Factory {
     public DisplayHoraireCtrl getDisplayHoraireCtrl() {
         if (this.displayHoraireCtrl == null) {
             this.displayHoraireCtrl = new DisplayHoraireCtrl();
-            displayHoraireCtrl.setUser(getUser());
-            displayHoraireCtrl.setUtility(getUtility());
-            displayHoraireCtrl.setVue(getVue());
+            this.displayHoraireCtrl.setUser(getUser());
+            this.displayHoraireCtrl.setUtility(getUtility());
+            this.displayHoraireCtrl.setVue(getVue());
         }
         return displayHoraireCtrl;
     }
 
-    public ParticipantCtrlAdd getParticipantCtrlGestion() {
+    public ParticipantCtrlAdd getParticipantCtrlAdd() {
         if (this.participantCtrlAdd == null) {
             this.participantCtrlAdd = new ParticipantCtrlAdd();
-            participantCtrlAdd.setUser(getUser());
-            participantCtrlAdd.setUtility(getUtility());
-            participantCtrlAdd.setVue(getVue());
-            participantCtrlAdd.setParticipantList(getParticipantList());
-            participantCtrlAdd.setDataBase(getDataBase());
+            this.participantCtrlAdd.setUser(getUser());
+            this.participantCtrlAdd.setUtility(getUtility());
+            this.participantCtrlAdd.setVue(getVue());
+            this.participantCtrlAdd.setParticipantList(getParticipantList());
+            this.participantCtrlAdd.setDataBase(getDataBase());
         }
         return participantCtrlAdd;
     }
@@ -175,9 +179,9 @@ public class Factory {
     public ParticipantCtrlDisplay getParticipantCtrlDisplay() {
         if (participantCtrlDisplay == null) {
             this.participantCtrlDisplay = new ParticipantCtrlDisplay();
-            participantCtrlDisplay.setParticipantList(getParticipantList());
-            participantCtrlDisplay.setVue(getVue());
-            participantCtrlAdd.setParticipantCtrlModif(getParticipantCtrlModif());
+            this.participantCtrlDisplay.setParticipantList(getParticipantList());
+            this.participantCtrlDisplay.setVue(getVue());
+            this.participantCtrlAdd.setParticipantCtrlModif(getParticipantCtrlModif());
         }
         return participantCtrlDisplay;
     }
@@ -185,8 +189,8 @@ public class Factory {
     public ParticipantCtrlModif getParticipantCtrlModif() {
         if (participantCtrlModif == null) {
             this.participantCtrlModif = new ParticipantCtrlModif();
-            participantCtrlModif.setUtility(getUtility());
-            participantCtrlModif.setVue(getVue());
+            this.participantCtrlModif.setUtility(getUtility());
+            this.participantCtrlModif.setVue(getVue());
         }
         return participantCtrlModif;
     }
@@ -204,12 +208,19 @@ public class Factory {
             }
             if (this.dataBase == null) {
                 this.dataBase = new DataBase();
-                dataBase.setStageList(getStageList());
-                dataBase.setParticipantList(getParticipantList());
+                this.dataBase.setStageList(getStageList());
+                this.dataBase.setParticipantList(getParticipantList());
             }
         }
         return dataBase;
     }
 
-
+    public ParticipantCtrlRemove getParticipantCtrlRemove() {
+        if (this.participantCtrlRemove == null) {
+            this.participantCtrlRemove = new ParticipantCtrlRemove();
+            this.participantCtrlRemove.setVue(getVue());
+            this.participantCtrlRemove.setUtility(getUtility());
+        }
+        return participantCtrlRemove;
+    }
 }

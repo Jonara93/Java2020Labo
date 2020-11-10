@@ -81,7 +81,7 @@ public class Utility {
         if (nameStage.equalsIgnoreCase("q")) {
             nameStage = "";
         }
-        return nameStage;
+        return nameStage.trim();
     }
 
     public String saisirMail(String message) {
@@ -98,7 +98,7 @@ public class Utility {
         if (input.equalsIgnoreCase("q")) {
             input = "";
         }
-        return input;
+        return input.trim();
     }
 
     public boolean returnBoolOuiNon(String message) {

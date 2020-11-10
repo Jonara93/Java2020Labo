@@ -14,8 +14,6 @@ public class Main {
         menu.displayMenu();
     }
 
-    //TODO EXCEPTION QUAND STAGE DEJA EXISTANT
-
     private static User getUser() {
         String[] inputTab = new String[]{
                 "2",

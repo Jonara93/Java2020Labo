@@ -27,7 +27,7 @@ public class ParticipantCtrlAdd implements Serializable {
         if (!nomParticipant.isEmpty()) {
             prenomParticipant = utility.saisirName("Veuillez saisir le prénom du participant. Insérer \"q\" pour quitter");
             if (!prenomParticipant.isEmpty()) {
-                String IDParticipant = nomParticipant.concat(prenomParticipant);
+                String IDParticipant = nomParticipant.concat(prenomParticipant).toUpperCase();
 
                 Participant participant = participantList.getParticipant(IDParticipant);
                 if (stage.containsKey(IDParticipant)) { // déjà inscrit au stage

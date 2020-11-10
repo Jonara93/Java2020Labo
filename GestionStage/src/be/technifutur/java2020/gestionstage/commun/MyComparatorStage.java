@@ -3,7 +3,7 @@ package be.technifutur.java2020.gestionstage.commun;
 import java.util.Comparator;
 
 public class MyComparatorStage implements Comparator<Stage> {
-
+    @Override
     public int compare(Stage stage1, Stage stage2) {
         int compare;
 

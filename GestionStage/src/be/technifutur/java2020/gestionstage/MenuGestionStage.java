@@ -83,7 +83,7 @@ public class MenuGestionStage {
         this.activityCtrlCreateActivity = activityCtrlCreateActivity;
     }
 
-    public void setParticipantCtrlGestion(ParticipantCtrlAdd participantCtrlAdd) {
+    public void setParticipantCtrlAdd(ParticipantCtrlAdd participantCtrlAdd) {
         this.participantCtrlAdd = participantCtrlAdd;
     }
 
@@ -107,4 +107,8 @@ public class MenuGestionStage {
         this.stageList = stageList;
     }
 
+
+    public void setParticipantCtrlRemove(ParticipantCtrlRemove participantCtrlRemove) {
+        this.participantCtrlRemove = participantCtrlRemove;
+    }
 }

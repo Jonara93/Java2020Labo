@@ -6,9 +6,7 @@ import be.technifutur.java2020.gestionstage.exception.*;
 import java.io.IOException;
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class Stage  implements Serializable {
     /*
@@ -115,4 +113,12 @@ public class Stage  implements Serializable {
     public void setMapParticipant(Map<String, Participant> mapParticipant) {
         this.mapParticipant = mapParticipant;
     }
+
+    public List<Participant> getSortListParticipantByName(){
+        Collection<Participant> participantCollection = this.getMapParticipant().values();
+        List<Participant> participantList = new ArrayList<>(participantCollection);
+        return participantList;
+    }
+
+
 }
