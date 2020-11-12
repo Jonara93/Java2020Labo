@@ -123,7 +123,9 @@ public class Vue {
         System.out.println("Liste des stages/activités auquels le participant est inscrit : ");
         for (Stage stage : stageCollection) {
             List<Activity> activityList = new ArrayList<>(stage.getActivityCollection());
-            System.out.println("    " + stage.getIntituleStage() + " : ");
+            if (stage.containsKeyParticipant(participant.getIDParticipant())) {
+                System.out.println("    " + stage.getIntituleStage() + " : ");
+            }
             for (Activity activity : activityList) {
                 if (activity.containsKeyParticipant(participant.getIDParticipant())) {
                     System.out.println("        " + activity.getNameActivity());

@@ -11,6 +11,7 @@ public class MenuGestionStage {
     FIELD
      */
     private StageList stageList;
+    private Vue vue;
     private User user;
     private Utility utility;
     private DataBase dataBase;
@@ -36,30 +37,38 @@ public class MenuGestionStage {
         }
         if (!nomStage.isEmpty()) {
             stage = stageList.getStage(nomStage);
+            vue.afficheMessage("Gestion du stage : " + stage.getIntituleStage());
             showMenu();
             input = user.getInput();
             while (!(input.equalsIgnoreCase("q"))) {
                 switch (input) {
                     case "1":
-                        activityCtrlCreateActivity.createActivity(stage);
+                        //TODO modifier un stage
                         break;
                     case "2":
-                        displayHoraireCtrl.displayHoraireStage(stage);
+                        activityCtrlCreateActivity.createActivity(stage);
                         break;
                     case "3":
-                        participantCtrlAdd.ajouterParticipant(stage);
+                        displayHoraireCtrl.displayHoraireStage(stage);
                         break;
                     case "4":
-                        participantCtrlRemove.removeParticipant(stage);
+                        //TODO modifier activité
                         break;
                     case "5":
-                        participantCtrlDisplay.displayParticipant(stage);
+                        participantCtrlAdd.ajouterParticipant(stage);
                         break;
                     case "6":
+                        participantCtrlRemove.removeParticipant(stage);
+                        break;
+                    case "7":
+                        participantCtrlDisplay.displayParticipant(stage);
+                        break;
+                    case "8":
                         menuGestionActivity.DisplayMenu(stage);
                         break;
 
                 }
+                vue.afficheMessage("Gestion du stage : " + stage.getIntituleStage());
                 showMenu();
                 input = user.getInput();
             }
@@ -74,12 +83,14 @@ public class MenuGestionStage {
     private void showMenu() {
         System.out.println("" +
                 "Veuillez choisir une option.\n" +
-                "1. Ajouter une activitée à un stage.\n" +
-                "2. Afficher les activitées d'un stage\n" +
-                "3. Ajouter un participant\n" +
-                "4. Retirer un participant\n" +
-                "5. Liste des participant\n" +
-                "6. Gestion des activité.\n" +
+                "1. Modifier le stage.\n" +
+                "2. Ajouter une activitée au stage.\n" +
+                "3. Afficher l'horaire du stage.\n" +
+                "4. Modifier une activité du stage.\n" +
+                "5. Ajouter un participant au stage.\n" +
+                "6. Retirer un participant du stage.\n" +
+                "7. Liste des participant du stage.\n" +
+                "8. Gestion des activité du stage.\n" +
                 "q. Quitter l'application.");
     }
 
@@ -126,5 +137,9 @@ public class MenuGestionStage {
 
     public void setDataBase(DataBase dataBase) {
         this.dataBase = dataBase;
+    }
+
+    public void setVue(Vue vue) {
+        this.vue = vue;
     }
 }

@@ -46,9 +46,9 @@ public class Menu {
         System.out.println("" +
                 "Veuillez choisir une option.\n" +
                 "1. Créer un stage.\n" +
-                "2. Afficher les stages\n" +
+                "2. Afficher les stages.\n" +
                 "3. Gestion des stages.\n" +
-                "4. Afficher toutes les informations concernant les participants\n" +
+                "4. Afficher toutes les informations concernant les participants.\n" +
                 "q. Quitter l'application.");
     }
 

@@ -45,51 +45,21 @@ public class Main {
                 "3",
 
                 "Ztage",
-                "1",
-                "Angular",//activity
-                "10.10.2020.08.00",
-                "60",
-                "1",
-                "Java base 1",//activity
-                "10.10.2020.08.00",
-                "60",
-                "1",
-                "Communication",//activity
-                "11.10.2020.09.00",
-                "85",
-                "1",
-                "Android 1",//activity
-                "11.10.2020.12.00",
-                "125",
-                "1",
-                "Android 2",//activity
-                "12.10.2020.14.00",
-                "115",
-                "1",
-                "Java base 2",//activity
-                "12.10.2020.11.45",
-                "180",
+                "2", "Angular", "10.10.2020.08.00", "60",
+                "2", "Java base 1", "10.10.2020.08.00", "60",
+                "2", "Communication", "11.10.2020.09.00", "85",
+                "2", "Android 1", "11.10.2020.12.00", "125",
+                "2", "Android 2", "12.10.2020.14.00", "115",
+                "2", "Java base 2", "12.10.2020.11.45", "180",
 
                 "q",
                 "3",
 
                 "Stage Java",
-                "1",
-                "Intro Prog 1",
-                "11.11.2020.08.00",
-                "180",
-                "1",
-                "Intro Prog 2",
-                "12.11.2020.08.00",
-                "220",
-                "1",
-                "Intro Prog 3",
-                "13.11.2020.08.00",
-                "115",
-                "1",
-                "Intro Prog 4",
-                "13.11.2020.12.30",
-                "85",
+                "2", "Intro Prog 1", "11.11.2020.08.00", "180",
+                "2", "Intro Prog 2", "12.11.2020.08.00", "220",
+                "2", "Intro Prog 3", "13.11.2020.08.00", "115",
+                "2", "Intro Prog 4", "13.11.2020.12.30", "85",
 
                 "q",
                 "q"
@@ -104,11 +74,10 @@ public class Main {
                 //Ztage
                 "3",
                 "Ztage",
-
-                "3", "Arabia", "Jonathan", "q", "q",
-                "3", "Arabia", "Christophe", "q", "q",
-                "3", "Arcka", "Pierre", "q", "q",
-                "3", "Pompidou", "Georges", "q", "q",
+                "5", "Arabia", "Jonathan", "q", "q",
+                "5", "Arabia", "Christophe", "q", "q",
+                "5", "Arcka", "Pierre", "q", "q",
+                "5", "Pompidou", "Georges", "q", "q",
 
                 "q",
 
@@ -116,10 +85,9 @@ public class Main {
 
                 "3",
                 "Stage Java",
-
-                "3", "Dybala", "Paulo", "q", "q",
-                "3", "Pierre", "Jean", "q", "q",
-                "3", "Ronaldo", "Cristiano", "q", "q",
+                "5", "Dybala", "Paulo", "q", "q",
+                "5", "Pierre", "Jean", "q", "q",
+                "5", "Ronaldo", "Cristiano", "q", "q",
 
                 "q",
 
@@ -127,11 +95,9 @@ public class Main {
 
                 "3",
                 "Ctage Multisport",
-
-                "3",
-                "Doe", "John", "q", "q",
-                "3", "Osiris", "Rathus", "q", "q",
-                "3", "Doe", "Jane", "q", "q",
+                "5", "Doe", "John", "q", "q",
+                "5", "Osiris", "Rathus", "q", "q",
+                "5", "Doe", "Jane", "q", "q",
 
                 "q",
                 "q"
@@ -141,13 +107,15 @@ public class Main {
 
     private static User insertParticipantIntoActivity() {
         String[] inputTab = new String[]{
-                "3", "Ztage", "6", "Angular",
+                "3", "Ztage", "8", "Angular",
 
                 "1", "Arabia", "Jonathan", "n", "o",
                 "1", "Pierre", "Jean", "o", "n",
                 "1", "Arabia", "Christophe", "n", "o",
 
-                "q", "q", "3", "Stage Java", "6", "Intro Prog 3",
+                "q", "q",
+
+                "3", "Stage Java", "8", "Intro Prog 3",
 
                 "1", "Dybala", "Paulo", "n", "o",
                 "1", "Pierre", "Jean", "n", "o",

@@ -40,6 +40,7 @@ public class Factory {
     private ActivityCtrlCreateActivity activityCtrlCreateActivity;
     private ActivityCtrlInscription activityCtrlInscription;
     private ActivityCtrlDisplayParticipant activityCtrlDisplayParticipant;
+    private ActivityCtrlRemoveParticipant activityCtrlRemoveParticipant;
     // participant
     private ParticipantList participantList;
     private ParticipantCtrlAdd participantCtrlAdd;
@@ -53,7 +54,7 @@ public class Factory {
     METHOD
      */
 
-
+    //menu
     public Menu getMenu() {
         Menu menu = new Menu();
         menu.setStageCtrlCreateStage(getStageCtrlCreateStage());
@@ -70,6 +71,7 @@ public class Factory {
         if (this.menuGestionStage == null) {
             this.menuGestionStage = new MenuGestionStage();
             this.menuGestionStage.setUser(getUser());
+            this.menuGestionStage.setVue(getVue());
             this.menuGestionStage.setUtility(getUtility());
             this.menuGestionStage.setStageList(getStageList());
             this.menuGestionStage.setDataBase(getDataBase());
@@ -92,79 +94,11 @@ public class Factory {
             this.menuGestionActivity.setDataBase(getDataBase());
             this.menuGestionActivity.setActivityCtrlInscription(getActivityCtrlInscription());
             this.menuGestionActivity.setActivityCtrlDisplayParticipant(getActivityCtrlDisplayParticipant());
-
+            this.menuGestionActivity.setActivityCtrlRemoveParticipant(getActivityCtrlRemoveParticipant());
         }
         return menuGestionActivity;
     }
 
-    public StageList getStageList() {
-
-        if (this.stageList == null) {
-            if (getDataBase().getStageList() == null) {
-                this.stageList = new StageList();
-            } else {
-                this.stageList = getDataBase().getStageList();
-            }
-        }
-        return stageList;
-    }
-
-    public ParticipantList getParticipantList() {
-        if (this.participantList == null) {
-            if (getDataBase().getParticipantList() == null) {
-                this.participantList = new ParticipantList();
-            } else {
-
-                this.participantList = getDataBase().getParticipantList();
-            }
-        }
-        return participantList;
-    }
-
-    public Vue getVue() {
-        if (this.vue == null) {
-            this.vue = new Vue();
-        }
-        return vue;
-    }
-
-
-    public Utility getUtility() {
-        if (utility == null) {
-            this.utility = new Utility();
-            this.utility.setVue(getVue());
-            this.utility.setUser(getUser());
-        }
-        return utility;
-    }
-
-    public User getUser() {
-        if (this.user == null) {
-            this.user = new ConsoleUser();
-        }
-        return user;
-    }
-
-    public StageCtrlCreateStage getStageCtrlCreateStage() {
-        if (this.stageCtrlCreateStage == null) {
-            this.stageCtrlCreateStage = new StageCtrlCreateStage();
-            this.stageCtrlCreateStage.setVue(getVue());
-            this.stageCtrlCreateStage.setUtility(getUtility());
-            this.stageCtrlCreateStage.setStageList(getStageList());
-            this.stageCtrlCreateStage.setUser(getUser());
-            this.stageCtrlCreateStage.setDataBase(getDataBase());
-        }
-        return stageCtrlCreateStage;
-    }
-
-    public StageCtrlDisplayStage getStageCtrlDisplayStage() {
-        if (this.stageCtrlDisplayStage == null) {
-            this.stageCtrlDisplayStage = new StageCtrlDisplayStage();
-            this.stageCtrlDisplayStage.setStageList(getStageList());
-            this.stageCtrlDisplayStage.setVue(getVue());
-        }
-        return stageCtrlDisplayStage;
-    }
 
     // activity
     public ActivityCtrlCreateActivity getActivityCtrlCreateActivity() {
@@ -190,9 +124,18 @@ public class Factory {
         return activityCtrlInscription;
     }
 
+    public ActivityCtrlRemoveParticipant getActivityCtrlRemoveParticipant() {
+        if (this.activityCtrlRemoveParticipant == null) {
+            this.activityCtrlRemoveParticipant = new ActivityCtrlRemoveParticipant();
+            this.activityCtrlRemoveParticipant.setUtility(getUtility());
+            this.activityCtrlRemoveParticipant.setVue(getVue());
+        }
+        return activityCtrlRemoveParticipant;
+    }
+
     public ActivityCtrlDisplayParticipant getActivityCtrlDisplayParticipant() {
-        if (this.activityCtrlDisplayParticipant==null){
-            this.activityCtrlDisplayParticipant= new ActivityCtrlDisplayParticipant();
+        if (this.activityCtrlDisplayParticipant == null) {
+            this.activityCtrlDisplayParticipant = new ActivityCtrlDisplayParticipant();
             this.activityCtrlDisplayParticipant.setVue(getVue());
         }
         return activityCtrlDisplayParticipant;
@@ -207,6 +150,27 @@ public class Factory {
             this.displayHoraireCtrl.setVue(getVue());
         }
         return displayHoraireCtrl;
+    }
+
+    public StageCtrlCreateStage getStageCtrlCreateStage() {
+        if (this.stageCtrlCreateStage == null) {
+            this.stageCtrlCreateStage = new StageCtrlCreateStage();
+            this.stageCtrlCreateStage.setVue(getVue());
+            this.stageCtrlCreateStage.setUtility(getUtility());
+            this.stageCtrlCreateStage.setStageList(getStageList());
+            this.stageCtrlCreateStage.setUser(getUser());
+            this.stageCtrlCreateStage.setDataBase(getDataBase());
+        }
+        return stageCtrlCreateStage;
+    }
+
+    public StageCtrlDisplayStage getStageCtrlDisplayStage() {
+        if (this.stageCtrlDisplayStage == null) {
+            this.stageCtrlDisplayStage = new StageCtrlDisplayStage();
+            this.stageCtrlDisplayStage.setStageList(getStageList());
+            this.stageCtrlDisplayStage.setVue(getVue());
+        }
+        return stageCtrlDisplayStage;
     }
 
     public ParticipantCtrlAdd getParticipantCtrlAdd() {
@@ -279,6 +243,55 @@ public class Factory {
             }
         }
         return dataBase;
+    }
+
+    //others
+    public StageList getStageList() {
+
+        if (this.stageList == null) {
+            if (getDataBase().getStageList() == null) {
+                this.stageList = new StageList();
+            } else {
+                this.stageList = getDataBase().getStageList();
+            }
+        }
+        return stageList;
+    }
+
+    public ParticipantList getParticipantList() {
+        if (this.participantList == null) {
+            if (getDataBase().getParticipantList() == null) {
+                this.participantList = new ParticipantList();
+            } else {
+
+                this.participantList = getDataBase().getParticipantList();
+            }
+        }
+        return participantList;
+    }
+
+    public Vue getVue() {
+        if (this.vue == null) {
+            this.vue = new Vue();
+        }
+        return vue;
+    }
+
+
+    public Utility getUtility() {
+        if (utility == null) {
+            this.utility = new Utility();
+            this.utility.setVue(getVue());
+            this.utility.setUser(getUser());
+        }
+        return utility;
+    }
+
+    public User getUser() {
+        if (this.user == null) {
+            this.user = new ConsoleUser();
+        }
+        return user;
     }
 
 

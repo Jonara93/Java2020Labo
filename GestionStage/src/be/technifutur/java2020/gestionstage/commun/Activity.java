@@ -3,10 +3,11 @@ package be.technifutur.java2020.gestionstage.commun;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Activity  implements Serializable {
+public class Activity implements Serializable {
     /*
     FIELD
      */
@@ -28,11 +29,16 @@ public class Activity  implements Serializable {
     METHOD
      */
 
-    public void addParticipantToMap(String idParticipant, Participant participant){
-        mapParticipantActivity.putIfAbsent(idParticipant,participant);
+    public void addParticipantToMap(String idParticipant, Participant participant) {
+        mapParticipantActivity.putIfAbsent(idParticipant, participant);
     }
 
-    public boolean containsKeyParticipant(String idParticipant){
+
+    public void removeParticipant(Participant participant) {
+        mapParticipantActivity.remove(participant.getIDParticipant());
+    }
+
+    public boolean containsKeyParticipant(String idParticipant) {
         return mapParticipantActivity.containsKey(idParticipant);
     }
 
@@ -72,8 +78,9 @@ public class Activity  implements Serializable {
         this.mapParticipantActivity = mapParticipantActivity;
     }
 
-    public Collection<Participant> getCollectionOfParticipant(){
-        return mapParticipantActivity.values();
+    public Collection<Participant> getCollectionOfParticipant() {
+        return Collections.unmodifiableCollection(mapParticipantActivity.values());
     }
+
 
 }

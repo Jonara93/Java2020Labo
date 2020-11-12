@@ -18,6 +18,7 @@ public class MenuGestionActivity {
     private DataBase dataBase;
     private ActivityCtrlInscription activityCtrlInscription;
     private ActivityCtrlDisplayParticipant activityCtrlDisplayParticipant;
+    private ActivityCtrlRemoveParticipant activityCtrlRemoveParticipant;
     /*
     METHOD
     */
@@ -36,6 +37,7 @@ public class MenuGestionActivity {
         }
         if (!nameActivity.isEmpty()) {
             activity = stage.getActivity(nameActivity);
+            vue.afficheMessage("Gestion de l'activité : " + activity.getNameActivity());
             showMenu();
             input = user.getInput();
             while (!(input.equalsIgnoreCase("q"))) {
@@ -44,9 +46,13 @@ public class MenuGestionActivity {
                         activityCtrlInscription.inscriptionActivity(stage, activity);
                         break;
                     case "2":
+                        activityCtrlRemoveParticipant.removeParticipant(activity);
+                        break;
+                    case "3":
                         activityCtrlDisplayParticipant.DisplayParticipant(activity);
                         break;
                 }
+                vue.afficheMessage("Gestion de l'activité : " + activity.getNameActivity());
                 showMenu();
                 input = user.getInput();
             }
@@ -61,8 +67,9 @@ public class MenuGestionActivity {
     private void showMenu() {
         System.out.println("" +
                 "Veuillez choisir une option.\n" +
-                "1. Inscrire un participant du stage à une activité.\n" +
-                "2. Afficher les participants de l'activité.\n" +
+                "1. Inscrire un participant à cette activité.\n" +
+                "2. Supprimer un participant de l'activité.\n" +
+                "3. Afficher les participants de l'activité.\n" +
                 "q. Quitter l'application.");
     }
     
@@ -92,5 +99,9 @@ public class MenuGestionActivity {
 
     public void setDataBase(DataBase dataBase) {
         this.dataBase = dataBase;
+    }
+
+    public void setActivityCtrlRemoveParticipant(ActivityCtrlRemoveParticipant activityCtrlRemoveParticipant) {
+        this.activityCtrlRemoveParticipant = activityCtrlRemoveParticipant;
     }
 }

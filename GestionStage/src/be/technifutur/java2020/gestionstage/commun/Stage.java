@@ -1,6 +1,7 @@
 package be.technifutur.java2020.gestionstage.commun;
 
 import be.technifutur.java2020.gestionstage.DataBase;
+import be.technifutur.java2020.gestionstage.commun.comparator.MyComparatorParticipant;
 import be.technifutur.java2020.gestionstage.exception.*;
 
 import java.io.IOException;
@@ -45,7 +46,7 @@ public class Stage implements Serializable {
         if (dateFin.isBefore(dateDebut.plusMinutes(duration))) {
             throw new ExceptionGestionStageDate("La durée de l'activité dépasse la fin du stage.");
         }
-        if (dateDebut.isBefore(this.dateDebut)){
+        if (dateDebut.isBefore(this.dateDebut)) {
             throw new ExceptionGestionStageDate("La date de début de l'activité est avant le début du stage.");
         }
         mapActivity.put(nameActivity, new Activity(dateDebut, duration, nameActivity));
@@ -67,7 +68,7 @@ public class Stage implements Serializable {
     }
 
     public Collection<Activity> getActivityCollection() {
-        return mapActivity.values();
+        return Collections.unmodifiableCollection(mapActivity.values());
     }
 
     public Participant createParticipant(String IDParticipant, String nomParticipant, String prenomParticipant, String clubParticipant, String mailParticipant) {
@@ -123,6 +124,7 @@ public class Stage implements Serializable {
     public List<Participant> getSortListParticipantByName() {
         Collection<Participant> participantCollection = this.getMapParticipant().values();
         List<Participant> participantList = new ArrayList<>(participantCollection);
+        participantList.sort(new MyComparatorParticipant());
         return participantList;
     }
 
@@ -130,7 +132,7 @@ public class Stage implements Serializable {
         return mapParticipant.get(idParticipant);
     }
 
-    public Activity getActivity(String nameActivity){
+    public Activity getActivity(String nameActivity) {
         return mapActivity.get(nameActivity);
     }
 }
