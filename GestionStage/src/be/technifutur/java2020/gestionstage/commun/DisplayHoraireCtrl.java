@@ -1,5 +1,7 @@
 package be.technifutur.java2020.gestionstage.commun;
 
+import be.technifutur.java2020.gestionstage.commun.Comparator.MyComparatorActivity;
+
 import java.util.*;
 
 public class DisplayHoraireCtrl {

@@ -1,4 +1,6 @@
-package be.technifutur.java2020.gestionstage.commun;
+package be.technifutur.java2020.gestionstage.commun.Comparator;
+
+import be.technifutur.java2020.gestionstage.commun.Activity;
 
 import java.util.Comparator;
 
@@ -8,9 +10,13 @@ public class MyComparatorActivity implements Comparator<Activity> {
         int compare;
 
         if (activity1.getDateDebut().isBefore(activity2.getDateDebut())) {
-            compare = -1;
+            compare = -42;
         } else if (activity2.getDateDebut().isBefore(activity1.getDateDebut())) {
-            compare = 1;
+            compare = 42;
+        } else if (activity1.getDuration() > activity2.getDuration()) {
+            compare = 42;
+        } else if (activity1.getDuration() < activity2.getDuration()) {
+            compare = -42;
         } else {
             compare = 0;
         }
