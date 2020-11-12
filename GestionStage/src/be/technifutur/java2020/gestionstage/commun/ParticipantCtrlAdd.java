@@ -35,7 +35,7 @@ public class ParticipantCtrlAdd implements Serializable {
                     participantCtrlModif.modifParticipant(participant, "Le participant est déjà inscrit à ce stage.");
                 } else if (participantList.verifParticipantInList(IDParticipant) && !stage.containsKey(IDParticipant)) {// existe dans la liste mais pas inscrit dans le stage.
                     participantCtrlModif.modifParticipant(participant, "Le participant existe mais n'est pas inscrit à ce stage.");
-                    if (utility.returnBoolOuiNon("Voulez-vous ajouter le participant dans ce stage ? O/N")) {
+                    if (utility.returnBoolTrueFalse("Voulez-vous ajouter le participant dans ce stage ? O/N")) {
                         stage.addParticipant(participant);
                     }
                 } else {  // 1 : le participant n'existe pas faut le créer + ajout du participant au stage

@@ -17,7 +17,7 @@ public class ParticipantCtrlModif {
         String inputChoice;
         vue.afficheMessage(message);
         vue.afficheParticipant(participant);
-        boolean modif = utility.returnBoolOuiNon("Voulez-vous modifier les informations du participants ? O/N");
+        boolean modif = utility.returnBoolTrueFalse("Voulez-vous modifier les informations du participants ? O/N");
         while (modif) {
             inputChoice = utility.saisirName(vue.displayModifParticipant());
             if (!inputChoice.isEmpty()) {
@@ -36,7 +36,7 @@ public class ParticipantCtrlModif {
             }
             vue.afficheParticipant(participant);
             vue.afficheMessage("Voulez-vous modifier les informations ?");
-            modif = utility.returnBoolOuiNon("Voulez-vous modifier les informations du participants ? O/N");
+            modif = utility.returnBoolTrueFalse("Voulez-vous modifier les informations du participants ? O/N");
         }
     }
 

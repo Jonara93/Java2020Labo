@@ -19,7 +19,7 @@ public class ParticipantList  implements Serializable {
      */
 
     public void addParticipant(String IDParticipant, Participant participant){
-        mapParticipant.put(IDParticipant,participant);
+        mapParticipant.putIfAbsent(IDParticipant,participant);
     }
 
     public boolean verifParticipantInList(String IDParticipant){

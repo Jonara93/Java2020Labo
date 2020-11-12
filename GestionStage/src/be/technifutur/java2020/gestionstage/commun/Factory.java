@@ -227,15 +227,6 @@ public class Factory {
         return participantCtrlRemove;
     }
 
-    public ActivityCtrlInscription getActivityCtrlInscription() {
-        if (this.activityCtrlInscription == null){
-            this.activityCtrlInscription = new ActivityCtrlInscription();
-            activityCtrlInscription.setVue(getVue());
-            activityCtrlInscription.setUtility(getUtility());
-        }
-        return activityCtrlInscription;
-    }
-
     public ParticipantCtrlCreate getParticipantCtrlCreate() {
         if (this.participantCtrlCreate == null){
             this.participantCtrlCreate = new ParticipantCtrlCreate();
@@ -243,5 +234,16 @@ public class Factory {
             this.participantCtrlCreate.setUtility(getUtility());
         }
         return participantCtrlCreate;
+    }
+
+    public ActivityCtrlInscription getActivityCtrlInscription() {
+        if (this.activityCtrlInscription == null) {
+            this.activityCtrlInscription = new ActivityCtrlInscription();
+            this.activityCtrlInscription.setVue(getVue());
+            this.activityCtrlInscription.setUtility(getUtility());
+            this.activityCtrlInscription.setParticipantCtrlModif(getParticipantCtrlModif());
+            this.activityCtrlInscription.setParticipantCtrlCreate(getParticipantCtrlCreate());
+        }
+        return activityCtrlInscription;
     }
 }

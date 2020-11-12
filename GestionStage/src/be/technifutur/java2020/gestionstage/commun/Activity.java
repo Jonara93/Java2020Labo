@@ -27,8 +27,8 @@ public class Activity  implements Serializable {
     METHOD
      */
 
-    public void addParticipantToMap(Participant participant){
-        mapParticipantActivity.putIfAbsent(participant.getIDParticipant(),participant);
+    public void addParticipantToMap(String idParticipant, Participant participant){
+        mapParticipantActivity.putIfAbsent(idParticipant,participant);
     }
 
     /*

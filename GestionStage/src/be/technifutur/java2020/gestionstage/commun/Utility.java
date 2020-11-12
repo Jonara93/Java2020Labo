@@ -101,7 +101,7 @@ public class Utility {
         return input.trim();
     }
 
-    public boolean returnBoolOuiNon(String message) {
+    public boolean returnBoolTrueFalse(String message) {
         boolean bool = false;
         String input;
         do {

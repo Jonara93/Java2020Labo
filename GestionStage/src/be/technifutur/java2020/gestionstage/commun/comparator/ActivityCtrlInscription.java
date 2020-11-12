@@ -12,18 +12,21 @@ public class ActivityCtrlInscription {
      */
     private Vue vue;
     private Utility utility;
+    private ParticipantCtrlModif participantCtrlModif;
+    private ParticipantCtrlCreate participantCtrlCreate;
     
     /*
     METHOD
     */
 
     public void inscriptionActivity(Stage stage) {
-        String nameActivity, nom, prenom, idParticipant = null;
+        String nameActivity, nom = null, prenom = null, idParticipant = null;
+        boolean inscriptionOk;
         //récupération des données utiles
         Map<String, Activity> activityMap = stage.getMapActivity();
         List<Activity> activityList = new ArrayList<>(stage.getActivityCollection());
         activityList.sort(new MyComparatorActivity());
-        List<Participant> participantList = stage.getSortListParticipantByName();
+        List<Participant> participantListFromStage = stage.getSortListParticipantByName();
         //Afficher la liste des activités
         vue.afficheHoraire(stage, activityList);
         //Choisir une activité
@@ -42,21 +45,33 @@ public class ActivityCtrlInscription {
             }
         }
         if (idParticipant != null) {
+            Activity activity = activityMap.get(nameActivity);
             //verifier que la personne existe
-            if (participantList.contains(idParticipant)) {
-                //Si elle existe :
+            if (participantListFromStage.contains(idParticipant)) {
+                //Si la personne existe :
                 // demander si les informations sont correctes (pouvoir les changer)
-                vue.afficheMessage("Le participant est inscrit à ce stage.");
                 Participant participant = stage.getParticipant(idParticipant);
-                vue.afficheParticipant(stage.getParticipant(idParticipant));
-
+                participantCtrlModif.modifParticipant(participant, "\"Le participant est inscrit à ce stage.\"");
                 // Demander si on veut bien l'inscrire à l'activités
-
+                inscriptionOk = utility.returnBoolTrueFalse("Voulez-vous inscrire le participant à cette activité ? O/N");
+                if (inscriptionOk) {
+                    activity.addParticipantToMap(idParticipant, participant);
+                }
             } else {
-                //Si elle n'existe pas :
+                //Si la personne n'existe pas :
                 // Demander si elle veut s'inscrire au stage et à l'activité.
+                inscriptionOk = utility.returnBoolTrueFalse("" + "" +
+                        "N 'existe pas dans la liste des participans.\n" +
+                        "Voulez-vous vous inscrire au stage et à cette activité ? O/N"
+                );
                 //SI oui : demande information complémentaire + inscrire AU !!!!!!STAGE!!!!!! et !!!!!ACTIVITE!!!!!
-
+                if (inscriptionOk) {
+                    // inscription dans le stage
+                    participantCtrlCreate.createParticipant(idParticipant, nom, prenom, stage);
+                    Participant participant = stage.getParticipant(idParticipant);
+                    // inscription dans l'activité
+                    activity.addParticipantToMap(idParticipant, participant);
+                }
             }
         }
     }
@@ -72,4 +87,13 @@ public class ActivityCtrlInscription {
     public void setUtility(Utility utility) {
         this.utility = utility;
     }
+
+    public void setParticipantCtrlModif(ParticipantCtrlModif participantCtrlModif) {
+        this.participantCtrlModif = participantCtrlModif;
+    }
+
+    public void setParticipantCtrlCreate(ParticipantCtrlCreate participantCtrlCreate) {
+        this.participantCtrlCreate = participantCtrlCreate;
+    }
+
 }
