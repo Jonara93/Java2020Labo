@@ -20,8 +20,9 @@ public class ActivityCtrlDisplayParticipant {
         List<Participant> participantList = new ArrayList<>(activity.getCollectionOfParticipant());
         participantList.sort(new MyComparatorParticipant());
         for (Participant participant : participantList) {
-            vue.afficheParticipant(participant);
+            vue.afficheParticipantSimple(participant);
         }
+        System.out.println();
     }
     
     /*

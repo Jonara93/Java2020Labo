@@ -30,8 +30,9 @@ public class ParticipantCtrlDisplay {
         List<Participant> participantList =  new ArrayList<>(stage.getMapParticipant().values());
         participantList.sort(new MyComparatorParticipant());
         for (Participant participant : participantList ) {
-            vue.afficheParticipant(participant);
+            vue.afficheParticipantSimple(participant);
         }
+        System.out.println();
     }
 
     public void displayParticipant(StageList stageList) {

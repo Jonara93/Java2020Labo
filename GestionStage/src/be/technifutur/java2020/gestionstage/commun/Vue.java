@@ -83,6 +83,10 @@ public class Vue {
         }
     }
 
+    public void afficheParticipantSimple(Participant participant) {
+        System.out.println("Nom et prénom du participant : " + participant.getNomParticipant() + " " + participant.getPrenomParticipant());
+    }
+
     public void afficheParticipant(Participant participant) {
         System.out.println("" +
                 "Nom du participant : " + participant.getNomParticipant() + "\n" +
@@ -98,7 +102,6 @@ public class Vue {
         } else {
             System.out.println("Adresse mail du participant : Non indiqué.");
         }
-        System.out.println("");
     }
 
     public void afficheParticipant(Participant participant, StageList stageList) {
@@ -120,14 +123,14 @@ public class Vue {
         System.out.println("Liste des stages/activités auquels le participant est inscrit : ");
         for (Stage stage : stageCollection) {
             List<Activity> activityList = new ArrayList<>(stage.getActivityCollection());
-            System.out.println("   " + stage.getIntituleStage() + " : ");
+            System.out.println("    " + stage.getIntituleStage() + " : ");
             for (Activity activity : activityList) {
                 if (activity.containsKeyParticipant(participant.getIDParticipant())) {
                     System.out.println("        " + activity.getNameActivity());
                 }
             }
         }
-        System.out.println("");
+        System.out.println("\n");
     }
 
     public String displayModifParticipant() {
