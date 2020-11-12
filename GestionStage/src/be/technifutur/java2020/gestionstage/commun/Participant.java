@@ -72,17 +72,4 @@ public class Participant  implements Serializable {
         this.adresseMail = adresseMail;
     }
 
-    /*public static void main(String[] args) {
-        Participant toto = new Participant("toto", "jojo",null,null);
-        System.out.println("ID du participant : " + toto.getNomPrenomParticipant());
-        System.out.println("Nom du participant : " + toto.getNomParticipant());
-        System.out.println("Prénom du participant : " + toto.getPrenomParticipant());
-        if (toto.nomClub != null) {
-            System.out.println("Nom du club du participant : " + toto.getNomClub());
-        }
-        if (toto.adresseMail != null) {
-            System.out.println("Adresse mail du participant : " + toto.getAdresseMail());
-        }
-
-    }*/
 }
