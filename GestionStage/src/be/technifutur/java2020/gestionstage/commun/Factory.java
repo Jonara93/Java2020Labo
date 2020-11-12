@@ -40,6 +40,7 @@ public class Factory {
     private ParticipantCtrlDisplay participantCtrlDisplay;
     private ParticipantCtrlModif participantCtrlModif;
     private ParticipantCtrlRemove participantCtrlRemove;
+    private ParticipantCtrlCreate participantCtrlCreate;
 
 
     /*
@@ -173,6 +174,7 @@ public class Factory {
             this.participantCtrlAdd.setVue(getVue());
             this.participantCtrlAdd.setParticipantList(getParticipantList());
             this.participantCtrlAdd.setDataBase(getDataBase());
+            this.participantCtrlAdd.setParticipantCtrlCreate(getParticipantCtrlCreate());
         }
         return participantCtrlAdd;
     }
@@ -232,5 +234,14 @@ public class Factory {
             activityCtrlInscription.setUtility(getUtility());
         }
         return activityCtrlInscription;
+    }
+
+    public ParticipantCtrlCreate getParticipantCtrlCreate() {
+        if (this.participantCtrlCreate == null){
+            this.participantCtrlCreate = new ParticipantCtrlCreate();
+            this.participantCtrlCreate.setParticipantList(getParticipantList());
+            this.participantCtrlCreate.setUtility(getUtility());
+        }
+        return participantCtrlCreate;
     }
 }

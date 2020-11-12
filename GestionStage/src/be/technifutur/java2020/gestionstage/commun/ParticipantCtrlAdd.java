@@ -15,6 +15,7 @@ public class ParticipantCtrlAdd implements Serializable {
     private Vue vue;
     private ParticipantList participantList;
     private ParticipantCtrlModif participantCtrlModif;
+    private ParticipantCtrlCreate participantCtrlCreate;
     private DataBase dataBase;
 
 
@@ -39,7 +40,7 @@ public class ParticipantCtrlAdd implements Serializable {
                     }
                 } else {  // 1 : le participant n'existe pas faut le créer + ajout du participant au stage
                     vue.afficheMessage("Le participant n'existe pas.");
-                    createParticipant(IDParticipant, nomParticipant, prenomParticipant, stage);
+                    participantCtrlCreate.createParticipant(IDParticipant, nomParticipant, prenomParticipant, stage);
                 }
             }
         }
@@ -63,14 +64,7 @@ public class ParticipantCtrlAdd implements Serializable {
         }
     }
 
-    //Creation d'un participant
-    private void createParticipant(String IDParticipant, String nomParticipant, String prenomParticipant, Stage stage) {
-        String mailParticipant, clubParticipant;
-        clubParticipant = utility.saisirName("Veuillez saisir le nom du club du participant ou insérer \"q\" pour laisser le champ vide.");
-        mailParticipant = utility.saisirMail("Veuillez saisir l'adresse mail du participant ou insérer \"q\" pour laisser le champ vide.");
-        Participant participant = stage.createParticipant(IDParticipant, nomParticipant, prenomParticipant, clubParticipant, mailParticipant);
-        participantList.addParticipant(IDParticipant, participant);
-    }
+
 
     /*
     SETTER AND GETTER
@@ -97,5 +91,9 @@ public class ParticipantCtrlAdd implements Serializable {
 
     public void setDataBase(DataBase dataBase) {
         this.dataBase = dataBase;
+    }
+
+    public void setParticipantCtrlCreate(ParticipantCtrlCreate participantCtrlCreate) {
+        this.participantCtrlCreate = participantCtrlCreate;
     }
 }
