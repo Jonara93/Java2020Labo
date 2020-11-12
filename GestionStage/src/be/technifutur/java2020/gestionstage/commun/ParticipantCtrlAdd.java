@@ -32,9 +32,9 @@ public class ParticipantCtrlAdd implements Serializable {
 
                 Participant participant = participantList.getParticipant(IDParticipant);
                 if (stage.containsKey(IDParticipant)) { // déjà inscrit au stage
-                    modifParticipant(participant, "Le participant est déjà inscrit à ce stage.");
+                    participantCtrlModif.modifParticipant(participant, "Le participant est déjà inscrit à ce stage.");
                 } else if (participantList.verifParticipantInList(IDParticipant) && !stage.containsKey(IDParticipant)) {// existe dans la liste mais pas inscrit dans le stage.
-                    modifParticipant(participant, "Le participant existe mais n'est pas inscrit à ce stage.");
+                    participantCtrlModif.modifParticipant(participant, "Le participant existe mais n'est pas inscrit à ce stage.");
                     if (utility.returnBoolOuiNon("Voulez-vous ajouter le participant dans ce stage ? O/N")) {
                         stage.addParticipant(participant);
                     }
@@ -50,21 +50,6 @@ public class ParticipantCtrlAdd implements Serializable {
             e.printStackTrace();
         }
     }
-
-    //modif un participant
-    private void modifParticipant(Participant participant, String messageParticipantDansStage) {
-        vue.afficheMessage(messageParticipantDansStage);
-        vue.afficheParticipant(participant);
-        boolean modif = utility.returnBoolOuiNon("Voulez-vous modifier les informations du participants ? O/N");
-        while (modif) {
-            participantCtrlModif.modifParticipant(participant);
-            vue.afficheParticipant(participant);
-            vue.afficheMessage("Voulez-vous modifier les informations ?");
-            modif = utility.returnBoolOuiNon("Voulez-vous modifier les informations du participants ? O/N");
-        }
-    }
-
-
 
     /*
     SETTER AND GETTER

@@ -31,10 +31,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0b53e3f0-0cc5-4e4e-80c2-ce66b9bbc6b4" name="Default Changelist" comment="Rearrangemment">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/commun/Factory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/commun/Factory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/commun/ParticipantCtrlAdd.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/commun/ParticipantCtrlAdd.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/commun/ParticipantCtrlCreate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/commun/ParticipantCtrlCreate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/commun/ParticipantCtrlModif.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/commun/ParticipantCtrlModif.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,13 +121,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1604477845994</updated>
-    </task>
-    <task id="LOCAL-00001" summary="premier commit test">
-      <created>1604478094285</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1604478094285</updated>
     </task>
     <task id="LOCAL-00002" summary="creation class">
       <created>1604481794413</created>
@@ -467,7 +458,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605170520572</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="chgt responsabilitre create participant : OK">
+      <created>1605170833414</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1605170833415</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -483,7 +481,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="rearrangement ctrl&#10;rearrangement factory" />
     <MESSAGE value="Avancement pour Activity" />
     <MESSAGE value="Oupsi ! Petite erreur dans ma REGEX :O" />
     <MESSAGE value="Un dernier rajout avant de m'arrêter ! &#10;try/catch :  nameStageIsValid" />
@@ -508,7 +505,8 @@
     <MESSAGE value="&quot;optimisation&quot; du code + affichage participant d'un stage" />
     <MESSAGE value="Réarangement Comparator + amélioration comparator" />
     <MESSAGE value="debut ajout inscrit" />
-    <option name="LAST_COMMIT_MESSAGE" value="debut ajout inscrit" />
+    <MESSAGE value="chgt responsabilitre create participant : OK" />
+    <option name="LAST_COMMIT_MESSAGE" value="chgt responsabilitre create participant : OK" />
   </component>
   <component name="WindowStateProjectService">
     <state x="729" y="321" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1605007631545">
@@ -519,10 +517,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="765" y="203" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605170668635" />
-    <state x="565" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1605023391374">
+    <state x="565" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1605171022141">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="565" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605023391374" />
+    <state x="565" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605171022141" />
     <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1604486701655">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -531,22 +529,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604652121537" />
-    <state width="1307" height="771" key="GridCell.Tab.0.bottom" timestamp="1605169753379">
+    <state width="1307" height="771" key="GridCell.Tab.0.bottom" timestamp="1605170814866">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1307" height="771" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605169753379" />
-    <state width="1307" height="771" key="GridCell.Tab.0.center" timestamp="1605169753379">
+    <state width="1307" height="771" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605170814866" />
+    <state width="1307" height="771" key="GridCell.Tab.0.center" timestamp="1605170814865">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1307" height="771" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605169753379" />
-    <state width="1307" height="771" key="GridCell.Tab.0.left" timestamp="1605169753379">
+    <state width="1307" height="771" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605170814865" />
+    <state width="1307" height="771" key="GridCell.Tab.0.left" timestamp="1605170814865">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1307" height="771" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605169753379" />
-    <state width="1307" height="771" key="GridCell.Tab.0.right" timestamp="1605169753379">
+    <state width="1307" height="771" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605170814865" />
+    <state width="1307" height="771" key="GridCell.Tab.0.right" timestamp="1605170814866">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1307" height="771" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605169753379" />
+    <state width="1307" height="771" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605170814866" />
     <state width="1480" height="525" key="GridCell.Tab.1.bottom" timestamp="1605169055167">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
