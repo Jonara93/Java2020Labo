@@ -25,9 +25,6 @@ public class ParticipantList  implements Serializable {
     public boolean verifParticipantInList(String IDParticipant){
         return mapParticipant.containsKey(IDParticipant);
     }
-
-    // tout les stages qu'un participant à participer
-
     /*
     GETTER AND SETTER
      */
@@ -51,4 +48,5 @@ public class ParticipantList  implements Serializable {
     public void setDataBase(DataBase dataBase) {
         this.dataBase = dataBase;
     }
+
 }

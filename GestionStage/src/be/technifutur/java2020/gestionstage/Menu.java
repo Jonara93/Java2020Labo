@@ -6,11 +6,11 @@ public class Menu {
     /*
     FIELD
      */
-    private String input = null;
     private StageCtrlCreateStage stageCtrlCreateStage;
     private StageCtrlDisplayStage stageCtrlDisplayStage;
     private ParticipantCtrlDisplay participantCtrlDisplay;
     private MenuGestionStage menuGestionStage;
+    private StageList stageList;
     private DataBase dataBase;
     private User user;
 
@@ -18,8 +18,8 @@ public class Menu {
     METHOD
      */
 
-
     public void displayMenu() {
+        String input = null;
         showMenu();
         input = user.getInput();
         while (!(input.equalsIgnoreCase("q"))) {
@@ -34,7 +34,7 @@ public class Menu {
                     menuGestionStage.menu();
                     break;
                 case "4":
-                    participantCtrlDisplay.displayParticipant();
+                    participantCtrlDisplay.displayParticipant(stageList);
                     break;
             }
             showMenu();
@@ -48,7 +48,7 @@ public class Menu {
                 "1. Créer un stage.\n" +
                 "2. Afficher les stages\n" +
                 "3. Gestion des stages.\n" +
-                "4. Afficher les participants\n" +
+                "4. Afficher toutes les informations concernant les participants\n" +
                 "q. Quitter l'application.");
     }
 
@@ -78,5 +78,9 @@ public class Menu {
 
     public void setDataBase(DataBase dataBase) {
         this.dataBase = dataBase;
+    }
+
+    public void setStageList(StageList stageList) {
+        this.stageList = stageList;
     }
 }

@@ -34,6 +34,15 @@ public class ParticipantCtrlDisplay {
         }
     }
 
+    public void displayParticipant(StageList stageList) {
+        Collection<Participant> participantCollection = participantList.getCollectionParticipant();
+        List<Participant> participantList = new ArrayList<>(participantCollection);
+        participantList.sort(new MyComparatorParticipant());
+        for (Participant participant : participantList) {
+            vue.afficheParticipant(participant, stageList);
+        }
+    }
+
     /*
     SETTER AND GETTER
      */

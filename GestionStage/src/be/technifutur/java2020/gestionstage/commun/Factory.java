@@ -62,6 +62,7 @@ public class Factory {
         menu.setUser(getUser());
         menu.setParticipantCtrlDisplay(getParticipantCtrlDisplay());
         menu.setDataBase(getDataBase());
+        menu.setStageList(getStageList());
         return menu;
     }
 
@@ -184,6 +185,7 @@ public class Factory {
             this.activityCtrlInscription.setUtility(getUtility());
             this.activityCtrlInscription.setParticipantCtrlModif(getParticipantCtrlModif());
             this.activityCtrlInscription.setParticipantCtrlCreate(getParticipantCtrlCreate());
+            this.activityCtrlInscription.setParticipantList(getParticipantList());
         }
         return activityCtrlInscription;
     }

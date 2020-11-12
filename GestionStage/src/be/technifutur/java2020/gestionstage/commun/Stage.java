@@ -45,6 +45,9 @@ public class Stage implements Serializable {
         if (dateFin.isBefore(dateDebut.plusMinutes(duration))) {
             throw new ExceptionGestionStageDate("La durée de l'activité dépasse la fin du stage.");
         }
+        if (dateDebut.isBefore(this.dateDebut)){
+            throw new ExceptionGestionStageDate("La date de début de l'activité est avant le début du stage.");
+        }
         mapActivity.put(nameActivity, new Activity(dateDebut, duration, nameActivity));
     }
 

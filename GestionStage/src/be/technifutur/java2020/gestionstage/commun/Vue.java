@@ -50,14 +50,17 @@ public class Vue {
 
     public void afficheHoraire(Stage stage, List<Activity> activityList) {
         LocalDate dateDebutStage = stage.getDateDebut().toLocalDate();
+        Activity testActivityFirstDay = activityList.get(0);
         if (!activityList.isEmpty()) {
             System.out.println("Horaire du stage : " + stage.getIntituleStage());
-            System.out.println("" +
-                    dateDebutStage.getDayOfWeek().getDisplayName(TextStyle.FULL, Locale.FRANCE).toUpperCase() + " " +
-                    dateDebutStage.getDayOfMonth() + " " +
-                    dateDebutStage.getMonth().getDisplayName(TextStyle.FULL, Locale.FRANCE).toUpperCase() + " " +
-                    dateDebutStage.getYear()
-            );
+            if (dateDebutStage.isEqual(testActivityFirstDay.getDateDebut().toLocalDate())) {
+                System.out.println("" +
+                        dateDebutStage.getDayOfWeek().getDisplayName(TextStyle.FULL, Locale.FRANCE).toUpperCase() + " " +
+                        dateDebutStage.getDayOfMonth() + " " +
+                        dateDebutStage.getMonth().getDisplayName(TextStyle.FULL, Locale.FRANCE).toUpperCase() + " " +
+                        dateDebutStage.getYear()
+                );
+            }
             for (Activity activity : activityList) {
                 if (dateDebutStage.isBefore(activity.getDateDebut().toLocalDate())) {
                     dateDebutStage = activity.getDateDebut().toLocalDate();
@@ -75,7 +78,7 @@ public class Vue {
                         "(" + activity.getDuration() + " minutes)" + "\n"
                 );
             }
-        }else {
+        } else {
             System.out.println("Il n'y a pas d'activitée prévu pour ce stage.");
         }
     }
@@ -87,13 +90,42 @@ public class Vue {
         );
         if (!participant.getNomClub().isEmpty()) {
             System.out.println("Nom du club du participant : " + participant.getNomClub());
-        }else {
+        } else {
             System.out.println("Nom du club du participant : Non indiqué.");
         }
         if (!participant.getAdresseMail().isEmpty()) {
             System.out.println("Adresse mail du participant : " + participant.getAdresseMail());
-        }else {
+        } else {
             System.out.println("Adresse mail du participant : Non indiqué.");
+        }
+        System.out.println("");
+    }
+
+    public void afficheParticipant(Participant participant, StageList stageList) {
+        List<Stage> stageCollection = new ArrayList<>(stageList.getMap().values());
+        System.out.println("" +
+                "Nom du participant : " + participant.getNomParticipant() + "\n" +
+                "Prénom du participant : " + participant.getPrenomParticipant()
+        );
+        if (!participant.getNomClub().isEmpty()) {
+            System.out.println("Nom du club du participant : " + participant.getNomClub());
+        } else {
+            System.out.println("Nom du club du participant : Non indiqué.");
+        }
+        if (!participant.getAdresseMail().isEmpty()) {
+            System.out.println("Adresse mail du participant : " + participant.getAdresseMail());
+        } else {
+            System.out.println("Adresse mail du participant : Non indiqué.");
+        }
+        System.out.println("Liste des stages/activités auquels le participant est inscrit : ");
+        for (Stage stage : stageCollection) {
+            List<Activity> activityList = new ArrayList<>(stage.getActivityCollection());
+            System.out.println("   " + stage.getIntituleStage() + " : ");
+            for (Activity activity : activityList) {
+                if (activity.containsKeyParticipant(participant.getIDParticipant())) {
+                    System.out.println("        " + activity.getNameActivity());
+                }
+            }
         }
         System.out.println("");
     }
