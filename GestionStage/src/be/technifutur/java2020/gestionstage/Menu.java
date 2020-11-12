@@ -48,7 +48,7 @@ public class Menu {
                 "1. Créer un stage.\n" +
                 "2. Afficher les stages\n" +
                 "3. Gestion des stages.\n" +
-                "4. Afficher les participants\n" + // gestion des stages
+                "4. Afficher les participants\n" +
                 "q. Quitter l'application.");
     }
 

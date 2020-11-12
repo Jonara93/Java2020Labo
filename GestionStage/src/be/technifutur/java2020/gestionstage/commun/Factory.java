@@ -2,8 +2,8 @@ package be.technifutur.java2020.gestionstage.commun;
 
 import be.technifutur.java2020.gestionstage.DataBase;
 import be.technifutur.java2020.gestionstage.Menu;
+import be.technifutur.java2020.gestionstage.MenuGestionActivity;
 import be.technifutur.java2020.gestionstage.MenuGestionStage;
-import be.technifutur.java2020.gestionstage.commun.comparator.ActivityCtrlInscription;
 
 import java.io.*;
 
@@ -28,14 +28,20 @@ public class Factory {
     private Utility utility;
     private User user;
     private DataBase dataBase;
+    //sousmenu
     private MenuGestionStage menuGestionStage;
+    private MenuGestionActivity menuGestionActivity;
+    //stage
     private StageList stageList;
-    private ParticipantList participantList;
     private StageCtrlCreateStage stageCtrlCreateStage;
     private StageCtrlDisplayStage stageCtrlDisplayStage;
+    private DisplayHoraireCtrl displayHoraireCtrl;
+    // activity
     private ActivityCtrlCreateActivity activityCtrlCreateActivity;
     private ActivityCtrlInscription activityCtrlInscription;
-    private DisplayHoraireCtrl displayHoraireCtrl;
+    private ActivityCtrlDisplayParticipant activityCtrlDisplayParticipant;
+    // participant
+    private ParticipantList participantList;
     private ParticipantCtrlAdd participantCtrlAdd;
     private ParticipantCtrlDisplay participantCtrlDisplay;
     private ParticipantCtrlModif participantCtrlModif;
@@ -62,19 +68,33 @@ public class Factory {
     public MenuGestionStage getMenuGestionStage() {
         if (this.menuGestionStage == null) {
             this.menuGestionStage = new MenuGestionStage();
-            this.menuGestionStage.setActivityCtrlCreateActivity(getActivityCtrlCreateActivity());
-            this.menuGestionStage.setDisplayHoraireCtrl(getDisplayHoraireCtrl());
             this.menuGestionStage.setUser(getUser());
             this.menuGestionStage.setUtility(getUtility());
-            this.menuGestionStage.setParticipantCtrlAdd(getParticipantCtrlAdd());
             this.menuGestionStage.setStageList(getStageList());
+            this.menuGestionStage.setDataBase(getDataBase());
+            this.menuGestionStage.setActivityCtrlCreateActivity(getActivityCtrlCreateActivity());
+            this.menuGestionStage.setDisplayHoraireCtrl(getDisplayHoraireCtrl());
+            this.menuGestionStage.setParticipantCtrlAdd(getParticipantCtrlAdd());
             this.menuGestionStage.setParticipantCtrlDisplay(getParticipantCtrlDisplay());
             this.menuGestionStage.setParticipantCtrlRemove(getParticipantCtrlRemove());
-            this.menuGestionStage.setActivityCtrlInscription(getActivityCtrlInscription());
+            this.menuGestionStage.setMenuGestionActivity(getMenuGestionActivity());
         }
         return menuGestionStage;
     }
 
+    public MenuGestionActivity getMenuGestionActivity() {
+        if (this.menuGestionActivity == null) {
+            this.menuGestionActivity = new MenuGestionActivity();
+            this.menuGestionActivity.setUtility(getUtility());
+            this.menuGestionActivity.setUser(getUser());
+            this.menuGestionActivity.setVue(getVue());
+            this.menuGestionActivity.setDataBase(getDataBase());
+            this.menuGestionActivity.setActivityCtrlInscription(getActivityCtrlInscription());
+            this.menuGestionActivity.setActivityCtrlDisplayParticipant(getActivityCtrlDisplayParticipant());
+
+        }
+        return menuGestionActivity;
+    }
 
     public StageList getStageList() {
 
@@ -145,6 +165,7 @@ public class Factory {
         return stageCtrlDisplayStage;
     }
 
+    // activity
     public ActivityCtrlCreateActivity getActivityCtrlCreateActivity() {
         if (this.activityCtrlCreateActivity == null) {
             this.activityCtrlCreateActivity = new ActivityCtrlCreateActivity();
@@ -156,6 +177,26 @@ public class Factory {
         return activityCtrlCreateActivity;
     }
 
+    public ActivityCtrlInscription getActivityCtrlInscription() {
+        if (this.activityCtrlInscription == null) {
+            this.activityCtrlInscription = new ActivityCtrlInscription();
+            this.activityCtrlInscription.setVue(getVue());
+            this.activityCtrlInscription.setUtility(getUtility());
+            this.activityCtrlInscription.setParticipantCtrlModif(getParticipantCtrlModif());
+            this.activityCtrlInscription.setParticipantCtrlCreate(getParticipantCtrlCreate());
+        }
+        return activityCtrlInscription;
+    }
+
+    public ActivityCtrlDisplayParticipant getActivityCtrlDisplayParticipant() {
+        if (this.activityCtrlDisplayParticipant==null){
+            this.activityCtrlDisplayParticipant= new ActivityCtrlDisplayParticipant();
+            this.activityCtrlDisplayParticipant.setVue(getVue());
+        }
+        return activityCtrlDisplayParticipant;
+    }
+
+    //participant
     public DisplayHoraireCtrl getDisplayHoraireCtrl() {
         if (this.displayHoraireCtrl == null) {
             this.displayHoraireCtrl = new DisplayHoraireCtrl();
@@ -198,6 +239,26 @@ public class Factory {
         return participantCtrlModif;
     }
 
+
+    public ParticipantCtrlRemove getParticipantCtrlRemove() {
+        if (this.participantCtrlRemove == null) {
+            this.participantCtrlRemove = new ParticipantCtrlRemove();
+            this.participantCtrlRemove.setVue(getVue());
+            this.participantCtrlRemove.setUtility(getUtility());
+        }
+        return participantCtrlRemove;
+    }
+
+    public ParticipantCtrlCreate getParticipantCtrlCreate() {
+        if (this.participantCtrlCreate == null) {
+            this.participantCtrlCreate = new ParticipantCtrlCreate();
+            this.participantCtrlCreate.setParticipantList(getParticipantList());
+            this.participantCtrlCreate.setUtility(getUtility());
+        }
+        return participantCtrlCreate;
+    }
+
+    //gestion des données
     public DataBase getDataBase() {
         if (this.dataBase == null) {
             File file = new File("db.ser");
@@ -218,32 +279,5 @@ public class Factory {
         return dataBase;
     }
 
-    public ParticipantCtrlRemove getParticipantCtrlRemove() {
-        if (this.participantCtrlRemove == null) {
-            this.participantCtrlRemove = new ParticipantCtrlRemove();
-            this.participantCtrlRemove.setVue(getVue());
-            this.participantCtrlRemove.setUtility(getUtility());
-        }
-        return participantCtrlRemove;
-    }
 
-    public ParticipantCtrlCreate getParticipantCtrlCreate() {
-        if (this.participantCtrlCreate == null){
-            this.participantCtrlCreate = new ParticipantCtrlCreate();
-            this.participantCtrlCreate.setParticipantList(getParticipantList());
-            this.participantCtrlCreate.setUtility(getUtility());
-        }
-        return participantCtrlCreate;
-    }
-
-    public ActivityCtrlInscription getActivityCtrlInscription() {
-        if (this.activityCtrlInscription == null) {
-            this.activityCtrlInscription = new ActivityCtrlInscription();
-            this.activityCtrlInscription.setVue(getVue());
-            this.activityCtrlInscription.setUtility(getUtility());
-            this.activityCtrlInscription.setParticipantCtrlModif(getParticipantCtrlModif());
-            this.activityCtrlInscription.setParticipantCtrlCreate(getParticipantCtrlCreate());
-        }
-        return activityCtrlInscription;
-    }
 }

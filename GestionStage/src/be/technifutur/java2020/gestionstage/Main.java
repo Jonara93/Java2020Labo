@@ -8,7 +8,7 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-            Factory factory = new Factory(/*getUser()*/); //mettre ou non le getUser si je veux automatique ou non
+        Factory factory = new Factory(/*getUser()*/); //mettre ou non le getUser si je veux automatique ou non
         Menu menu = factory.getMenu();
         factory = null;
         menu.displayMenu();
@@ -17,16 +17,19 @@ public class Main {
     private static User getUser() {
         String[] inputTab = new String[]{
                 "2",
+                // ajout stage
                 "1",
-                "Ztage",//stage
+                "Ztage",
                 "10.10.2020.08.00",
                 "12.10.2020.16.00",
+                // ajout stage
                 "1",
-                "Stage de Karaté -15",//stage
+                "Stage de Karaté -15",
                 "02.12.2020.08.00",
                 "10.10.2021.16.00",
+                // ajout stage
                 "1",
-                "Ctage Multisport",//stage
+                "Ctage Multisport",
                 "10.10.2020.08.00",
                 "24.02.2021.16.00",
                 "2",
@@ -80,7 +83,24 @@ public class Main {
                 "Albert",
                 "Technafutur",
                 "Royal.Albert@hotmail.be",
-                "N",
+                "6",
+                "Angular",
+                // ajout d'un participant dans activity
+                "1",
+                "Arabia",
+                "Jonathan",
+                "n",
+                "o",
+                "1",
+                // ajout d'un visiteur dans activity et stage
+                "Dybala",
+                "Paulo",
+                "o",
+                "Juventus",
+                "q",
+                "2",
+                //vers la fin du programme
+                "q",
                 "q",
                 "q",
                 "4",

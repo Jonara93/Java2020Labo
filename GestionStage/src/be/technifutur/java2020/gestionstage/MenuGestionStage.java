@@ -1,23 +1,25 @@
 package be.technifutur.java2020.gestionstage;
 
 import be.technifutur.java2020.gestionstage.commun.*;
-import be.technifutur.java2020.gestionstage.commun.comparator.ActivityCtrlInscription;
+import be.technifutur.java2020.gestionstage.commun.ActivityCtrlInscription;
+
+import java.io.IOException;
 
 public class MenuGestionStage {
 
     /*
     FIELD
      */
-    private String input = null;
+    private StageList stageList;
+    private User user;
+    private Utility utility;
+    private DataBase dataBase;
     private DisplayHoraireCtrl displayHoraireCtrl;
     private ActivityCtrlCreateActivity activityCtrlCreateActivity;
     private ParticipantCtrlAdd participantCtrlAdd;
     private ParticipantCtrlDisplay participantCtrlDisplay;
     private ParticipantCtrlRemove participantCtrlRemove;
-    private ActivityCtrlInscription activityCtrlInscription;
-    private StageList stageList;
-    private User user;
-    private Utility utility;
+    private MenuGestionActivity menuGestionActivity;
 
 
 
@@ -26,7 +28,7 @@ public class MenuGestionStage {
      */
 
     public void menu() {
-        String nomStage;
+        String nomStage, input;
         Stage stage;
         nomStage = utility.saisirName("Veuillez saisir le nom du stage à gérer. Insérer \"q\" pour quitter.");
         while (!stageList.containsKey(nomStage) && !nomStage.isEmpty()) {
@@ -54,13 +56,18 @@ public class MenuGestionStage {
                         participantCtrlDisplay.displayParticipant(stage);
                         break;
                     case "6":
-                        activityCtrlInscription.inscriptionActivity(stage);
+                        menuGestionActivity.DisplayMenu(stage);
                         break;
 
                 }
                 showMenu();
                 input = user.getInput();
             }
+        }
+        try {
+            dataBase.saveData();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -72,7 +79,7 @@ public class MenuGestionStage {
                 "3. Ajouter un participant\n" +
                 "4. Retirer un participant\n" +
                 "5. Liste des participant\n" +
-                "6. Inscrire un participant du stage à une activité.\n" +
+                "6. Gestion des activité.\n" +
                 "q. Quitter l'application.");
     }
 
@@ -90,10 +97,6 @@ public class MenuGestionStage {
 
     public void setParticipantCtrlAdd(ParticipantCtrlAdd participantCtrlAdd) {
         this.participantCtrlAdd = participantCtrlAdd;
-    }
-
-    public void setInput(String input) {
-        this.input = input;
     }
 
     public void setUser(User user) {
@@ -117,7 +120,11 @@ public class MenuGestionStage {
         this.participantCtrlRemove = participantCtrlRemove;
     }
 
-    public void setActivityCtrlInscription(ActivityCtrlInscription activityCtrlInscription) {
-        this.activityCtrlInscription = activityCtrlInscription;
+    public void setMenuGestionActivity(MenuGestionActivity menuGestionActivity) {
+        this.menuGestionActivity = menuGestionActivity;
+    }
+
+    public void setDataBase(DataBase dataBase) {
+        this.dataBase = dataBase;
     }
 }

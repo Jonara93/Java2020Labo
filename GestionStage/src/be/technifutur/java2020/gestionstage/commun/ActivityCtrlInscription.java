@@ -1,4 +1,4 @@
-package be.technifutur.java2020.gestionstage.commun.comparator;
+package be.technifutur.java2020.gestionstage.commun;
 
 import be.technifutur.java2020.gestionstage.commun.*;
 
@@ -19,35 +19,23 @@ public class ActivityCtrlInscription {
     METHOD
     */
 
-    public void inscriptionActivity(Stage stage) {
-        String nameActivity, nom = null, prenom = null, idParticipant = null;
+    public void inscriptionActivity(Stage stage, Activity activity) {
+        String nom = null, prenom = null, idParticipant = null;
         boolean inscriptionOk;
-        //récupération des données utiles
-        Map<String, Activity> activityMap = stage.getMapActivity();
-        List<Activity> activityList = new ArrayList<>(stage.getActivityCollection());
-        activityList.sort(new MyComparatorActivity());
-        List<Participant> participantListFromStage = stage.getSortListParticipantByName();
-        //Afficher la liste des activités
-        vue.afficheHoraire(stage, activityList);
-        //Choisir une activité
-        nameActivity = utility.saisirName("Veuillez choisir une activité.Insérer \"Q\" pour quitter");
-        while (!activityMap.containsKey(nameActivity) && !nameActivity.isEmpty()) {
-            nameActivity = utility.saisirName("Veuillez choisir une activité.Insérer \"Q\" pour quitter");
-        }
         //Demander une personne
-        if (!nameActivity.isEmpty()) {
-            nom = utility.saisirName("\"Veuillez choisir le nom d'un participant.Insérer \\\"Q\\\" pour quitter\"");
-            if (!nom.isEmpty()) {
-                prenom = utility.saisirName("\"Veuillez choisir le prenom d'un participant.Insérer \\\"Q\\\" pour quitter\"");
-                if (!prenom.isEmpty()) {
-                    idParticipant = nom.concat(prenom).toUpperCase();
-                }
+        nom = utility.saisirName("\"Veuillez choisir le nom d'un participant.Insérer \"Q\" pour quitter\"");
+        if (!nom.isEmpty()) {
+            prenom = utility.saisirName("\"Veuillez choisir le prenom d'un participant.Insérer \"Q\" pour quitter\"");
+            if (!prenom.isEmpty()) {
+                idParticipant = nom.concat(prenom).toUpperCase();
             }
         }
         if (idParticipant != null) {
-            Activity activity = activityMap.get(nameActivity);
             //verifier que la personne existe
-            if (participantListFromStage.contains(idParticipant)) {
+            if (activity.containsKeyParticipant(idParticipant)) {
+                // personne déjà inscrite dans l'activité
+                vue.afficheMessage("Ce participant est déjà inscrit à cette activité.");
+            } else if (stage.containsKeyParticipant(idParticipant)) {
                 //Si la personne existe :
                 // demander si les informations sont correctes (pouvoir les changer)
                 Participant participant = stage.getParticipant(idParticipant);

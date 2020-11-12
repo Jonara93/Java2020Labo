@@ -31,9 +31,9 @@ public class ParticipantCtrlAdd implements Serializable {
                 String IDParticipant = nomParticipant.concat(prenomParticipant).toUpperCase();
 
                 Participant participant = participantList.getParticipant(IDParticipant);
-                if (stage.containsKey(IDParticipant)) { // déjà inscrit au stage
+                if (stage.containsKeyParticipant(IDParticipant)) { // déjà inscrit au stage
                     participantCtrlModif.modifParticipant(participant, "Le participant est déjà inscrit à ce stage.");
-                } else if (participantList.verifParticipantInList(IDParticipant) && !stage.containsKey(IDParticipant)) {// existe dans la liste mais pas inscrit dans le stage.
+                } else if (participantList.verifParticipantInList(IDParticipant) && !stage.containsKeyParticipant(IDParticipant)) {// existe dans la liste mais pas inscrit dans le stage.
                     participantCtrlModif.modifParticipant(participant, "Le participant existe mais n'est pas inscrit à ce stage.");
                     if (utility.returnBoolTrueFalse("Voulez-vous ajouter le participant dans ce stage ? O/N")) {
                         stage.addParticipant(participant);

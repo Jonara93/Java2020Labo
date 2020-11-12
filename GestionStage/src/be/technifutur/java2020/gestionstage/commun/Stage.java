@@ -8,7 +8,7 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.*;
 
-public class Stage  implements Serializable {
+public class Stage implements Serializable {
     /*
     FIELD
      */
@@ -73,8 +73,12 @@ public class Stage  implements Serializable {
         return participant;
     }
 
-    public boolean containsKey(String idParticipant) {
+    public boolean containsKeyParticipant(String idParticipant) {
         return mapParticipant.containsKey(idParticipant);
+    }
+
+    public boolean containsKeyActivity(String nameActivity) {
+        return mapActivity.containsKey(nameActivity);
     }
 
     /*
@@ -113,12 +117,17 @@ public class Stage  implements Serializable {
         this.mapParticipant = mapParticipant;
     }
 
-    public List<Participant> getSortListParticipantByName(){
+    public List<Participant> getSortListParticipantByName() {
         Collection<Participant> participantCollection = this.getMapParticipant().values();
         List<Participant> participantList = new ArrayList<>(participantCollection);
         return participantList;
     }
+
     public Participant getParticipant(String idParticipant) {
         return mapParticipant.get(idParticipant);
+    }
+
+    public Activity getActivity(String nameActivity){
+        return mapActivity.get(nameActivity);
     }
 }

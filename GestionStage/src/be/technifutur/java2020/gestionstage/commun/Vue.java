@@ -87,10 +87,13 @@ public class Vue {
         );
         if (!participant.getNomClub().isEmpty()) {
             System.out.println("Nom du club du participant : " + participant.getNomClub());
+        }else {
+            System.out.println("Nom du club du participant : Non indiqué.");
         }
-
         if (!participant.getAdresseMail().isEmpty()) {
             System.out.println("Adresse mail du participant : " + participant.getAdresseMail());
+        }else {
+            System.out.println("Adresse mail du participant : Non indiqué.");
         }
         System.out.println("");
     }

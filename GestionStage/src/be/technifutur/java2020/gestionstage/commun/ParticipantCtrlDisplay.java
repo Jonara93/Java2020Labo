@@ -1,6 +1,10 @@
 package be.technifutur.java2020.gestionstage.commun;
 
+import be.technifutur.java2020.gestionstage.commun.comparator.MyComparatorParticipant;
+
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 public class ParticipantCtrlDisplay {
     /*
@@ -15,13 +19,17 @@ public class ParticipantCtrlDisplay {
 
     public void displayParticipant() {
         Collection<Participant> participantCollection = participantList.getCollectionParticipant();
-        for (Participant participant : participantCollection) {
+        List<Participant> participantList = new ArrayList<>(participantCollection);
+        participantList.sort(new MyComparatorParticipant());
+        for (Participant participant : participantList) {
             vue.afficheParticipant(participant);
         }
     }
 
     public void displayParticipant(Stage stage) {
-        for (Participant participant : stage.getMapParticipant().values()) {
+        List<Participant> participantList =  new ArrayList<>(stage.getMapParticipant().values());
+        participantList.sort(new MyComparatorParticipant());
+        for (Participant participant : participantList ) {
             vue.afficheParticipant(participant);
         }
     }

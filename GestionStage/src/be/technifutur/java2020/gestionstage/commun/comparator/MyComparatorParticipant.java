@@ -10,11 +10,20 @@ public class MyComparatorParticipant implements Comparator<Participant> {
     */
     @Override
     public int compare(Participant participant1, Participant participant2) {
-        int compare;
+        int compareNom,comparePrenom, compare;
         String nomParticipant1 = participant1.getNomParticipant();
         String prenomParticipant1 = participant1.getPrenomParticipant();
         String nomParticipant2 = participant2.getNomParticipant();
         String prenomParticipant2 = participant2.getPrenomParticipant();
+
+        compareNom = nomParticipant1.compareToIgnoreCase(nomParticipant2);
+        if (compareNom == 0){
+            comparePrenom = prenomParticipant1.compareToIgnoreCase(prenomParticipant2);
+            compare = comparePrenom;
+        }else {
+            compare = compareNom;
+        }
+        /*
         if (nomParticipant1.compareToIgnoreCase(nomParticipant2) > 0) {
             compare = 42;
         } else if (nomParticipant1.compareToIgnoreCase(nomParticipant2) < 0) {
@@ -27,7 +36,8 @@ public class MyComparatorParticipant implements Comparator<Participant> {
             } else {
                 compare = 0;
             }
-        }
+        }*/
+
         return compare;
     }
 

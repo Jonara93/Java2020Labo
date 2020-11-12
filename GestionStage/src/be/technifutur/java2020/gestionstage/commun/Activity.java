@@ -2,6 +2,7 @@ package be.technifutur.java2020.gestionstage.commun;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -31,6 +32,10 @@ public class Activity  implements Serializable {
         mapParticipantActivity.putIfAbsent(idParticipant,participant);
     }
 
+    public boolean containsKeyParticipant(String idParticipant){
+        return mapParticipantActivity.containsKey(idParticipant);
+    }
+
     /*
     SETTER AND GETTER
      */
@@ -58,4 +63,17 @@ public class Activity  implements Serializable {
     public void setDuration(int duration) {
         this.duration = duration;
     }
+
+    public Map<String, Participant> getMapParticipantActivity() {
+        return mapParticipantActivity;
+    }
+
+    public void setMapParticipantActivity(Map<String, Participant> mapParticipantActivity) {
+        this.mapParticipantActivity = mapParticipantActivity;
+    }
+
+    public Collection<Participant> getCollectionOfParticipant(){
+        return mapParticipantActivity.values();
+    }
+
 }
