@@ -40,7 +40,8 @@ public class ActivityCtrlInscription {
                 //Si la personne existe :
                 // demander si les informations sont correctes (pouvoir les changer)
                 Participant participant = stage.getParticipant(idParticipant);
-                participantCtrlModif.modifParticipant(participant, "Le participant est inscrit à ce stage.");
+                vue.afficheMessage("Le participant est inscrit à ce stage.");
+                participantCtrlModif.modifParticipant(participant, "Information du participant : ");
                 // Demander si on veut bien l'inscrire à l'activités
                 inscriptionOk = utility.returnBoolTrueFalse("Voulez-vous inscrire le participant à cette activité ? O/N");
                 if (inscriptionOk) {
@@ -80,8 +81,6 @@ public class ActivityCtrlInscription {
                 }
             }
         }
-
-
     }
 
     
