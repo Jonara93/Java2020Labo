@@ -1,4 +1,4 @@
-package be.technifutur.java2020.gestionstage.commun.Comparator;
+package be.technifutur.java2020.gestionstage.commun.comparator;
 
 import be.technifutur.java2020.gestionstage.commun.Stage;
 

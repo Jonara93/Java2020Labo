@@ -2,17 +2,38 @@ package be.technifutur.java2020.gestionstage.commun;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Activity  implements Serializable {
+    /*
+    FIELD
+     */
     private String nameActivity;
     private LocalDateTime dateDebut;
     private int duration;
+    private Map<String, Participant> mapParticipantActivity = new HashMap<>();//key = idParticipant
+    /*
+    CONSTRUCTOR
+     */
 
     public Activity(LocalDateTime dateDebut, int duration, String nameActivity) {
         setNameActivity(nameActivity);
         setDateDebut(dateDebut);
         setDuration(duration);
     }
+
+    /*
+    METHOD
+     */
+
+    public void addParticipantToMap(Participant participant){
+        mapParticipantActivity.putIfAbsent(participant.getIDParticipant(),participant);
+    }
+
+    /*
+    SETTER AND GETTER
+     */
 
     public String getNameActivity() {
         return nameActivity;
@@ -37,5 +58,4 @@ public class Activity  implements Serializable {
     public void setDuration(int duration) {
         this.duration = duration;
     }
-
 }

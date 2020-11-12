@@ -21,7 +21,7 @@ public class Participant  implements Serializable {
     CONSTRUCTOR
      */
 
-    public Participant(String nomParticipant, String prenomParticipant, String nomClub, String adresseMail, Stage stage) {
+    public Participant(String nomParticipant, String prenomParticipant, String nomClub, String adresseMail) {
         setNomParticipant(nomParticipant.toUpperCase());
         setPrenomParticipant(prenomParticipant.toUpperCase());
         setNomClub(nomClub);

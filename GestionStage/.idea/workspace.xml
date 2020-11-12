@@ -30,7 +30,22 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b53e3f0-0cc5-4e4e-80c2-ce66b9bbc6b4" name="Default Changelist" comment="Rearrangemment" />
+    <list default="true" id="0b53e3f0-0cc5-4e4e-80c2-ce66b9bbc6b4" name="Default Changelist" comment="Rearrangemment">
+      <change afterPath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/commun/comparator/ActivityCtrlInscription.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/MenuGestionStage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/MenuGestionStage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/ParticipantCtrlRemove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/commun/ParticipantCtrlRemove.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/commun/Activity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/commun/Activity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/commun/Comparator/MyComparatorActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/commun/comparator/MyComparatorActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/commun/Comparator/MyComparatorParticipant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/commun/comparator/MyComparatorParticipant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/commun/Comparator/MyComparatorStage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/commun/comparator/MyComparatorStage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/commun/DisplayHoraireCtrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/commun/DisplayHoraireCtrl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/commun/Factory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/commun/Factory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/commun/Participant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/commun/Participant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/commun/Stage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/commun/Stage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/commun/StageCtrlDisplayStage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/commun/StageCtrlDisplayStage.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -82,7 +97,7 @@
       <module name="GestionStage" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="be.technifutur.java2020.gestionstage.commun.Comparator.MyComparatorStage" />
+          <option name="PATTERN" value="be.technifutur.java2020.gestionstage.commun.comparator.MyComparatorStage" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -95,7 +110,7 @@
       <module name="GestionStage" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="be.technifutur.java2020.gestionstage.commun.Comparator.MyComparatorStage" />
+          <option name="PATTERN" value="be.technifutur.java2020.gestionstage.commun.comparator.MyComparatorStage" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -448,7 +463,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605164820625</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="Réarangement Comparator + amélioration comparator">
+      <created>1605165706329</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1605165706329</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -496,10 +518,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="729" y="321" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605007631545" />
-    <state x="765" y="203" key="#com.intellij.ide.util.MemberChooser" timestamp="1605039237418">
+    <state x="765" y="203" key="#com.intellij.ide.util.MemberChooser" timestamp="1605168431617">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="203" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605039237418" />
+    <state x="765" y="203" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605168431617" />
     <state x="565" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1605023391374">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -512,38 +534,38 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604652121537" />
-    <state width="1307" height="771" key="GridCell.Tab.0.bottom" timestamp="1605164792466">
+    <state width="1307" height="771" key="GridCell.Tab.0.bottom" timestamp="1605169753379">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1307" height="771" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605164792466" />
-    <state width="1307" height="771" key="GridCell.Tab.0.center" timestamp="1605164792466">
+    <state width="1307" height="771" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605169753379" />
+    <state width="1307" height="771" key="GridCell.Tab.0.center" timestamp="1605169753379">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1307" height="771" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605164792466" />
-    <state width="1307" height="771" key="GridCell.Tab.0.left" timestamp="1605164792466">
+    <state width="1307" height="771" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605169753379" />
+    <state width="1307" height="771" key="GridCell.Tab.0.left" timestamp="1605169753379">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1307" height="771" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605164792466" />
-    <state width="1307" height="771" key="GridCell.Tab.0.right" timestamp="1605164792466">
+    <state width="1307" height="771" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605169753379" />
+    <state width="1307" height="771" key="GridCell.Tab.0.right" timestamp="1605169753379">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1307" height="771" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605164792466" />
-    <state width="1480" height="525" key="GridCell.Tab.1.bottom" timestamp="1605041207409">
+    <state width="1307" height="771" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605169753379" />
+    <state width="1480" height="525" key="GridCell.Tab.1.bottom" timestamp="1605169055167">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1480" height="525" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605041207409" />
-    <state width="1480" height="525" key="GridCell.Tab.1.center" timestamp="1605041207409">
+    <state width="1480" height="525" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605169055167" />
+    <state width="1480" height="525" key="GridCell.Tab.1.center" timestamp="1605169055167">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1480" height="525" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605041207409" />
-    <state width="1480" height="525" key="GridCell.Tab.1.left" timestamp="1605041207409">
+    <state width="1480" height="525" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605169055167" />
+    <state width="1480" height="525" key="GridCell.Tab.1.left" timestamp="1605169055167">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1480" height="525" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605041207409" />
-    <state width="1480" height="525" key="GridCell.Tab.1.right" timestamp="1605041207409">
+    <state width="1480" height="525" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605169055167" />
+    <state width="1480" height="525" key="GridCell.Tab.1.right" timestamp="1605169055167">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1480" height="525" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605041207409" />
+    <state width="1480" height="525" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605169055167" />
     <state x="775" y="453" key="ReplaceDuplicatesPrompt" timestamp="1604997257187">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -556,10 +578,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604572682521" />
-    <state x="413" y="149" width="1184" height="535" key="Vcs.Push.Dialog.v2" timestamp="1605164826987">
+    <state x="413" y="149" width="1184" height="535" key="Vcs.Push.Dialog.v2" timestamp="1605165759981">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="413" y="149" width="1184" height="535" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605164826987" />
+    <state x="413" y="149" width="1184" height="535" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605165759981" />
     <state x="777" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604485720712">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

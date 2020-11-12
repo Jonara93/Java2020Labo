@@ -1,6 +1,6 @@
 package be.technifutur.java2020.gestionstage.commun;
 
-import be.technifutur.java2020.gestionstage.commun.Comparator.MyComparatorStage;
+import be.technifutur.java2020.gestionstage.commun.comparator.MyComparatorStage;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;

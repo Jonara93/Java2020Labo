@@ -8,7 +8,7 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        Factory factory = new Factory(/*getUser()*/); //mettre ou non le getUser si je veux automatique ou non
+            Factory factory = new Factory(/*getUser()*/); //mettre ou non le getUser si je veux automatique ou non
         Menu menu = factory.getMenu();
         factory = null;
         menu.displayMenu();
@@ -61,7 +61,7 @@ public class Main {
                 "180",
                 "2",//affiche stage
                 "3",//gerer participant
-                "Arabia",
+                "Arabia",//Ajout1
                 "Jonathan",
                 "Verlaine",
                 "jojo@hotmail.be",
@@ -70,6 +70,16 @@ public class Main {
                 "Arcka",
                 "q",
                 "Arcka.Pierre@hotmail.be",
+                "3",
+                "Royal",
+                "Georges",
+                "Technafutur",
+                "Royal.Georges@hotmail.be",
+                "3",
+                "Royal",
+                "Albert",
+                "Technafutur",
+                "Royal.Albert@hotmail.be",
                 "N",
                 "q",
                 "q",

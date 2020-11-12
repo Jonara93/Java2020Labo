@@ -3,7 +3,7 @@ package be.technifutur.java2020.gestionstage.commun;
 import be.technifutur.java2020.gestionstage.DataBase;
 import be.technifutur.java2020.gestionstage.Menu;
 import be.technifutur.java2020.gestionstage.MenuGestionStage;
-import be.technifutur.java2020.gestionstage.ParticipantCtrlRemove;
+import be.technifutur.java2020.gestionstage.commun.comparator.ActivityCtrlInscription;
 
 import java.io.*;
 
@@ -34,6 +34,7 @@ public class Factory {
     private StageCtrlCreateStage stageCtrlCreateStage;
     private StageCtrlDisplayStage stageCtrlDisplayStage;
     private ActivityCtrlCreateActivity activityCtrlCreateActivity;
+    private ActivityCtrlInscription activityCtrlInscription;
     private DisplayHoraireCtrl displayHoraireCtrl;
     private ParticipantCtrlAdd participantCtrlAdd;
     private ParticipantCtrlDisplay participantCtrlDisplay;
@@ -68,7 +69,7 @@ public class Factory {
             this.menuGestionStage.setStageList(getStageList());
             this.menuGestionStage.setParticipantCtrlDisplay(getParticipantCtrlDisplay());
             this.menuGestionStage.setParticipantCtrlRemove(getParticipantCtrlRemove());
-
+            this.menuGestionStage.setActivityCtrlInscription(getActivityCtrlInscription());
         }
         return menuGestionStage;
     }
@@ -222,5 +223,14 @@ public class Factory {
             this.participantCtrlRemove.setUtility(getUtility());
         }
         return participantCtrlRemove;
+    }
+
+    public ActivityCtrlInscription getActivityCtrlInscription() {
+        if (this.activityCtrlInscription == null){
+            this.activityCtrlInscription = new ActivityCtrlInscription();
+            activityCtrlInscription.setVue(getVue());
+            activityCtrlInscription.setUtility(getUtility());
+        }
+        return activityCtrlInscription;
     }
 }

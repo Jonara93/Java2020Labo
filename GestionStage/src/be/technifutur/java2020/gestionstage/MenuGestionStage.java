@@ -1,6 +1,7 @@
 package be.technifutur.java2020.gestionstage;
 
 import be.technifutur.java2020.gestionstage.commun.*;
+import be.technifutur.java2020.gestionstage.commun.comparator.ActivityCtrlInscription;
 
 public class MenuGestionStage {
 
@@ -13,6 +14,7 @@ public class MenuGestionStage {
     private ParticipantCtrlAdd participantCtrlAdd;
     private ParticipantCtrlDisplay participantCtrlDisplay;
     private ParticipantCtrlRemove participantCtrlRemove;
+    private ActivityCtrlInscription activityCtrlInscription;
     private StageList stageList;
     private User user;
     private Utility utility;
@@ -51,6 +53,9 @@ public class MenuGestionStage {
                     case "5":
                         participantCtrlDisplay.displayParticipant(stage);
                         break;
+                    case "6":
+                        activityCtrlInscription.inscriptionActivity(stage);
+                        break;
 
                 }
                 showMenu();
@@ -67,7 +72,7 @@ public class MenuGestionStage {
                 "3. Ajouter un participant\n" +
                 "4. Retirer un participant\n" +
                 "5. Liste des participant\n" +
-                // afficher participant
+                "6. Inscrire un participant du stage à une activité.\n" +
                 "q. Quitter l'application.");
     }
 
@@ -110,5 +115,9 @@ public class MenuGestionStage {
 
     public void setParticipantCtrlRemove(ParticipantCtrlRemove participantCtrlRemove) {
         this.participantCtrlRemove = participantCtrlRemove;
+    }
+
+    public void setActivityCtrlInscription(ActivityCtrlInscription activityCtrlInscription) {
+        this.activityCtrlInscription = activityCtrlInscription;
     }
 }

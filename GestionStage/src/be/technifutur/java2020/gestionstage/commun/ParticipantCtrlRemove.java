@@ -1,9 +1,4 @@
-package be.technifutur.java2020.gestionstage;
-
-import be.technifutur.java2020.gestionstage.commun.Participant;
-import be.technifutur.java2020.gestionstage.commun.Stage;
-import be.technifutur.java2020.gestionstage.commun.Utility;
-import be.technifutur.java2020.gestionstage.commun.Vue;
+package be.technifutur.java2020.gestionstage.commun;
 
 import java.util.List;
 

@@ -30,8 +30,8 @@ public class Stage  implements Serializable {
         setDateDebut(dateDebut);
         setDateFin(dateFin);
         setIntituleStage(intituleStage);
-        mapActivity = new HashMap<>();
-        mapParticipant = new HashMap<>();
+        mapActivity = new HashMap<>();// key nameActivity
+        mapParticipant = new HashMap<>();//key idParticipant
     }
 
     /*
@@ -68,7 +68,7 @@ public class Stage  implements Serializable {
     }
 
     public Participant createParticipant(String IDParticipant, String nomParticipant, String prenomParticipant, String clubParticipant, String mailParticipant) {
-        Participant participant = new Participant(nomParticipant, prenomParticipant, clubParticipant, mailParticipant, this);
+        Participant participant = new Participant(nomParticipant, prenomParticipant, clubParticipant, mailParticipant);
         this.mapParticipant.put(IDParticipant, participant);
         return participant;
     }
@@ -97,7 +97,6 @@ public class Stage  implements Serializable {
         this.dateFin = dateFin;
     }
 
-
     public String getIntituleStage() {
         return intituleStage;
     }
@@ -119,6 +118,7 @@ public class Stage  implements Serializable {
         List<Participant> participantList = new ArrayList<>(participantCollection);
         return participantList;
     }
-
-
+    public Participant getParticipant(String idParticipant) {
+        return mapParticipant.get(idParticipant);
+    }
 }

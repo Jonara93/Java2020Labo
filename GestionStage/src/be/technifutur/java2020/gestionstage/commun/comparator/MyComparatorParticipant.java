@@ -1,4 +1,4 @@
-package be.technifutur.java2020.gestionstage.commun.Comparator;
+package be.technifutur.java2020.gestionstage.commun.comparator;
 
 import be.technifutur.java2020.gestionstage.commun.Participant;
 
@@ -15,14 +15,14 @@ public class MyComparatorParticipant implements Comparator<Participant> {
         String prenomParticipant1 = participant1.getPrenomParticipant();
         String nomParticipant2 = participant2.getNomParticipant();
         String prenomParticipant2 = participant2.getPrenomParticipant();
-        if (nomParticipant1.compareTo(nomParticipant2) > 0) {
+        if (nomParticipant1.compareToIgnoreCase(nomParticipant2) > 0) {
             compare = 42;
-        } else if (nomParticipant1.compareTo(nomParticipant2) < 0) {
+        } else if (nomParticipant1.compareToIgnoreCase(nomParticipant2) < 0) {
             compare = -42;
         } else {
-            if (prenomParticipant1.compareTo(prenomParticipant1) > 0) {
+            if (prenomParticipant1.compareToIgnoreCase(prenomParticipant1) > 0) {
                 compare = 42;
-            } else if (prenomParticipant1.compareTo(prenomParticipant2) < 0) {
+            } else if (prenomParticipant1.compareToIgnoreCase(prenomParticipant2) < 0) {
                 compare = -42;
             } else {
                 compare = 0;
