@@ -113,6 +113,7 @@ public class Vue {
     }
 
     public void afficheParticipant(Participant participant, StageList stageList) {
+
         List<Stage> stageCollection = new ArrayList<>(stageList.getMapUnmodifiable().values());
         System.out.println("" +
                 "Nom du participant : " + participant.getNomParticipant() + "\n" +
@@ -129,17 +130,7 @@ public class Vue {
             System.out.println("Adresse mail du participant : Non indiqué.");
         }
         System.out.println("Liste des stages/activités auquels le participant est inscrit : ");
-        for (Stage stage : stageCollection) {
-            List<Activity> activityList = new ArrayList<>(stage.getActivityCollection());
-            if (stage.containsKeyParticipant(participant.getIDParticipant())) {
-                System.out.println("    " + stage.getIntituleStage() + " : ");
-            }
-            for (Activity activity : activityList) {
-                if (activity.containsKeyParticipant(participant.getIDParticipant())) {
-                    System.out.println("        " + activity.getNameActivity());
-                }
-            }
-        }
+
         System.out.println("\n");
     }
 

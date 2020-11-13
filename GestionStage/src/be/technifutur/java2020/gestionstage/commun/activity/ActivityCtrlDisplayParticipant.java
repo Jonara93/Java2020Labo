@@ -2,9 +2,9 @@ package be.technifutur.java2020.gestionstage.commun.activity;
 
 import be.technifutur.java2020.gestionstage.commun.participant.Participant;
 import be.technifutur.java2020.gestionstage.commun.Vue;
-import be.technifutur.java2020.gestionstage.commun.comparator.MyComparatorParticipant;
+import be.technifutur.java2020.gestionstage.commun.participation.Participation;
+import be.technifutur.java2020.gestionstage.commun.stage.Stage;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ActivityCtrlDisplayParticipant {
@@ -19,10 +19,14 @@ public class ActivityCtrlDisplayParticipant {
     */
 
     public void DisplayParticipant(Activity activity) {
-        List<Participant> participantList = new ArrayList<>(activity.getCollectionOfParticipant());
-        participantList.sort(new MyComparatorParticipant());
+        Stage stage = activity.getStage();
+        Participation participation;
+        List<Participant> participantList = stage.getAllParticipant();
         for (Participant participant : participantList) {
-            vue.afficheParticipantSimple(participant);
+            participation = stage.getParticipation(participant.getIDParticipant());
+            if (participation.mapActivityContainsKey(activity.getNameActivity())) {
+                vue.afficheParticipantSimple(participant);
+            }
         }
         System.out.println();
     }

@@ -9,11 +9,11 @@ import be.technifutur.java2020.gestionstage.commun.activity.ActivityCtrlDisplayP
 import be.technifutur.java2020.gestionstage.commun.activity.ActivityCtrlInscription;
 import be.technifutur.java2020.gestionstage.commun.activity.ActivityCtrlRemoveParticipant;
 import be.technifutur.java2020.gestionstage.commun.participant.*;
+import be.technifutur.java2020.gestionstage.commun.participation.Participation;
 import be.technifutur.java2020.gestionstage.commun.stage.*;
 import be.technifutur.java2020.gestionstage.commun.stage.modifstage.StageCtrlModifDateDebut;
 import be.technifutur.java2020.gestionstage.commun.stage.modifstage.StageCtrlModifDateFin;
 import be.technifutur.java2020.gestionstage.commun.stage.modifstage.StageCtrlModifName;
-
 import java.io.*;
 
 public class Factory {
@@ -49,7 +49,6 @@ public class Factory {
     private StageCtrlModifDateDebut stageCtrlModifDateDebut;
     private StageCtrlModifDateFin stageCtrlModifDateFin;
     private StageCtrlModifName stageCtrlModifName;
-
     // activity
     private ActivityCtrlCreateActivity activityCtrlCreateActivity;
     private ActivityCtrlInscription activityCtrlInscription;

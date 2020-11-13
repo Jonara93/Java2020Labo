@@ -33,14 +33,13 @@ public class ParticipantCtrlAdd implements Serializable {
             prenomParticipant = utility.saisirName("Veuillez saisir le prénom du participant. Insérer \"q\" pour quitter");
             if (!prenomParticipant.isEmpty()) {
                 String IDParticipant = nomParticipant.concat(prenomParticipant).toUpperCase();
-
                 Participant participant = participantList.getParticipant(IDParticipant);
                 if (stage.containsKeyParticipant(IDParticipant)) { // déjà inscrit au stage
                     participantCtrlModif.modifParticipant(participant, "Le participant est déjà inscrit à ce stage.");
                 } else if (participantList.verifParticipantInList(IDParticipant) && !stage.containsKeyParticipant(IDParticipant)) {// existe dans la liste mais pas inscrit dans le stage.
                     participantCtrlModif.modifParticipant(participant, "Le participant existe mais n'est pas inscrit à ce stage.");
                     if (utility.returnBoolTrueFalse("Voulez-vous ajouter le participant dans ce stage ? O/N")) {
-                        stage.addParticipant(participant);
+                        stage.addParticipantion(participant);
                     }
                 } else {  // 1 : le participant n'existe pas faut le créer + ajout du participant au stage
                     vue.afficheMessage("Le participant n'existe pas.");

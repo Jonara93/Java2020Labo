@@ -3,6 +3,7 @@ package be.technifutur.java2020.gestionstage.commun.stage;
 import be.technifutur.java2020.gestionstage.commun.activity.Activity;
 import be.technifutur.java2020.gestionstage.commun.comparator.MyComparatorParticipant;
 import be.technifutur.java2020.gestionstage.commun.participant.Participant;
+import be.technifutur.java2020.gestionstage.commun.participation.Participation;
 import be.technifutur.java2020.gestionstage.commun.prix.Tarif;
 import be.technifutur.java2020.gestionstage.exception.*;
 
@@ -18,10 +19,9 @@ public class Stage implements Serializable {
     private LocalDateTime dateDebut;
     private LocalDateTime dateFin;
     private String intituleStage;
-    private Map<String, Activity> mapActivity;
-    private Map<String, Participant> mapParticipant;
+    private Map<String, Activity> mapActivity;//key = nameActivity
+    private Map<String, Participation> mapParticipation; //key = idParticipant
     private List<Tarif> tarifAppliquable;
-    private Map<String, Tarif> participantTarifMap;// key idParticipant
 
     /*
     CONSTRUCTOR
@@ -35,7 +35,7 @@ public class Stage implements Serializable {
         setDateFin(dateFin);
         setIntituleStage(intituleStage);
         mapActivity = new HashMap<>();// key nameActivity
-        mapParticipant = new HashMap<>();//key idParticipant
+        mapParticipation = new HashMap<>();//key idParticipant
     }
 
     /*
@@ -52,17 +52,18 @@ public class Stage implements Serializable {
         if (dateDebut.isBefore(this.dateDebut)) {
             throw new ExceptionGestionStageDate("La date de début de l'activité est avant le début du stage.");
         }
-        mapActivity.put(nameActivity, new Activity(dateDebut, duration, nameActivity,this));
+        mapActivity.put(nameActivity, new Activity(dateDebut, duration, nameActivity, this));
     }
 
-    public void addParticipant(Participant participant) {
+    public void addParticipantion(Participant participant) {
         String idParticipant = participant.getIDParticipant();
-        mapParticipant.put(idParticipant, participant);
+        Participation participation = new Participation(participant);
+        mapParticipation.put(idParticipant, participation);
     }
 
-    public void removeParticipant(Participant participant) {
+    public void removeParticipantion(Participant participant) {
         String idParticipant = participant.getIDParticipant();
-        mapParticipant.remove(idParticipant);
+        mapParticipation.remove(idParticipant);
     }
 
 
@@ -74,14 +75,15 @@ public class Stage implements Serializable {
         return Collections.unmodifiableCollection(mapActivity.values());
     }
 
-    public Participant createParticipant(String IDParticipant, String nomParticipant, String prenomParticipant, String clubParticipant, String mailParticipant) {
+    public Participant createParticipation(String IDParticipant, String nomParticipant, String prenomParticipant, String clubParticipant, String mailParticipant) {
         Participant participant = new Participant(nomParticipant, prenomParticipant, clubParticipant, mailParticipant);
-        this.mapParticipant.put(IDParticipant, participant);
+        Participation participation = new Participation(participant/*,tarif*/);
+        this.mapParticipation.put(IDParticipant, participation);
         return participant;
     }
 
     public boolean containsKeyParticipant(String idParticipant) {
-        return mapParticipant.containsKey(idParticipant);
+        return mapParticipation.containsKey(idParticipant);
     }
 
     public boolean containsKeyActivity(String nameActivity) {
@@ -116,26 +118,39 @@ public class Stage implements Serializable {
         this.intituleStage = intituleStage;
     }
 
-    public Map<String, Participant> getMapParticipant() {
-        return mapParticipant;
+    public Activity getActivity(String nameActivity) {
+        return mapActivity.get(nameActivity);
     }
 
-    public void setMapParticipant(Map<String, Participant> mapParticipant) {
-        this.mapParticipant = mapParticipant;
+    public Map<String, Participation> getMapParticipation() {
+        return mapParticipation;
     }
 
-    public List<Participant> getSortListParticipantByName() {
-        Collection<Participant> participantCollection = this.getMapParticipant().values();
-        List<Participant> participantList = new ArrayList<>(participantCollection);
-        participantList.sort(new MyComparatorParticipant());
+    public List<Participant> getAllParticipant() {
+        List<Participant> participantList = new ArrayList<>();
+        for (Participation participation : mapParticipation.values()) {
+            participantList.add(participation.getParticipant());
+        }
         return participantList;
     }
 
-    public Participant getParticipant(String idParticipant) {
-        return mapParticipant.get(idParticipant);
+    public Participation getParticipation(String idParticipant) {
+        return getMapParticipation().get(idParticipant);
     }
 
-    public Activity getActivity(String nameActivity) {
-        return mapActivity.get(nameActivity);
+    public List<Participant> getParticapantInActivity(Activity activity) {
+        List<Participant> participantListInActivity = null;
+        Collection<Participation> participationCollection = this.getMapParticipation().values();
+        for (Participation participation : participationCollection) {
+            if (participation.getActivityMap().containsKey(activity.getNameActivity())) {
+                participantListInActivity.add(participation.getParticipant());
+            }
+        }
+        participantListInActivity.sort(new MyComparatorParticipant());
+        return participantListInActivity;
+    }
+
+    public Participant getParticipant(String idParticipant) {
+        return getParticipation(idParticipant).getParticipant();
     }
 }

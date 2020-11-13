@@ -4,6 +4,8 @@ import be.technifutur.java2020.gestionstage.commun.participant.Participant;
 import be.technifutur.java2020.gestionstage.commun.Utility;
 import be.technifutur.java2020.gestionstage.commun.Vue;
 import be.technifutur.java2020.gestionstage.commun.comparator.MyComparatorParticipant;
+import be.technifutur.java2020.gestionstage.commun.participation.Participation;
+import be.technifutur.java2020.gestionstage.commun.stage.Stage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +22,8 @@ public class ActivityCtrlRemoveParticipant {
     */
     public void removeParticipant(Activity activity) {
         //utilitaire
-        List<Participant> participantList = new ArrayList<>(activity.getCollectionOfParticipant());
+        Stage stage = activity.getStage();
+        List<Participant> participantList = new ArrayList<>(stage.getAllParticipant());
         participantList.sort(new MyComparatorParticipant());
         String inputChoice;
         int indexParticipant = 1, choice = 0;
@@ -40,7 +43,9 @@ public class ActivityCtrlRemoveParticipant {
             }
             if (choice >= 1 && choice <= indexParticipant) {
                 //retirer de la liste de l'activity
-                activity.removeParticipant(participantList.get(choice - 1));
+                Participant participant = participantList.get(indexParticipant-1);
+                Participation participation = stage.getParticipation(participant.getIDParticipant());
+                participation.removeActivity(activity);
             } else {
                 vue.afficheMessage("Votre choix ne correspond à aucun participant.");
             }

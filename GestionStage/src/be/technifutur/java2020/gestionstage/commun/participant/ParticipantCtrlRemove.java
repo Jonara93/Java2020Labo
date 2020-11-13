@@ -1,5 +1,7 @@
 package be.technifutur.java2020.gestionstage.commun.participant;
 
+import be.technifutur.java2020.gestionstage.commun.comparator.MyComparatorParticipant;
+import be.technifutur.java2020.gestionstage.commun.participation.Participation;
 import be.technifutur.java2020.gestionstage.commun.stage.Stage;
 import be.technifutur.java2020.gestionstage.commun.Utility;
 import be.technifutur.java2020.gestionstage.commun.Vue;
@@ -20,7 +22,8 @@ public class ParticipantCtrlRemove {
     METHOD
      */
     public void removeParticipant(Stage stage) {
-        List<Participant> participantListSortedByName = stage.getSortListParticipantByName();
+        List<Participant> participantListSortedByName = stage.getAllParticipant();
+        participantListSortedByName.sort(new MyComparatorParticipant());
         if (!participantListSortedByName.isEmpty()) {
             int index = 1, choice = 0;
             String inputChoice;
@@ -39,8 +42,8 @@ public class ParticipantCtrlRemove {
             if (choice >= 1 && choice <= index) {
                 Participant participant = participantListSortedByName.get(choice - 1);
                 // si participant inscrit dans une activity du stage : refuse
-                if (!participantInActivity(stage, participant)) {
-                    stage.removeParticipant(participant);
+                if (!participantHaveActivity(stage, participant)) {
+                    stage.removeParticipantion(participant);
                     vue.afficheMessage(participant.getNomParticipant() + " " + participant.getPrenomParticipant() + " : a bien été supprimé.");
                 }else{
                     vue.afficheMessage("Impossible de supprimer le participant, il est inscrit dans une activité du stage.");
@@ -55,14 +58,13 @@ public class ParticipantCtrlRemove {
 
     }
 
-    private boolean participantInActivity(Stage stage, Participant participant) {
-        boolean inActivity = false;
-        List<Activity> activityList = new ArrayList<>(stage.getActivityCollection());
-        Iterator<Activity> activityIterator = activityList.iterator();
-        while (activityIterator.hasNext() && !inActivity) {
-            inActivity = activityIterator.next().containsKeyParticipant(participant.getIDParticipant());
+    private boolean participantHaveActivity(Stage stage, Participant participant) {
+        boolean haveActivity = false;
+        Participation participation = stage.getParticipation(participant.getIDParticipant());
+        if (!participation.getActivityMap().isEmpty()){
+            haveActivity = true;
         }
-        return inActivity;
+        return haveActivity;
     }
 
     /*

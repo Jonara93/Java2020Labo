@@ -1,14 +1,9 @@
 package be.technifutur.java2020.gestionstage.commun.activity;
 
-import be.technifutur.java2020.gestionstage.commun.participant.Participant;
 import be.technifutur.java2020.gestionstage.commun.stage.Stage;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
 
 public class Activity implements Serializable {
     /*
@@ -17,7 +12,6 @@ public class Activity implements Serializable {
     private String nameActivity;
     private LocalDateTime dateDebut;
     private int duration;
-    private Map<String, Participant> mapParticipantActivity = new HashMap<>();//key = idParticipant
     private Stage stage;
 
     /*
@@ -34,19 +28,6 @@ public class Activity implements Serializable {
     /*
     METHOD
      */
-
-    public void addParticipantToMap(String idParticipant, Participant participant) {
-        mapParticipantActivity.putIfAbsent(idParticipant, participant);
-    }
-
-
-    public void removeParticipant(Participant participant) {
-        mapParticipantActivity.remove(participant.getIDParticipant());
-    }
-
-    public boolean containsKeyParticipant(String idParticipant) {
-        return mapParticipantActivity.containsKey(idParticipant);
-    }
 
     /*
     SETTER AND GETTER
@@ -76,17 +57,6 @@ public class Activity implements Serializable {
         this.duration = duration;
     }
 
-    public Map<String, Participant> getMapParticipantActivity() {
-        return mapParticipantActivity;
-    }
-
-    public void setMapParticipantActivity(Map<String, Participant> mapParticipantActivity) {
-        this.mapParticipantActivity = mapParticipantActivity;
-    }
-
-    public Collection<Participant> getCollectionOfParticipant() {
-        return Collections.unmodifiableCollection(mapParticipantActivity.values());
-    }
 
     public Stage getStage() {
         return stage;
