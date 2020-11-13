@@ -6,6 +6,9 @@ import be.technifutur.java2020.gestionstage.commun.Vue;
 import be.technifutur.java2020.gestionstage.commun.activity.Activity;
 import be.technifutur.java2020.gestionstage.commun.comparator.MyComparatorActivity;
 import be.technifutur.java2020.gestionstage.commun.stage.Stage;
+import be.technifutur.java2020.gestionstage.commun.stage.modifstage.StageCtrlModifDateDebut;
+import be.technifutur.java2020.gestionstage.commun.stage.modifstage.StageCtrlModifDateFin;
+import be.technifutur.java2020.gestionstage.commun.stage.modifstage.StageCtrlModifName;
 
 import java.util.*;
 
@@ -16,6 +19,7 @@ public class DisplayHoraireCtrl {
     private Utility utility;
     private Vue vue;
     private User user;
+
 
     /*
     METHOD
@@ -41,5 +45,7 @@ public class DisplayHoraireCtrl {
     public void setUser(User user) {
         this.user = user;
     }
+
+
 
 }

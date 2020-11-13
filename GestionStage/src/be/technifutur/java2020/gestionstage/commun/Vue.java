@@ -109,7 +109,7 @@ public class Vue {
     }
 
     public void afficheParticipant(Participant participant, StageList stageList) {
-        List<Stage> stageCollection = new ArrayList<>(stageList.getMap().values());
+        List<Stage> stageCollection = new ArrayList<>(stageList.getMapUnmodifiable().values());
         System.out.println("" +
                 "Nom du participant : " + participant.getNomParticipant() + "\n" +
                 "Prénom du participant : " + participant.getPrenomParticipant()
@@ -148,6 +148,4 @@ public class Vue {
                 "q. Quitter la modification.";
 
     }
-
-
 }

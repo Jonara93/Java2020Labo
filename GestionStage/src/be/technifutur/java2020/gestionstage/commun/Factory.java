@@ -10,6 +10,9 @@ import be.technifutur.java2020.gestionstage.commun.activity.ActivityCtrlInscript
 import be.technifutur.java2020.gestionstage.commun.activity.ActivityCtrlRemoveParticipant;
 import be.technifutur.java2020.gestionstage.commun.participant.*;
 import be.technifutur.java2020.gestionstage.commun.stage.*;
+import be.technifutur.java2020.gestionstage.commun.stage.modifstage.StageCtrlModifDateDebut;
+import be.technifutur.java2020.gestionstage.commun.stage.modifstage.StageCtrlModifDateFin;
+import be.technifutur.java2020.gestionstage.commun.stage.modifstage.StageCtrlModifName;
 
 import java.io.*;
 
@@ -43,6 +46,10 @@ public class Factory {
     private StageCtrlDisplayStage stageCtrlDisplayStage;
     private DisplayHoraireCtrl displayHoraireCtrl;
     private StageCtrlModif stageCtrlModif;
+    private StageCtrlModifDateDebut stageCtrlModifDateDebut;
+    private StageCtrlModifDateFin stageCtrlModifDateFin;
+    private StageCtrlModifName stageCtrlModifName;
+
     // activity
     private ActivityCtrlCreateActivity activityCtrlCreateActivity;
     private ActivityCtrlInscription activityCtrlInscription;
@@ -247,10 +254,44 @@ public class Factory {
     }
 
     public StageCtrlModif getStageCtrlModif() {
-        if (this.stageCtrlModif == null){
+        if (this.stageCtrlModif == null) {
             this.stageCtrlModif = new StageCtrlModif();
+            this.stageCtrlModif.setDataBase(getDataBase());
+            this.stageCtrlModif.setVue(getVue());
+            this.stageCtrlModif.setUtility(getUtility());
+            this.stageCtrlModif.setStageCtrlModifDateDebut(getStageCtrlModifDateDebut());
+            this.stageCtrlModif.setStageCtrlModifDateFin(getStageCtrlModifDateFin());
+            this.stageCtrlModif.setStageCtrlModifName(getStageCtrlModifName());
         }
         return stageCtrlModif;
+    }
+
+    public StageCtrlModifDateDebut getStageCtrlModifDateDebut() {
+        if (stageCtrlModifDateDebut == null) {
+            stageCtrlModifDateDebut = new StageCtrlModifDateDebut();
+            stageCtrlModifDateDebut.setUtility(getUtility());
+            stageCtrlModifDateDebut.setVue(getVue());
+        }
+        return stageCtrlModifDateDebut;
+    }
+
+    public StageCtrlModifDateFin getStageCtrlModifDateFin() {
+        if (stageCtrlModifDateFin==null){
+            stageCtrlModifDateFin = new StageCtrlModifDateFin();
+            stageCtrlModifDateFin.setUtility(getUtility());
+            stageCtrlModifDateFin.setVue(getVue());
+        }
+        return stageCtrlModifDateFin;
+    }
+
+    public StageCtrlModifName getStageCtrlModifName() {
+        if (stageCtrlModifName==null){
+            stageCtrlModifName = new StageCtrlModifName();
+            stageCtrlModifName.setUtility(getUtility());
+            stageCtrlModifName.setVue(getVue());
+            stageCtrlModifName.setStageList(getStageList());
+        }
+        return stageCtrlModifName;
     }
 
     //gestion des données
