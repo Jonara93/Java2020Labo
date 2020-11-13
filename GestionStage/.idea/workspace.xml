@@ -32,8 +32,8 @@
   <component name="ChangeListManager">
     <list default="true" id="0b53e3f0-0cc5-4e4e-80c2-ce66b9bbc6b4" name="Default Changelist" comment="Rearrangemment">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/commun/Vue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/commun/Vue.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/commun/stage/modifstage/StageCtrlModifDateDebut.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/commun/stage/modifstage/StageCtrlModifDateDebut.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/commun/stage/modifstage/StageCtrlModifDateFin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/technifutur/java2020/gestionstage/commun/stage/modifstage/StageCtrlModifDateFin.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,13 +122,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1604477845994</updated>
-    </task>
-    <task id="LOCAL-00012" summary="create stage fini ?">
-      <created>1604492870556</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1604492870556</updated>
     </task>
     <task id="LOCAL-00013" summary="des trucs et d'autres qui plantent">
       <created>1604498881632</created>
@@ -466,7 +459,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605262463308</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="modif date debut">
+      <created>1605267761932</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1605267761932</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -482,7 +482,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Participant et ParticipantList" />
     <MESSAGE value="intersection create/modif Participant" />
     <MESSAGE value="creation participant + insertion" />
     <MESSAGE value="commit avant modif qui peut tout casser" />
@@ -507,7 +506,8 @@
     <MESSAGE value="creation dossier de séparation" />
     <MESSAGE value="debut modifStage" />
     <MESSAGE value="modif nom stage" />
-    <option name="LAST_COMMIT_MESSAGE" value="modif nom stage" />
+    <MESSAGE value="modif date debut" />
+    <option name="LAST_COMMIT_MESSAGE" value="modif date debut" />
   </component>
   <component name="WindowStateProjectService">
     <state x="729" y="321" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1605007631545">
@@ -534,22 +534,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604652121537" />
-    <state width="1921" height="984" key="GridCell.Tab.0.bottom" timestamp="1605267725846">
+    <state width="1921" height="984" key="GridCell.Tab.0.bottom" timestamp="1605268649507">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1921" height="984" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605267725846" />
-    <state width="1921" height="984" key="GridCell.Tab.0.center" timestamp="1605267725846">
+    <state width="1921" height="984" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605268649507" />
+    <state width="1921" height="984" key="GridCell.Tab.0.center" timestamp="1605268649507">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1921" height="984" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605267725846" />
-    <state width="1921" height="984" key="GridCell.Tab.0.left" timestamp="1605267725846">
+    <state width="1921" height="984" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605268649507" />
+    <state width="1921" height="984" key="GridCell.Tab.0.left" timestamp="1605268649506">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1921" height="984" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605267725846" />
-    <state width="1921" height="984" key="GridCell.Tab.0.right" timestamp="1605267725846">
+    <state width="1921" height="984" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605268649506" />
+    <state width="1921" height="984" key="GridCell.Tab.0.right" timestamp="1605268649507">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1921" height="984" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605267725846" />
+    <state width="1921" height="984" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605268649507" />
     <state width="1480" height="525" key="GridCell.Tab.1.bottom" timestamp="1605259136535">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

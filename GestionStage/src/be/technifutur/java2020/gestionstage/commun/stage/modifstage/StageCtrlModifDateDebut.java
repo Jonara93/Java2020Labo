@@ -27,21 +27,26 @@ public class StageCtrlModifDateDebut {
         vue.afficheDate(oldDate);
         vue.ajoutDateDebut();
         newDate = utility.saisirDate();
-        if (!newDate.isEqual(oldDate)) {
-            if (newDate.isBefore(stage.getDateFin())) {
-                vue.afficheMessage("Ancienne date : ");
-                vue.afficheDate(oldDate);
-                vue.afficheMessage("Nouvelle date : ");
-                vue.afficheDate(newDate);
-                confirmModif = utility.returnBoolTrueFalse("Voulez-vous modifier la date ? O/N");
-                if (confirmModif) {
-                    stage.setDateDebut(newDate);
+        if (newDate.isBefore(oldDate)) {
+            if (!newDate.isEqual(oldDate)) {
+                if (newDate.isBefore(stage.getDateFin())) {
+                    vue.afficheMessage("Ancienne date : ");
+                    vue.afficheDate(oldDate);
+                    vue.afficheMessage("Nouvelle date : ");
+                    vue.afficheDate(newDate);
+                    confirmModif = utility.returnBoolTrueFalse("Voulez-vous modifier la date ? O/N");
+                    if (confirmModif) {
+                        stage.setDateDebut(newDate);
+                    }
+                } else {
+                    vue.afficheMessage("Date non valide.\n La date de début doit être avant la date de fin.");
                 }
             } else {
-                vue.afficheMessage("Date non valide.\n La date de début doit être avant la date de fin.");
+                vue.afficheMessage("Les dates sont les mêmes");
             }
-        } else {
-            vue.afficheMessage("Les dates sont les mêmes");
+        }
+        else {
+            System.out.println("Fonctionnatilée prévue pour plus tard ! Merci de patience !");
         }
 
     }
