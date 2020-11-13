@@ -2,3 +2,4 @@
 *.tmp
 GestionStage/.idea/workspace.xml
 *.class
+GestionStage/db.ser
