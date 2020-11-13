@@ -29,9 +29,6 @@ public class MenuGestionStage {
     private ParticipantCtrlRemove participantCtrlRemove;
     private MenuGestionActivity menuGestionActivity;
     private StageCtrlModif stageCtrlModif;
-
-
-
     /*
     METHOD
      */
