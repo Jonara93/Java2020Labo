@@ -1,6 +1,11 @@
-package be.technifutur.java2020.gestionstage.commun;
+package be.technifutur.java2020.gestionstage.commun.stage;
 
+import be.technifutur.java2020.gestionstage.commun.User;
+import be.technifutur.java2020.gestionstage.commun.Utility;
+import be.technifutur.java2020.gestionstage.commun.Vue;
+import be.technifutur.java2020.gestionstage.commun.activity.Activity;
 import be.technifutur.java2020.gestionstage.commun.comparator.MyComparatorActivity;
+import be.technifutur.java2020.gestionstage.commun.stage.Stage;
 
 import java.util.*;
 

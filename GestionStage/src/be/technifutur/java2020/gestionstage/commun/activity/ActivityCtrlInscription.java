@@ -1,10 +1,11 @@
-package be.technifutur.java2020.gestionstage.commun;
+package be.technifutur.java2020.gestionstage.commun.activity;
 
 import be.technifutur.java2020.gestionstage.commun.*;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import be.technifutur.java2020.gestionstage.commun.participant.Participant;
+import be.technifutur.java2020.gestionstage.commun.participant.ParticipantCtrlCreate;
+import be.technifutur.java2020.gestionstage.commun.participant.ParticipantCtrlModif;
+import be.technifutur.java2020.gestionstage.commun.participant.ParticipantList;
+import be.technifutur.java2020.gestionstage.commun.stage.Stage;
 
 public class ActivityCtrlInscription {
     /*

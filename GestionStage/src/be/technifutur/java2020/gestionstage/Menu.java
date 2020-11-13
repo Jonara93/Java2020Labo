@@ -1,6 +1,10 @@
 package be.technifutur.java2020.gestionstage;
 
 import be.technifutur.java2020.gestionstage.commun.*;
+import be.technifutur.java2020.gestionstage.commun.participant.ParticipantCtrlDisplay;
+import be.technifutur.java2020.gestionstage.commun.stage.StageCtrlCreateStage;
+import be.technifutur.java2020.gestionstage.commun.stage.StageCtrlDisplayStage;
+import be.technifutur.java2020.gestionstage.commun.stage.StageList;
 
 public class Menu {
     /*

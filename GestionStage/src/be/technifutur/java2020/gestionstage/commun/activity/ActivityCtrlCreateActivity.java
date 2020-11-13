@@ -1,12 +1,14 @@
-package be.technifutur.java2020.gestionstage.commun;
+package be.technifutur.java2020.gestionstage.commun.activity;
 
 import be.technifutur.java2020.gestionstage.DataBase;
+import be.technifutur.java2020.gestionstage.commun.stage.Stage;
+import be.technifutur.java2020.gestionstage.commun.User;
+import be.technifutur.java2020.gestionstage.commun.Utility;
+import be.technifutur.java2020.gestionstage.commun.Vue;
 import be.technifutur.java2020.gestionstage.exception.ExceptionGestionStage;
-import be.technifutur.java2020.gestionstage.exception.ExceptionGestionStageNomInvalide;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
-import java.util.Collection;
 import java.util.OptionalInt;
 
 public class ActivityCtrlCreateActivity {

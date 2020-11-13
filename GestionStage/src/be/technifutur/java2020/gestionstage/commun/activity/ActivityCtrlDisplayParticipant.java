@@ -1,5 +1,7 @@
-package be.technifutur.java2020.gestionstage.commun;
+package be.technifutur.java2020.gestionstage.commun.activity;
 
+import be.technifutur.java2020.gestionstage.commun.participant.Participant;
+import be.technifutur.java2020.gestionstage.commun.Vue;
 import be.technifutur.java2020.gestionstage.commun.comparator.MyComparatorParticipant;
 
 import java.util.ArrayList;

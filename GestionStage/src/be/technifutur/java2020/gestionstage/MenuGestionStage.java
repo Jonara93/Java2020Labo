@@ -1,7 +1,13 @@
 package be.technifutur.java2020.gestionstage;
 
 import be.technifutur.java2020.gestionstage.commun.*;
-import be.technifutur.java2020.gestionstage.commun.ActivityCtrlInscription;
+import be.technifutur.java2020.gestionstage.commun.activity.ActivityCtrlCreateActivity;
+import be.technifutur.java2020.gestionstage.commun.participant.ParticipantCtrlAdd;
+import be.technifutur.java2020.gestionstage.commun.participant.ParticipantCtrlDisplay;
+import be.technifutur.java2020.gestionstage.commun.participant.ParticipantCtrlRemove;
+import be.technifutur.java2020.gestionstage.commun.stage.DisplayHoraireCtrl;
+import be.technifutur.java2020.gestionstage.commun.stage.Stage;
+import be.technifutur.java2020.gestionstage.commun.stage.StageList;
 
 import java.io.IOException;
 

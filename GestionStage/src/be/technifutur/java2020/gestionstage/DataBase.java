@@ -1,7 +1,7 @@
 package be.technifutur.java2020.gestionstage;
 
-import be.technifutur.java2020.gestionstage.commun.ParticipantList;
-import be.technifutur.java2020.gestionstage.commun.StageList;
+import be.technifutur.java2020.gestionstage.commun.participant.ParticipantList;
+import be.technifutur.java2020.gestionstage.commun.stage.StageList;
 
 import java.io.*;
 

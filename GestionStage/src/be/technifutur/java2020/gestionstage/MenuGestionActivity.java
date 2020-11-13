@@ -1,8 +1,12 @@
 package be.technifutur.java2020.gestionstage;
 
 import be.technifutur.java2020.gestionstage.commun.*;
-import be.technifutur.java2020.gestionstage.commun.ActivityCtrlInscription;
+import be.technifutur.java2020.gestionstage.commun.activity.Activity;
+import be.technifutur.java2020.gestionstage.commun.activity.ActivityCtrlDisplayParticipant;
+import be.technifutur.java2020.gestionstage.commun.activity.ActivityCtrlInscription;
+import be.technifutur.java2020.gestionstage.commun.activity.ActivityCtrlRemoveParticipant;
 import be.technifutur.java2020.gestionstage.commun.comparator.MyComparatorActivity;
+import be.technifutur.java2020.gestionstage.commun.stage.Stage;
 
 import java.io.IOException;
 import java.util.ArrayList;

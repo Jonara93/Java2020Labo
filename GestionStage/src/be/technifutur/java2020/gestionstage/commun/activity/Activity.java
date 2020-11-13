@@ -1,4 +1,6 @@
-package be.technifutur.java2020.gestionstage.commun;
+package be.technifutur.java2020.gestionstage.commun.activity;
+
+import be.technifutur.java2020.gestionstage.commun.participant.Participant;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;

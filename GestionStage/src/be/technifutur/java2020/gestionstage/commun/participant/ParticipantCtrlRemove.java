@@ -1,4 +1,9 @@
-package be.technifutur.java2020.gestionstage.commun;
+package be.technifutur.java2020.gestionstage.commun.participant;
+
+import be.technifutur.java2020.gestionstage.commun.stage.Stage;
+import be.technifutur.java2020.gestionstage.commun.Utility;
+import be.technifutur.java2020.gestionstage.commun.Vue;
+import be.technifutur.java2020.gestionstage.commun.activity.Activity;
 
 import java.util.ArrayList;
 import java.util.Iterator;

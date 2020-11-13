@@ -4,6 +4,15 @@ import be.technifutur.java2020.gestionstage.DataBase;
 import be.technifutur.java2020.gestionstage.Menu;
 import be.technifutur.java2020.gestionstage.MenuGestionActivity;
 import be.technifutur.java2020.gestionstage.MenuGestionStage;
+import be.technifutur.java2020.gestionstage.commun.activity.ActivityCtrlCreateActivity;
+import be.technifutur.java2020.gestionstage.commun.activity.ActivityCtrlDisplayParticipant;
+import be.technifutur.java2020.gestionstage.commun.activity.ActivityCtrlInscription;
+import be.technifutur.java2020.gestionstage.commun.activity.ActivityCtrlRemoveParticipant;
+import be.technifutur.java2020.gestionstage.commun.participant.*;
+import be.technifutur.java2020.gestionstage.commun.stage.DisplayHoraireCtrl;
+import be.technifutur.java2020.gestionstage.commun.stage.StageCtrlCreateStage;
+import be.technifutur.java2020.gestionstage.commun.stage.StageCtrlDisplayStage;
+import be.technifutur.java2020.gestionstage.commun.stage.StageList;
 
 import java.io.*;
 

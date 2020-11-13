@@ -1,10 +1,10 @@
-package be.technifutur.java2020.gestionstage.commun;
+package be.technifutur.java2020.gestionstage.commun.stage;
 
-import be.technifutur.java2020.gestionstage.DataBase;
+import be.technifutur.java2020.gestionstage.commun.activity.Activity;
 import be.technifutur.java2020.gestionstage.commun.comparator.MyComparatorParticipant;
+import be.technifutur.java2020.gestionstage.commun.participant.Participant;
 import be.technifutur.java2020.gestionstage.exception.*;
 
-import java.io.IOException;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.*;

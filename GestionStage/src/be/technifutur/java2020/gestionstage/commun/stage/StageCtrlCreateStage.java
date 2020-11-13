@@ -1,6 +1,9 @@
-package be.technifutur.java2020.gestionstage.commun;
+package be.technifutur.java2020.gestionstage.commun.stage;
 
 import be.technifutur.java2020.gestionstage.DataBase;
+import be.technifutur.java2020.gestionstage.commun.User;
+import be.technifutur.java2020.gestionstage.commun.Utility;
+import be.technifutur.java2020.gestionstage.commun.Vue;
 import be.technifutur.java2020.gestionstage.exception.ExceptionGestionStage;
 
 import java.io.IOException;

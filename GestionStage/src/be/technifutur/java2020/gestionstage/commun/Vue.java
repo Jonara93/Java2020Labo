@@ -1,6 +1,10 @@
 package be.technifutur.java2020.gestionstage.commun;
 
-import javax.swing.text.Style;
+import be.technifutur.java2020.gestionstage.commun.activity.Activity;
+import be.technifutur.java2020.gestionstage.commun.participant.Participant;
+import be.technifutur.java2020.gestionstage.commun.stage.Stage;
+import be.technifutur.java2020.gestionstage.commun.stage.StageList;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

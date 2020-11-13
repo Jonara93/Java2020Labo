@@ -1,4 +1,7 @@
-package be.technifutur.java2020.gestionstage.commun;
+package be.technifutur.java2020.gestionstage.commun.participant;
+
+import be.technifutur.java2020.gestionstage.commun.stage.Stage;
+import be.technifutur.java2020.gestionstage.commun.Utility;
 
 public class ParticipantCtrlCreate {
     /*
