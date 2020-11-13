@@ -52,6 +52,10 @@ public class Vue {
         );
     }
 
+    public void afficheDate(LocalDateTime localDateTime){
+        System.out.println(localDateTime.format(DateTimeFormatter.ofPattern("dd/MM/yyyy - HH:mm")));
+    }
+
     public void afficheHoraire(Stage stage, List<Activity> activityList) {
         LocalDate dateDebutStage = stage.getDateDebut().toLocalDate();
         Activity testActivityFirstDay = activityList.get(0);
