@@ -1,6 +1,7 @@
 package be.technifutur.java2020.gestionstage.commun.activity;
 
 import be.technifutur.java2020.gestionstage.commun.participant.Participant;
+import be.technifutur.java2020.gestionstage.commun.stage.Stage;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -17,14 +18,17 @@ public class Activity implements Serializable {
     private LocalDateTime dateDebut;
     private int duration;
     private Map<String, Participant> mapParticipantActivity = new HashMap<>();//key = idParticipant
+    private Stage stage;
+
     /*
     CONSTRUCTOR
      */
 
-    public Activity(LocalDateTime dateDebut, int duration, String nameActivity) {
+    public Activity(LocalDateTime dateDebut, int duration, String nameActivity, Stage stage) {
         setNameActivity(nameActivity);
         setDateDebut(dateDebut);
         setDuration(duration);
+        setStage(stage);
     }
 
     /*
@@ -84,5 +88,11 @@ public class Activity implements Serializable {
         return Collections.unmodifiableCollection(mapParticipantActivity.values());
     }
 
+    public Stage getStage() {
+        return stage;
+    }
 
+    public void setStage(Stage stage) {
+        this.stage = stage;
+    }
 }

@@ -3,6 +3,7 @@ package be.technifutur.java2020.gestionstage.commun.stage;
 import be.technifutur.java2020.gestionstage.commun.activity.Activity;
 import be.technifutur.java2020.gestionstage.commun.comparator.MyComparatorParticipant;
 import be.technifutur.java2020.gestionstage.commun.participant.Participant;
+import be.technifutur.java2020.gestionstage.commun.prix.Tarif;
 import be.technifutur.java2020.gestionstage.exception.*;
 
 import java.io.Serializable;
@@ -19,6 +20,8 @@ public class Stage implements Serializable {
     private String intituleStage;
     private Map<String, Activity> mapActivity;
     private Map<String, Participant> mapParticipant;
+    private List<Tarif> tarifAppliquable;
+    private Map<String, Tarif> participantTarifMap;// key idParticipant
 
     /*
     CONSTRUCTOR
@@ -49,7 +52,7 @@ public class Stage implements Serializable {
         if (dateDebut.isBefore(this.dateDebut)) {
             throw new ExceptionGestionStageDate("La date de début de l'activité est avant le début du stage.");
         }
-        mapActivity.put(nameActivity, new Activity(dateDebut, duration, nameActivity));
+        mapActivity.put(nameActivity, new Activity(dateDebut, duration, nameActivity,this));
     }
 
     public void addParticipant(Participant participant) {
