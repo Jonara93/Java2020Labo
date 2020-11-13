@@ -9,10 +9,7 @@ import be.technifutur.java2020.gestionstage.commun.activity.ActivityCtrlDisplayP
 import be.technifutur.java2020.gestionstage.commun.activity.ActivityCtrlInscription;
 import be.technifutur.java2020.gestionstage.commun.activity.ActivityCtrlRemoveParticipant;
 import be.technifutur.java2020.gestionstage.commun.participant.*;
-import be.technifutur.java2020.gestionstage.commun.stage.DisplayHoraireCtrl;
-import be.technifutur.java2020.gestionstage.commun.stage.StageCtrlCreateStage;
-import be.technifutur.java2020.gestionstage.commun.stage.StageCtrlDisplayStage;
-import be.technifutur.java2020.gestionstage.commun.stage.StageList;
+import be.technifutur.java2020.gestionstage.commun.stage.*;
 
 import java.io.*;
 
@@ -45,6 +42,7 @@ public class Factory {
     private StageCtrlCreateStage stageCtrlCreateStage;
     private StageCtrlDisplayStage stageCtrlDisplayStage;
     private DisplayHoraireCtrl displayHoraireCtrl;
+    private StageCtrlModif stageCtrlModif;
     // activity
     private ActivityCtrlCreateActivity activityCtrlCreateActivity;
     private ActivityCtrlInscription activityCtrlInscription;
@@ -90,6 +88,7 @@ public class Factory {
             this.menuGestionStage.setParticipantCtrlDisplay(getParticipantCtrlDisplay());
             this.menuGestionStage.setParticipantCtrlRemove(getParticipantCtrlRemove());
             this.menuGestionStage.setMenuGestionActivity(getMenuGestionActivity());
+            this.menuGestionStage.setStageCtrlModif(getStageCtrlModif());
         }
         return menuGestionStage;
     }
@@ -151,36 +150,6 @@ public class Factory {
     }
 
     //participant
-    public DisplayHoraireCtrl getDisplayHoraireCtrl() {
-        if (this.displayHoraireCtrl == null) {
-            this.displayHoraireCtrl = new DisplayHoraireCtrl();
-            this.displayHoraireCtrl.setUser(getUser());
-            this.displayHoraireCtrl.setUtility(getUtility());
-            this.displayHoraireCtrl.setVue(getVue());
-        }
-        return displayHoraireCtrl;
-    }
-
-    public StageCtrlCreateStage getStageCtrlCreateStage() {
-        if (this.stageCtrlCreateStage == null) {
-            this.stageCtrlCreateStage = new StageCtrlCreateStage();
-            this.stageCtrlCreateStage.setVue(getVue());
-            this.stageCtrlCreateStage.setUtility(getUtility());
-            this.stageCtrlCreateStage.setStageList(getStageList());
-            this.stageCtrlCreateStage.setUser(getUser());
-            this.stageCtrlCreateStage.setDataBase(getDataBase());
-        }
-        return stageCtrlCreateStage;
-    }
-
-    public StageCtrlDisplayStage getStageCtrlDisplayStage() {
-        if (this.stageCtrlDisplayStage == null) {
-            this.stageCtrlDisplayStage = new StageCtrlDisplayStage();
-            this.stageCtrlDisplayStage.setStageList(getStageList());
-            this.stageCtrlDisplayStage.setVue(getVue());
-        }
-        return stageCtrlDisplayStage;
-    }
 
     public ParticipantCtrlAdd getParticipantCtrlAdd() {
         if (this.participantCtrlAdd == null) {
@@ -233,6 +202,57 @@ public class Factory {
         return participantCtrlCreate;
     }
 
+    //stage
+    public DisplayHoraireCtrl getDisplayHoraireCtrl() {
+        if (this.displayHoraireCtrl == null) {
+            this.displayHoraireCtrl = new DisplayHoraireCtrl();
+            this.displayHoraireCtrl.setUser(getUser());
+            this.displayHoraireCtrl.setUtility(getUtility());
+            this.displayHoraireCtrl.setVue(getVue());
+        }
+        return displayHoraireCtrl;
+    }
+
+    public StageCtrlCreateStage getStageCtrlCreateStage() {
+        if (this.stageCtrlCreateStage == null) {
+            this.stageCtrlCreateStage = new StageCtrlCreateStage();
+            this.stageCtrlCreateStage.setVue(getVue());
+            this.stageCtrlCreateStage.setUtility(getUtility());
+            this.stageCtrlCreateStage.setStageList(getStageList());
+            this.stageCtrlCreateStage.setUser(getUser());
+            this.stageCtrlCreateStage.setDataBase(getDataBase());
+        }
+        return stageCtrlCreateStage;
+    }
+
+    public StageCtrlDisplayStage getStageCtrlDisplayStage() {
+        if (this.stageCtrlDisplayStage == null) {
+            this.stageCtrlDisplayStage = new StageCtrlDisplayStage();
+            this.stageCtrlDisplayStage.setStageList(getStageList());
+            this.stageCtrlDisplayStage.setVue(getVue());
+        }
+        return stageCtrlDisplayStage;
+    }
+
+    public StageList getStageList() {
+
+        if (this.stageList == null) {
+            if (getDataBase().getStageList() == null) {
+                this.stageList = new StageList();
+            } else {
+                this.stageList = getDataBase().getStageList();
+            }
+        }
+        return stageList;
+    }
+
+    public StageCtrlModif getStageCtrlModif() {
+        if (this.stageCtrlModif == null){
+            this.stageCtrlModif = new StageCtrlModif();
+        }
+        return stageCtrlModif;
+    }
+
     //gestion des données
     public DataBase getDataBase() {
         if (this.dataBase == null) {
@@ -254,18 +274,9 @@ public class Factory {
         return dataBase;
     }
 
-    //others
-    public StageList getStageList() {
 
-        if (this.stageList == null) {
-            if (getDataBase().getStageList() == null) {
-                this.stageList = new StageList();
-            } else {
-                this.stageList = getDataBase().getStageList();
-            }
-        }
-        return stageList;
-    }
+    //others
+
 
     public ParticipantList getParticipantList() {
         if (this.participantList == null) {

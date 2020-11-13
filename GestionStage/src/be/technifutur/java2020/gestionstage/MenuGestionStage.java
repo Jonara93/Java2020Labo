@@ -7,6 +7,7 @@ import be.technifutur.java2020.gestionstage.commun.participant.ParticipantCtrlDi
 import be.technifutur.java2020.gestionstage.commun.participant.ParticipantCtrlRemove;
 import be.technifutur.java2020.gestionstage.commun.stage.DisplayHoraireCtrl;
 import be.technifutur.java2020.gestionstage.commun.stage.Stage;
+import be.technifutur.java2020.gestionstage.commun.stage.StageCtrlModif;
 import be.technifutur.java2020.gestionstage.commun.stage.StageList;
 
 import java.io.IOException;
@@ -27,6 +28,7 @@ public class MenuGestionStage {
     private ParticipantCtrlDisplay participantCtrlDisplay;
     private ParticipantCtrlRemove participantCtrlRemove;
     private MenuGestionActivity menuGestionActivity;
+    private StageCtrlModif stageCtrlModif;
 
 
 
@@ -49,7 +51,7 @@ public class MenuGestionStage {
             while (!(input.equalsIgnoreCase("q"))) {
                 switch (input) {
                     case "1":
-                        //TODO modifier un stage
+                        stageCtrlModif.modifStage(stage);
                         break;
                     case "2":
                         activityCtrlCreateActivity.createActivity(stage);
@@ -147,5 +149,9 @@ public class MenuGestionStage {
 
     public void setVue(Vue vue) {
         this.vue = vue;
+    }
+
+    public void setStageCtrlModif(StageCtrlModif stageCtrlModif) {
+        this.stageCtrlModif = stageCtrlModif;
     }
 }
