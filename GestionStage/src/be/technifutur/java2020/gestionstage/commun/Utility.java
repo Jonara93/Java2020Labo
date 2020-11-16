@@ -1,6 +1,12 @@
 package be.technifutur.java2020.gestionstage.commun;
 
+import be.technifutur.java2020.gestionstage.commun.stage.Stage;
+import be.technifutur.java2020.gestionstage.commun.tarif.Tarif;
+import be.technifutur.java2020.gestionstage.commun.tarif.TarifBase;
+import be.technifutur.java2020.gestionstage.commun.tarif.TarifList;
+
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.OptionalInt;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -107,13 +113,61 @@ public class Utility {
         do {
             vue.afficheMessage(message);
             input = user.getInput();
-        }while (!input.equalsIgnoreCase("o") && !input.equalsIgnoreCase("n"));
-        if (input.equalsIgnoreCase("o")){
+        } while (!input.equalsIgnoreCase("o") && !input.equalsIgnoreCase("n"));
+        if (input.equalsIgnoreCase("o")) {
             bool = true;
         }
         return bool;
     }
 
+    public void choiceTarifToAdd(TarifList tarifList, Stage stage) {
+        List<Tarif> listTarifGen = tarifList.getTarifList();
+        boolean addTarif = false;
+        String inputChoice;
+        int choiceTarif;
+        addTarif = returnBoolTrueFalse("Ajouter un tarif ? O/N");
+        while (addTarif) {
+            vue.afficheMessage("Veuillez choisir un tarif à ajouté à votre stage.");
+            vue.afficheListTarifGen(listTarifGen);
+            inputChoice = saisirName("Insérer le numéro du tarif à ajouter. \"Q\" pour quitter.");
+            if (!inputChoice.isEmpty()) {
+                try {
+                    choiceTarif = Integer.parseInt(inputChoice);
+                    if (choiceTarif >= 1 && choiceTarif <= listTarifGen.size()) {
+                        System.out.println(stage.addTarif(listTarifGen.get(choiceTarif - 1)));
+                    } else {
+                        vue.afficheMessage("Le numéro que vous avez rentré n'est pas dans la liste des tarifs.");
+                    }
+                } catch (NumberFormatException e) {
+                    vue.afficheMessage("Vous n'avez pas insérer un nombre.");
+                }
+            }
+            addTarif = returnBoolTrueFalse("Ajouter un tarif ? O/N");
+        }
+    }
+
+    public Tarif choiceOneTarifFromStage(Stage stage) {
+        List<Tarif> tarifListStage = stage.getTarifAppliquable();
+        Tarif tarifChoice = new TarifBase();
+        String inputChoice;
+        int choiceTarif;
+        vue.afficheMessage("Veuillez choisir un tarif à ajouté à votre stage.");
+        vue.afficheListTarifGen(tarifListStage);
+        inputChoice = saisirName("Insérer le numéro du tarif à ajouter. \"Q\" pour quitter.");
+        if (!inputChoice.isEmpty()) {
+            try {
+                choiceTarif = Integer.getInteger(inputChoice);
+                if (choiceTarif >= 1 && choiceTarif <= tarifListStage.size()) {
+                    System.out.println(stage.addTarif(tarifListStage.get(choiceTarif - 1)));
+                } else {
+                    vue.afficheMessage("Le numéro que vous avez rentré n'est pas dans la liste des tarifs.");
+                }
+            } catch (NumberFormatException e) {
+                vue.afficheMessage("Vous n'avez pas insérer un nombre.");
+            }
+        }
+        return tarifChoice;
+    }
     /*
     GET INPUT USER
      */
@@ -135,7 +189,6 @@ public class Utility {
     public void setVue(Vue vue) {
         this.vue = vue;
     }
-
 
 
 }

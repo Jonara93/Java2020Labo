@@ -5,6 +5,7 @@ import be.technifutur.java2020.gestionstage.commun.stage.Stage;
 import be.technifutur.java2020.gestionstage.commun.User;
 import be.technifutur.java2020.gestionstage.commun.Utility;
 import be.technifutur.java2020.gestionstage.commun.Vue;
+import be.technifutur.java2020.gestionstage.commun.tarif.Tarif;
 
 import java.io.IOException;
 import java.io.Serializable;
@@ -39,7 +40,8 @@ public class ParticipantCtrlAdd implements Serializable {
                 } else if (participantList.verifParticipantInList(IDParticipant) && !stage.containsKeyParticipant(IDParticipant)) {// existe dans la liste mais pas inscrit dans le stage.
                     participantCtrlModif.modifParticipant(participant, "Le participant existe mais n'est pas inscrit à ce stage.");
                     if (utility.returnBoolTrueFalse("Voulez-vous ajouter le participant dans ce stage ? O/N")) {
-                        stage.addParticipantion(participant);
+                        Tarif tarif = utility.choiceOneTarifFromStage(stage);
+                        stage.addParticipantion(participant, tarif);
                     }
                 } else {  // 1 : le participant n'existe pas faut le créer + ajout du participant au stage
                     vue.afficheMessage("Le participant n'existe pas.");

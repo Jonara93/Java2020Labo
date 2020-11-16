@@ -209,6 +209,7 @@ public class Factory {
             this.participantCtrlCreate = new ParticipantCtrlCreate();
             this.participantCtrlCreate.setParticipantList(getParticipantList());
             this.participantCtrlCreate.setUtility(getUtility());
+            this.participantCtrlCreate.setVue(getVue());
         }
         return participantCtrlCreate;
     }
@@ -232,6 +233,7 @@ public class Factory {
             this.stageCtrlCreateStage.setStageList(getStageList());
             this.stageCtrlCreateStage.setUser(getUser());
             this.stageCtrlCreateStage.setDataBase(getDataBase());
+            this.stageCtrlCreateStage.setTarifList(getTarifList());
             this.stageCtrlCreateStage.setTarifList(getTarifList());
         }
         return stageCtrlCreateStage;

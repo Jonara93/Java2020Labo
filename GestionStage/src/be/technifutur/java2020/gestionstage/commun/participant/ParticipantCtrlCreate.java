@@ -1,7 +1,11 @@
 package be.technifutur.java2020.gestionstage.commun.participant;
 
+import be.technifutur.java2020.gestionstage.commun.Vue;
 import be.technifutur.java2020.gestionstage.commun.stage.Stage;
 import be.technifutur.java2020.gestionstage.commun.Utility;
+import be.technifutur.java2020.gestionstage.commun.tarif.Tarif;
+import be.technifutur.java2020.gestionstage.commun.tarif.TarifBase;
+import be.technifutur.java2020.gestionstage.commun.tarif.TarifList;
 
 public class ParticipantCtrlCreate {
     /*
@@ -9,6 +13,7 @@ public class ParticipantCtrlCreate {
     */
     private ParticipantList participantList;
     private Utility utility;
+    private Vue vue;
 
     
     /*
@@ -18,9 +23,12 @@ public class ParticipantCtrlCreate {
     //Creation d'un participant
     public void createParticipant(String IDParticipant, String nomParticipant, String prenomParticipant, Stage stage) {
         String mailParticipant, clubParticipant;
+        Tarif tarif;
         clubParticipant = utility.saisirName("Veuillez saisir le nom du club du participant ou insérer \"q\" pour laisser le champ vide.");
         mailParticipant = utility.saisirMail("Veuillez saisir l'adresse mail du participant ou insérer \"q\" pour laisser le champ vide.");
-        Participant participant = stage.createParticipation(IDParticipant, nomParticipant, prenomParticipant, clubParticipant, mailParticipant);
+        vue.afficheMessage("Veuillez choisir un tarif pour le participant. \"Q\" pour le tarif de base");
+        tarif = utility.choiceOneTarifFromStage(stage);
+        Participant participant = stage.createParticipation(IDParticipant, nomParticipant, prenomParticipant, clubParticipant, mailParticipant, tarif);
         participantList.addParticipant(IDParticipant, participant);
     }
     
@@ -34,5 +42,9 @@ public class ParticipantCtrlCreate {
 
     public void setUtility(Utility utility) {
         this.utility = utility;
+    }
+
+    public void setVue(Vue vue) {
+        this.vue = vue;
     }
 }

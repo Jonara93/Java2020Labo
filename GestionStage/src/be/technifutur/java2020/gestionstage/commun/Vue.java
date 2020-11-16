@@ -4,6 +4,8 @@ import be.technifutur.java2020.gestionstage.commun.activity.Activity;
 import be.technifutur.java2020.gestionstage.commun.participant.Participant;
 import be.technifutur.java2020.gestionstage.commun.stage.Stage;
 import be.technifutur.java2020.gestionstage.commun.stage.StageList;
+import be.technifutur.java2020.gestionstage.commun.tarif.Tarif;
+import be.technifutur.java2020.gestionstage.commun.tarif.TarifList;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -52,7 +54,7 @@ public class Vue {
         );
     }
 
-    public void afficheDate(LocalDateTime localDateTime){
+    public void afficheDate(LocalDateTime localDateTime) {
         System.out.println(localDateTime.format(DateTimeFormatter.ofPattern("dd/MM/yyyy - HH:mm")));
     }
 
@@ -142,5 +144,13 @@ public class Vue {
                 "2. Modifier le nom du club.\n" +
                 "q. Quitter la modification.";
 
+    }
+
+    public void afficheListTarifGen(List<Tarif> listGenTarif) {
+        int index = 1;
+        for (Tarif tarif : listGenTarif) {
+            System.out.println(index + " : " + tarif.getName());
+            index++;
+        }
     }
 }

@@ -7,6 +7,7 @@ import be.technifutur.java2020.gestionstage.commun.participant.ParticipantCtrlMo
 import be.technifutur.java2020.gestionstage.commun.participant.ParticipantList;
 import be.technifutur.java2020.gestionstage.commun.participation.Participation;
 import be.technifutur.java2020.gestionstage.commun.stage.Stage;
+import be.technifutur.java2020.gestionstage.commun.tarif.Tarif;
 
 public class ActivityCtrlInscription {
     /*
@@ -62,8 +63,9 @@ public class ActivityCtrlInscription {
                 if (inscriptionOk) {
                     //verif info
                     participantCtrlModif.modifParticipant(participant, "Information du participant : ");
+                    Tarif tarif = utility.choiceOneTarifFromStage(stage);
                     // ajout d'une participation du participant dans le stage
-                    stage.addParticipantion(participant);
+                    stage.addParticipantion(participant, tarif);
                     participation = stage.getParticipation(idParticipant);
                     // ajout de l'activité à la participation
                     participation.addActivity(activity);

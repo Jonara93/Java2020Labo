@@ -36,6 +36,7 @@ public class Stage implements Serializable {
         setIntituleStage(intituleStage);
         mapActivity = new HashMap<>();// key nameActivity
         mapParticipation = new HashMap<>();//key idParticipant
+        tarifAppliquable = new ArrayList<>();
     }
 
     /*
@@ -55,7 +56,7 @@ public class Stage implements Serializable {
         mapActivity.put(nameActivity, new Activity(dateDebut, duration, nameActivity, this));
     }
 
-    public void addParticipantion(Participant participant) {
+    public void addParticipantion(Participant participant, Tarif tarif) {
         String idParticipant = participant.getIDParticipant();
         Participation participation = new Participation(participant, tarif);
         mapParticipation.put(idParticipant, participation);
@@ -66,18 +67,24 @@ public class Stage implements Serializable {
         mapParticipation.remove(idParticipant);
     }
 
+    public String addTarif(Tarif tarif) {
+        String message = "Tarif déjà présent pour ce stage.";
+        if (!tarifAppliquable.contains(tarif)) {
+            tarifAppliquable.add(tarif);
+            message = "Tarif ajouté correctement au stage.";
+        }
 
-    public Map<String, Activity> getMapActivity() {
-        return mapActivity;
+        return message;
     }
+
 
     public Collection<Activity> getActivityCollection() {
         return Collections.unmodifiableCollection(mapActivity.values());
     }
 
-    public Participant createParticipation(String IDParticipant, String nomParticipant, String prenomParticipant, String clubParticipant, String mailParticipant) {
+    public Participant createParticipation(String IDParticipant, String nomParticipant, String prenomParticipant, String clubParticipant, String mailParticipant, Tarif tarif) {
         Participant participant = new Participant(nomParticipant, prenomParticipant, clubParticipant, mailParticipant);
-        Participation participation = new Participation(participant,tarif);
+        Participation participation = new Participation(participant, tarif);
         this.mapParticipation.put(IDParticipant, participation);
         return participant;
     }
@@ -156,5 +163,9 @@ public class Stage implements Serializable {
 
     public List<Tarif> getTarifAppliquable() {
         return tarifAppliquable;
+    }
+
+    public Map<String, Activity> getMapActivity() {
+        return mapActivity;
     }
 }

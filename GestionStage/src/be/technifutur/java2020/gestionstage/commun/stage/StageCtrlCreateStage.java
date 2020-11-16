@@ -5,6 +5,7 @@ import be.technifutur.java2020.gestionstage.commun.User;
 import be.technifutur.java2020.gestionstage.commun.Utility;
 import be.technifutur.java2020.gestionstage.commun.Vue;
 import be.technifutur.java2020.gestionstage.commun.tarif.Tarif;
+import be.technifutur.java2020.gestionstage.commun.tarif.TarifBase;
 import be.technifutur.java2020.gestionstage.commun.tarif.TarifList;
 import be.technifutur.java2020.gestionstage.exception.ExceptionGestionStage;
 
@@ -47,13 +48,11 @@ public class StageCtrlCreateStage {
                 }
             }
             if (insertStage) {
-                vue.afficheListTarifGen();
-            }
-            if (insertStage) {
                 try {
                     stageList.addStage(dateDebut, dateFin, name);
                     Stage stage = stageList.getStage(name);
-                    stage.getTarifAppliquable().add();
+                    stage.getTarifAppliquable().add(new TarifBase());
+                    utility.choiceTarifToAdd(tarifList, stage);
                     vue.afficheStage(stage);
                     dataBase.saveData();
                 } catch (ExceptionGestionStage | IOException e) {

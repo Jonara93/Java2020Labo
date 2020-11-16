@@ -8,7 +8,7 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        Factory factory = new Factory(); //mettre ou non le getUser si je veux automatique ou non
+        Factory factory = new Factory(createStage()); //mettre ou non le getUser si je veux automatique ou non
         Menu menu = factory.getMenu();
         factory = null;
         menu.displayMenu();
@@ -16,25 +16,10 @@ public class Main {
 
     private static User createStage() {
         String[] inputTab = new String[]{
-                "1",
-                "Ztage",
-                "10.10.2020.08.00",
-                "12.10.2020.16.00",
-
-                "1",
-                "Stage de Karaté -15",
-                "02.12.2020.08.00",
-                "10.10.2021.16.00",
-
-                "1",
-                "Ctage Multisport",
-                "10.10.2020.08.00",
-                "24.02.2021.16.00",
-
-                "1",
-                "Stage Java",
-                "10.11.2020.08.00",
-                "13.11.2020.16.00",
+                "1", "Ztage", "10.10.2020.08.00", "12.10.2020.16.00","o","1","o","3","o","5","n",
+                "1", "Stage de Karaté -15", "02.12.2020.08.00", "10.10.2021.16.00","o","2","o","4","o","6","n",
+                "1", "Ctage Multisport", "10.10.2020.08.00", "24.02.2021.16.00","o","1","o","2","o","3","o","5","o","6","n",
+                "1", "Stage Java", "10.11.2020.08.00", "13.11.2020.16.00","o","1","o","2","o","5","n",
                 "q"
         };
         return new ArrayUser(Arrays.asList(inputTab).iterator());
