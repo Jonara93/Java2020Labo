@@ -21,7 +21,7 @@ public class StageCtrlModifName {
     METHOD
     */
     public void run(Stage stage) {
-        Map<String, Stage> stageMap = stageList.getMapModifiable();
+        Map<String, Stage> stageMap = stageList.getMapStageModifiable();
         String oldName, newName;
         boolean confirmModif;
         oldName = stage.getIntituleStage();

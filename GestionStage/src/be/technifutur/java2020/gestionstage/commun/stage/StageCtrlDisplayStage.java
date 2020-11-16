@@ -21,7 +21,7 @@ public class StageCtrlDisplayStage {
      */
 
     public void displayStage() {
-        Map<String, Stage> map = stageList.getMapUnmodifiable();
+        Map<String, Stage> map = stageList.getMapStageUnmodifiable();
         String name;
         LocalDateTime dateDebut, dateFin;
         Collection<Stage> stage = map.values();

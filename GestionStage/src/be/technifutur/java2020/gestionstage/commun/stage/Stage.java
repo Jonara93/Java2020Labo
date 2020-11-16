@@ -5,6 +5,7 @@ import be.technifutur.java2020.gestionstage.commun.comparator.MyComparatorPartic
 import be.technifutur.java2020.gestionstage.commun.participant.Participant;
 import be.technifutur.java2020.gestionstage.commun.participation.Participation;
 import be.technifutur.java2020.gestionstage.commun.tarif.Tarif;
+import be.technifutur.java2020.gestionstage.commun.tarif.TarifBase;
 import be.technifutur.java2020.gestionstage.exception.*;
 
 import java.io.Serializable;
@@ -73,7 +74,6 @@ public class Stage implements Serializable {
             tarifAppliquable.add(tarif);
             message = "Tarif ajouté correctement au stage.";
         }
-
         return message;
     }
 

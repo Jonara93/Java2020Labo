@@ -8,7 +8,7 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        Factory factory = new Factory(createStage()); //mettre ou non le getUser si je veux automatique ou non
+        Factory factory = new Factory(); //mettre ou non le getUser si je veux automatique ou non
         Menu menu = factory.getMenu();
         factory = null;
         menu.displayMenu();
@@ -59,10 +59,10 @@ public class Main {
                 //Ztage
                 "3",
                 "Ztage",
-                "5", "Arabia", "Jonathan", "q", "q",
-                "5", "Arabia", "Christophe", "q", "q",
-                "5", "Arcka", "Pierre", "q", "q",
-                "5", "Pompidou", "Georges", "q", "q",
+                "5", "Arabia", "Jonathan", "q", "q","2",
+                "5", "Arabia", "Christophe", "q", "q","1",
+                "5", "Arcka", "Pierre", "q", "q","3",
+                "5", "Pompidou", "Georges", "q", "q","4",
 
                 "q",
 
@@ -70,9 +70,9 @@ public class Main {
 
                 "3",
                 "Stage Java",
-                "5", "Dybala", "Paulo", "q", "q",
-                "5", "Pierre", "Jean", "q", "q",
-                "5", "Ronaldo", "Cristiano", "q", "q",
+                "5", "Dybala", "Paulo", "q", "q","1",
+                "5", "Pierre", "Jean", "q", "q","2",
+                "5", "Ronaldo", "Cristiano", "q", "q","4",
 
                 "q",
 
@@ -80,9 +80,9 @@ public class Main {
 
                 "3",
                 "Ctage Multisport",
-                "5", "Doe", "John", "q", "q",
-                "5", "Osiris", "Rathus", "q", "q",
-                "5", "Doe", "Jane", "q", "q",
+                "5", "Doe", "John", "q", "q","2",
+                "5", "Osiris", "Rathus", "q", "q","3",
+                "5", "Doe", "Jane", "q", "q","1",
 
                 "q",
                 "q"
@@ -95,7 +95,7 @@ public class Main {
                 "3", "Ztage", "8", "Angular",
 
                 "1", "Arabia", "Jonathan", "n", "o",
-                "1", "Pierre", "Jean", "o", "n",
+                "1", "Pierre", "Jean", "o", "n","3",
                 "1", "Arabia", "Christophe", "n", "o",
 
                 "q", "q",

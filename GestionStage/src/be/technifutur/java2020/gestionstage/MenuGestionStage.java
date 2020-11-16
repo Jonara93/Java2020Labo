@@ -5,10 +5,7 @@ import be.technifutur.java2020.gestionstage.commun.activity.ActivityCtrlCreateAc
 import be.technifutur.java2020.gestionstage.commun.participant.ParticipantCtrlAdd;
 import be.technifutur.java2020.gestionstage.commun.participant.ParticipantCtrlDisplay;
 import be.technifutur.java2020.gestionstage.commun.participant.ParticipantCtrlRemove;
-import be.technifutur.java2020.gestionstage.commun.stage.DisplayHoraireCtrl;
-import be.technifutur.java2020.gestionstage.commun.stage.Stage;
-import be.technifutur.java2020.gestionstage.commun.stage.StageCtrlModif;
-import be.technifutur.java2020.gestionstage.commun.stage.StageList;
+import be.technifutur.java2020.gestionstage.commun.stage.*;
 
 import java.io.IOException;
 
@@ -29,6 +26,7 @@ public class MenuGestionStage {
     private ParticipantCtrlRemove participantCtrlRemove;
     private MenuGestionActivity menuGestionActivity;
     private StageCtrlModif stageCtrlModif;
+    private StageCtrlFacture stageCtrlFacture;
     /*
     METHOD
      */
@@ -71,6 +69,9 @@ public class MenuGestionStage {
                     case "8":
                         menuGestionActivity.DisplayMenu(stage);
                         break;
+                    case "9":
+                        stageCtrlFacture.run(stage);
+
 
                 }
                 vue.afficheMessage("Gestion du stage : " + stage.getIntituleStage());
@@ -96,6 +97,7 @@ public class MenuGestionStage {
                 "6. Retirer un participant du stage.\n" +
                 "7. Liste des participant du stage.\n" +
                 "8. Gestion des activité du stage.\n" +
+                "9. Afficher la facture d'un participant.\n" +
                 "q. Quitter l'application.");
     }
 
@@ -150,5 +152,9 @@ public class MenuGestionStage {
 
     public void setStageCtrlModif(StageCtrlModif stageCtrlModif) {
         this.stageCtrlModif = stageCtrlModif;
+    }
+
+    public void setStageCtrlFacture(StageCtrlFacture stageCtrlFacture) {
+        this.stageCtrlFacture = stageCtrlFacture;
     }
 }

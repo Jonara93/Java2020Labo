@@ -2,9 +2,10 @@ package be.technifutur.java2020.gestionstage.commun.tarif;
 
 import be.technifutur.java2020.gestionstage.commun.activity.Activity;
 
+import java.io.Serializable;
 import java.util.Collection;
 
-public class TarifCouple implements Tarif {
+public class TarifCouple implements Tarif , Serializable {
     /*
     FIELD
     */

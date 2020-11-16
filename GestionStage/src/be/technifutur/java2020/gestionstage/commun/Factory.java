@@ -52,6 +52,7 @@ public class Factory {
     private StageCtrlModifDateDebut stageCtrlModifDateDebut;
     private StageCtrlModifDateFin stageCtrlModifDateFin;
     private StageCtrlModifName stageCtrlModifName;
+    private StageCtrlFacture stageCtrlFacture;
     // activity
     private ActivityCtrlCreateActivity activityCtrlCreateActivity;
     private ActivityCtrlInscription activityCtrlInscription;
@@ -100,6 +101,7 @@ public class Factory {
             this.menuGestionStage.setParticipantCtrlRemove(getParticipantCtrlRemove());
             this.menuGestionStage.setMenuGestionActivity(getMenuGestionActivity());
             this.menuGestionStage.setStageCtrlModif(getStageCtrlModif());
+            this.menuGestionStage.setStageCtrlFacture(getStageCtrlFacture());
         }
         return menuGestionStage;
     }
@@ -215,6 +217,16 @@ public class Factory {
     }
 
     //stage
+
+    public StageCtrlFacture getStageCtrlFacture(){
+        if (this.stageCtrlFacture==null){
+            this.stageCtrlFacture = new StageCtrlFacture();
+            this.stageCtrlFacture.setUtility(getUtility());
+            this.stageCtrlFacture.setVue(getVue());
+        }
+        return this.stageCtrlFacture;
+    }
+
     public DisplayHoraireCtrl getDisplayHoraireCtrl() {
         if (this.displayHoraireCtrl == null) {
             this.displayHoraireCtrl = new DisplayHoraireCtrl();

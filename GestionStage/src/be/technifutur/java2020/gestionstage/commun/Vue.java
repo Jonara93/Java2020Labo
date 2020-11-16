@@ -2,6 +2,7 @@ package be.technifutur.java2020.gestionstage.commun;
 
 import be.technifutur.java2020.gestionstage.commun.activity.Activity;
 import be.technifutur.java2020.gestionstage.commun.participant.Participant;
+import be.technifutur.java2020.gestionstage.commun.participation.Participation;
 import be.technifutur.java2020.gestionstage.commun.stage.Stage;
 import be.technifutur.java2020.gestionstage.commun.stage.StageList;
 import be.technifutur.java2020.gestionstage.commun.tarif.Tarif;
@@ -115,8 +116,7 @@ public class Vue {
     }
 
     public void afficheParticipant(Participant participant, StageList stageList) {
-
-        List<Stage> stageCollection = new ArrayList<>(stageList.getMapUnmodifiable().values());
+        List<Stage> stageCollection = new ArrayList<>(stageList.getMapStageUnmodifiable().values());
         System.out.println("" +
                 "Nom du participant : " + participant.getNomParticipant() + "\n" +
                 "Prénom du participant : " + participant.getPrenomParticipant()
@@ -132,7 +132,17 @@ public class Vue {
             System.out.println("Adresse mail du participant : Non indiqué.");
         }
         System.out.println("Liste des stages/activités auquels le participant est inscrit : ");
-
+        for (Stage stage : stageCollection) {
+            if (stage.containsKeyParticipant(participant.getIDParticipant())) {
+                Participation participation = stage.getParticipation(participant.getIDParticipant());
+                System.out.println(stage.getIntituleStage() + " : ");
+                System.out.println("Tarif pour ce stage : " + participation.getTarif().getName());
+                Collection<Activity> activityCollection = participation.getActivityMap().values();
+                for (Activity activity: activityCollection ) {
+                    System.out.println("    " + activity.getNameActivity());
+                }
+            }
+        }
         System.out.println("\n");
     }
 

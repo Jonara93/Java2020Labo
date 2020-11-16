@@ -1,9 +1,10 @@
 package be.technifutur.java2020.gestionstage.commun.tarif;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TarifList{
+public class TarifList implements Serializable {
     /*
     FIELD
     */

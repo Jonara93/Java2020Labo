@@ -47,11 +47,11 @@ public class StageList implements Serializable {
         return mapStage.get(name);
     }
 
-    public Map getMapUnmodifiable() {
+    public Map getMapStageUnmodifiable() {
         return Collections.unmodifiableMap(mapStage);
     }
 
-    public Map getMapModifiable() {
+    public Map getMapStageModifiable() {
         return mapStage;
     }
 

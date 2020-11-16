@@ -2,9 +2,10 @@ package be.technifutur.java2020.gestionstage.commun.tarif;
 
 import be.technifutur.java2020.gestionstage.commun.activity.Activity;
 
+import java.io.Serializable;
 import java.util.Collection;
 
-public class TarifBase implements Tarif {
+public class TarifBase implements Tarif , Serializable {
     /*
     FIELD
     */
@@ -25,6 +26,6 @@ public class TarifBase implements Tarif {
 
     @Override
     public String getName() {
-        return null;
+        return name;
     }
 }

@@ -148,7 +148,7 @@ public class Utility {
 
     public Tarif choiceOneTarifFromStage(Stage stage) {
         List<Tarif> tarifListStage = stage.getTarifAppliquable();
-        Tarif tarifChoice = new TarifBase();
+        Tarif tarifChoice= new TarifBase();
         String inputChoice;
         int choiceTarif;
         vue.afficheMessage("Veuillez choisir un tarif à ajouté à votre stage.");
@@ -156,9 +156,10 @@ public class Utility {
         inputChoice = saisirName("Insérer le numéro du tarif à ajouter. \"Q\" pour quitter.");
         if (!inputChoice.isEmpty()) {
             try {
-                choiceTarif = Integer.getInteger(inputChoice);
+                choiceTarif = Integer.parseInt(inputChoice);
                 if (choiceTarif >= 1 && choiceTarif <= tarifListStage.size()) {
-                    System.out.println(stage.addTarif(tarifListStage.get(choiceTarif - 1)));
+                    tarifChoice = tarifListStage.get(choiceTarif-1);
+                    vue.afficheMessage("Le choix du tarif est valide.");
                 } else {
                     vue.afficheMessage("Le numéro que vous avez rentré n'est pas dans la liste des tarifs.");
                 }
