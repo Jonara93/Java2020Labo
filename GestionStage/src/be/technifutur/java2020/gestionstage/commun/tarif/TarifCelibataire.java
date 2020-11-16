@@ -1,14 +1,14 @@
-package be.technifutur.java2020.gestionstage.commun.prix;
+package be.technifutur.java2020.gestionstage.commun.tarif;
 
 import be.technifutur.java2020.gestionstage.commun.activity.Activity;
 
 import java.util.Collection;
 
-public class TarifEnfant implements Tarif {
-    private String name = "Tarif Enfant";
+public class TarifCelibataire implements Tarif {
     /*
     FIELD
     */
+    private String name = "Tarif Celibataire.";
     
     /*
     CONSTRUCTOR
@@ -17,17 +17,17 @@ public class TarifEnfant implements Tarif {
     /*
     METHOD
     */
-
-    @Override
-    public String getName() {
-        return name;
-    }
-
     @Override
     public int calculTarif(Collection<Activity> activityCollection) {
-        return 0;
+        return 23;
     }
+
+
     /*
     SETTER AND GETTER
     */
+    @Override
+    public String getName() {
+        return this.name;
+    }
 }

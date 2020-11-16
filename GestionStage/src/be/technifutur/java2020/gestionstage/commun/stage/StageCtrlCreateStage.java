@@ -4,10 +4,13 @@ import be.technifutur.java2020.gestionstage.DataBase;
 import be.technifutur.java2020.gestionstage.commun.User;
 import be.technifutur.java2020.gestionstage.commun.Utility;
 import be.technifutur.java2020.gestionstage.commun.Vue;
+import be.technifutur.java2020.gestionstage.commun.tarif.Tarif;
+import be.technifutur.java2020.gestionstage.commun.tarif.TarifList;
 import be.technifutur.java2020.gestionstage.exception.ExceptionGestionStage;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class StageCtrlCreateStage {
     /*
@@ -19,6 +22,7 @@ public class StageCtrlCreateStage {
     private StageList stageList;
     private User user;
     private DataBase dataBase;
+    private TarifList tarifList;
     /*
     METHOD
      */
@@ -43,9 +47,13 @@ public class StageCtrlCreateStage {
                 }
             }
             if (insertStage) {
+                vue.afficheListTarifGen();
+            }
+            if (insertStage) {
                 try {
                     stageList.addStage(dateDebut, dateFin, name);
                     Stage stage = stageList.getStage(name);
+                    stage.getTarifAppliquable().add();
                     vue.afficheStage(stage);
                     dataBase.saveData();
                 } catch (ExceptionGestionStage | IOException e) {
@@ -76,5 +84,9 @@ public class StageCtrlCreateStage {
 
     public void setDataBase(DataBase dataBase) {
         this.dataBase = dataBase;
+    }
+
+    public void setTarifList(TarifList tarifList) {
+        this.tarifList = tarifList;
     }
 }

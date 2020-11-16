@@ -14,6 +14,9 @@ import be.technifutur.java2020.gestionstage.commun.stage.*;
 import be.technifutur.java2020.gestionstage.commun.stage.modifstage.StageCtrlModifDateDebut;
 import be.technifutur.java2020.gestionstage.commun.stage.modifstage.StageCtrlModifDateFin;
 import be.technifutur.java2020.gestionstage.commun.stage.modifstage.StageCtrlModifName;
+import be.technifutur.java2020.gestionstage.commun.tarif.Tarif;
+import be.technifutur.java2020.gestionstage.commun.tarif.TarifList;
+
 import java.io.*;
 
 public class Factory {
@@ -61,6 +64,8 @@ public class Factory {
     private ParticipantCtrlModif participantCtrlModif;
     private ParticipantCtrlRemove participantCtrlRemove;
     private ParticipantCtrlCreate participantCtrlCreate;
+    //tarif
+    private TarifList tarifList;
 
 
     /*
@@ -227,6 +232,7 @@ public class Factory {
             this.stageCtrlCreateStage.setStageList(getStageList());
             this.stageCtrlCreateStage.setUser(getUser());
             this.stageCtrlCreateStage.setDataBase(getDataBase());
+            this.stageCtrlCreateStage.setTarifList(getTarifList());
         }
         return stageCtrlCreateStage;
     }
@@ -354,5 +360,10 @@ public class Factory {
         return user;
     }
 
-
+    public TarifList getTarifList() {
+        if (this.tarifList == null){
+            this.tarifList = new TarifList();
+        }
+        return tarifList;
+    }
 }

@@ -2,7 +2,7 @@ package be.technifutur.java2020.gestionstage.commun.participation;
 
 import be.technifutur.java2020.gestionstage.commun.activity.Activity;
 import be.technifutur.java2020.gestionstage.commun.participant.Participant;
-import be.technifutur.java2020.gestionstage.commun.prix.Tarif;
+import be.technifutur.java2020.gestionstage.commun.tarif.Tarif;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -19,9 +19,9 @@ public class Participation implements Serializable {
     /*
     CONSTRUCTOR
     */
-    public Participation(Participant participant/*,tarif*/) {
+    public Participation(Participant participant,Tarif tarif) {
         this.participant = participant;
-        //this.tarif = tarif;
+        this.tarif = tarif;
         activityMap = new HashMap<>();
     }
 
@@ -74,12 +74,5 @@ public class Participation implements Serializable {
     public String getIDParticipant() {
         return participant.getIDParticipant();
     }
-
-    public static void main(String[] args) {
-        Participation participation = new Participation(new Participant("jojo", "otot", "4", "4"));
-        Map<String, Activity> activityMap = participation.getActivityMap();
-        activityMap.containsKey("JOJOOTOT");
-    }
-
 
 }

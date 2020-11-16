@@ -1,4 +1,4 @@
-package be.technifutur.java2020.gestionstage.commun.prix;
+package be.technifutur.java2020.gestionstage.commun.tarif;
 
 import java.util.List;
 
@@ -18,6 +18,7 @@ public class TarifList {
         tarifList.add(new TarifEnfant());
         tarifList.add(new TarifEtudiant());
         tarifList.add(new TarifProf());
+        tarifList.add(new TarifBase());
     }
     
     /*

@@ -1,33 +1,34 @@
-package be.technifutur.java2020.gestionstage.commun.prix;
+package be.technifutur.java2020.gestionstage.commun.tarif;
 
 import be.technifutur.java2020.gestionstage.commun.activity.Activity;
 
 import java.util.Collection;
 
-public class TarifCelibataire implements Tarif {
+public class TarifDE implements Tarif {
     /*
     FIELD
     */
-    private String name = "Tarif Celibataire";
-    
+    private String name = "Tarif DE.";
+
     /*
     CONSTRUCTOR
     */
-    
+
     /*
     METHOD
     */
 
-    @Override
-    public String getName() {
-        return this.name;
-    }
 
     @Override
     public int calculTarif(Collection<Activity> activityCollection) {
-        return 0;
+        return 365;
     }
     /*
     SETTER AND GETTER
     */
+    @Override
+    public String getName() {
+        return name;
+    }
+
 }

@@ -1,4 +1,4 @@
-package be.technifutur.java2020.gestionstage.commun.prix;
+package be.technifutur.java2020.gestionstage.commun.tarif;
 
 import be.technifutur.java2020.gestionstage.commun.activity.Activity;
 

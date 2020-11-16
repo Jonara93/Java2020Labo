@@ -4,7 +4,7 @@ import be.technifutur.java2020.gestionstage.commun.activity.Activity;
 import be.technifutur.java2020.gestionstage.commun.comparator.MyComparatorParticipant;
 import be.technifutur.java2020.gestionstage.commun.participant.Participant;
 import be.technifutur.java2020.gestionstage.commun.participation.Participation;
-import be.technifutur.java2020.gestionstage.commun.prix.Tarif;
+import be.technifutur.java2020.gestionstage.commun.tarif.Tarif;
 import be.technifutur.java2020.gestionstage.exception.*;
 
 import java.io.Serializable;
@@ -57,7 +57,7 @@ public class Stage implements Serializable {
 
     public void addParticipantion(Participant participant) {
         String idParticipant = participant.getIDParticipant();
-        Participation participation = new Participation(participant);
+        Participation participation = new Participation(participant, tarif);
         mapParticipation.put(idParticipant, participation);
     }
 
@@ -77,7 +77,7 @@ public class Stage implements Serializable {
 
     public Participant createParticipation(String IDParticipant, String nomParticipant, String prenomParticipant, String clubParticipant, String mailParticipant) {
         Participant participant = new Participant(nomParticipant, prenomParticipant, clubParticipant, mailParticipant);
-        Participation participation = new Participation(participant/*,tarif*/);
+        Participation participation = new Participation(participant,tarif);
         this.mapParticipation.put(IDParticipant, participation);
         return participant;
     }
@@ -152,5 +152,9 @@ public class Stage implements Serializable {
 
     public Participant getParticipant(String idParticipant) {
         return getParticipation(idParticipant).getParticipant();
+    }
+
+    public List<Tarif> getTarifAppliquable() {
+        return tarifAppliquable;
     }
 }
